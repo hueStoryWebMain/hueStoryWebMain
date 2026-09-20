@@ -42,28 +42,40 @@ export default function AboutHomeTHS() {
       transition: `opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) ${delay}, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) ${delay}`,
     }) as const;
 
+  const patternStyle = {
+    backgroundImage: `url(${PATTERN_BG.navyVine})`,
+    backgroundRepeat: "repeat",
+    backgroundSize: "min(520px, 72vw) auto",
+    backgroundPosition: "center top",
+  } as const;
+
   return (
     <section
       ref={sectionRef}
       className="relative z-10 w-full"
       aria-labelledby="about-home-heading"
+      style={patternStyle}
     >
-      {/* Pinned pattern */}
+      {/* Full-section fill — stops slate peeking through on iOS sticky/vh gaps */}
       <div
-        className="sticky top-0 h-[100svh] w-full overflow-hidden"
+        className="pointer-events-none absolute inset-0"
         aria-hidden
-        style={{
-          backgroundImage: `url(${PATTERN_BG.navyVine})`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "min(520px, 72vw) auto",
-          backgroundPosition: "center top",
-        }}
+        style={patternStyle}
+      >
+        <div className="absolute inset-0 bg-[color-mix(in_srgb,var(--color-base)_18%,transparent)]" />
+      </div>
+
+      {/* Pinned pattern — dvh covers iPhone chrome expand/collapse */}
+      <div
+        className="sticky top-0 h-[100dvh] min-h-[100svh] w-full overflow-hidden"
+        aria-hidden
+        style={patternStyle}
       >
         <div className="pointer-events-none absolute inset-0 bg-[color-mix(in_srgb,var(--color-base)_18%,transparent)]" />
       </div>
 
       {/* Paper scrolls over pattern */}
-      <div className="relative z-10 -mt-[100svh] flex w-full justify-center px-5 pb-20 pt-[14svh] sm:px-8 sm:pb-24 sm:pt-[16svh] md:px-10 md:pb-28 md:pt-[18svh] lg:px-14 lg:pb-32">
+      <div className="relative z-10 -mt-[100dvh] flex w-full justify-center px-5 pb-20 pt-[14svh] sm:px-8 sm:pb-24 sm:pt-[16svh] md:px-10 md:pb-28 md:pt-[18svh] lg:px-14 lg:pb-32">
         <div
           className="relative w-full max-w-3xl overflow-visible px-7 py-14 pb-16 text-center text-ink sm:px-12 sm:py-16 sm:pb-[4.25rem] md:max-w-4xl md:px-16 md:py-20 md:pb-20 lg:px-20 lg:py-24"
           style={{

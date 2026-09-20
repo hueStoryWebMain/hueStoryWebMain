@@ -84,7 +84,7 @@ export default function HeroNav({ light = true }: HeroNavProps) {
         <div className="h-px w-full bg-white/45" aria-hidden />
 
         {/* Meta strip — editorial label left, socials + mail right */}
-        <div className="pointer-events-auto flex w-full items-center justify-between px-4 py-3 sm:px-6 sm:py-3.5 lg:px-8">
+        <div className="pointer-events-auto relative z-10 flex w-full items-center justify-between px-4 py-3 sm:px-6 sm:py-3.5 lg:px-8">
           <p className="font-script text-[18px] leading-none tracking-[0.04em] text-warm-white/95 normal-case sm:text-[20px] md:text-[22px]">
             Elsewhere
           </p>

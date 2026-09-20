@@ -164,78 +164,82 @@ export default function HomeHero() {
           aria-hidden
           className="pointer-events-none absolute inset-0 z-[3] bg-[linear-gradient(180deg,rgba(28,24,22,0.4)_0%,rgba(28,24,22,0.12)_36%,rgba(28,24,22,0.22)_58%,rgba(28,24,22,0.62)_100%)] sm:bg-[linear-gradient(180deg,rgba(28,24,22,0.28)_0%,rgba(28,24,22,0.06)_42%,rgba(28,24,22,0.18)_72%,rgba(28,24,22,0.42)_100%)]"
         />
-      </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[100svh] min-h-[560px] sm:min-h-[640px]">
-        <div className="pointer-events-auto relative h-full">
-          <HeroNav light />
+        {/* Nav + copy live inside sticky so they pin with the image */}
+        <div className="pointer-events-none absolute inset-0 z-10">
+          <div className="pointer-events-auto relative h-full">
+            <HeroNav light />
 
-          <p
-            className="pointer-events-none absolute right-4 bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-10 font-body text-[9px] font-medium tracking-[0.28em] text-white/65 tabular-nums sm:right-6 sm:bottom-40 sm:text-[10px] md:right-5 md:bottom-[6.5rem] lg:right-6 lg:bottom-28"
-            aria-live="polite"
-          >
-            {slideLabel}
-          </p>
-
-          {/* ——— Mobile ——— */}
-          <div className="absolute inset-x-0 bottom-0 z-10 px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] sm:px-7 md:hidden">
-            <motion.div
-              initial="hidden"
-              animate={ready ? "visible" : "hidden"}
-              variants={stagger}
-              className="max-w-[22rem]"
+            <p
+              className="pointer-events-none absolute right-4 bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-10 font-body text-[9px] font-medium tracking-[0.28em] text-white/65 tabular-nums sm:right-6 sm:bottom-40 sm:text-[10px] md:right-5 md:bottom-[6.5rem] lg:right-6 lg:bottom-28"
+              aria-live="polite"
             >
-              <motion.p
-                variants={eyebrow}
-                className="mb-4 font-body text-[10px] font-medium uppercase tracking-[0.32em] text-white/80"
-              >
-                Wedding &amp; Event Design. Worldwide.
-              </motion.p>
-              <h1 className="font-title text-[clamp(2.35rem,11.5vw,3.35rem)] font-normal leading-[1.02] tracking-[0.02em] text-white uppercase">
-                {MOBILE_LINES.map((line) => (
-                  <span key={line} className="block overflow-hidden pb-[0.06em]">
-                    <motion.span variants={rise} className="block">
-                      {line}
-                    </motion.span>
-                  </span>
-                ))}
-              </h1>
-            </motion.div>
-          </div>
+              {slideLabel}
+            </p>
 
-          {/* ——— Desktop ——— */}
-          <div className="absolute inset-x-0 bottom-0 z-10 hidden px-4 pb-5 md:block md:px-5 md:pb-6 lg:px-6 lg:pb-7">
-            <div
-              ref={trackRef}
-              className="flex w-full flex-col items-start text-left"
-            >
-              <motion.p
-                initial="hidden"
-                animate={ready ? "visible" : "hidden"}
-                variants={eyebrow}
-                className="mb-3 font-body text-[11px] font-medium uppercase tracking-[0.28em] text-white/80 lg:mb-4 lg:text-xs"
-              >
-                Wedding &amp; Event Design. Worldwide.
-              </motion.p>
-              <motion.h1
-                ref={titleRef}
+            {/* ——— Mobile ——— */}
+            <div className="absolute inset-x-0 bottom-0 z-10 px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] sm:px-7 md:hidden">
+              <motion.div
                 initial="hidden"
                 animate={ready ? "visible" : "hidden"}
                 variants={stagger}
-                className="block w-full text-left font-title font-normal leading-[0.95] tracking-[0.02em] text-white uppercase whitespace-nowrap"
+                className="max-w-[22rem]"
               >
-                {HERO_WORDS.map((word, i) => (
-                  <span
-                    key={`${word}-${i}`}
-                    className="inline-block overflow-hidden align-bottom"
-                  >
-                    <motion.span variants={rise} className="inline-block">
-                      {word}
-                      {i < HERO_WORDS.length - 1 ? "\u00A0" : ""}
-                    </motion.span>
-                  </span>
-                ))}
-              </motion.h1>
+                <motion.p
+                  variants={eyebrow}
+                  className="mb-4 font-body text-[10px] font-medium uppercase tracking-[0.32em] text-white/80"
+                >
+                  Wedding &amp; Event Design. Worldwide.
+                </motion.p>
+                <h1 className="font-title text-[clamp(2.35rem,11.5vw,3.35rem)] font-normal leading-[1.02] tracking-[0.02em] text-white uppercase">
+                  {MOBILE_LINES.map((line) => (
+                    <span
+                      key={line}
+                      className="block overflow-hidden pb-[0.06em]"
+                    >
+                      <motion.span variants={rise} className="block">
+                        {line}
+                      </motion.span>
+                    </span>
+                  ))}
+                </h1>
+              </motion.div>
+            </div>
+
+            {/* ——— Desktop ——— */}
+            <div className="absolute inset-x-0 bottom-0 z-10 hidden px-4 pb-5 md:block md:px-5 md:pb-6 lg:px-6 lg:pb-7">
+              <div
+                ref={trackRef}
+                className="flex w-full flex-col items-start text-left"
+              >
+                <motion.p
+                  initial="hidden"
+                  animate={ready ? "visible" : "hidden"}
+                  variants={eyebrow}
+                  className="mb-3 font-body text-[11px] font-medium uppercase tracking-[0.28em] text-white/80 lg:mb-4 lg:text-xs"
+                >
+                  Wedding &amp; Event Design. Worldwide.
+                </motion.p>
+                <motion.h1
+                  ref={titleRef}
+                  initial="hidden"
+                  animate={ready ? "visible" : "hidden"}
+                  variants={stagger}
+                  className="block w-full text-left font-title font-normal leading-[0.95] tracking-[0.02em] text-white uppercase whitespace-nowrap"
+                >
+                  {HERO_WORDS.map((word, i) => (
+                    <span
+                      key={`${word}-${i}`}
+                      className="inline-block overflow-hidden align-bottom"
+                    >
+                      <motion.span variants={rise} className="inline-block">
+                        {word}
+                        {i < HERO_WORDS.length - 1 ? "\u00A0" : ""}
+                      </motion.span>
+                    </span>
+                  ))}
+                </motion.h1>
+              </div>
             </div>
           </div>
         </div>

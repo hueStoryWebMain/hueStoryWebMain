@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -52,6 +53,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
  * Full-bleed editorial menu — photo overlay · navigate · instagram · elsewhere
+ * Portaled to body so sticky/overflow ancestors cannot clip it on mobile.
  */
 export default function SiteMenu({
   isOpen,
@@ -59,6 +61,11 @@ export default function SiteMenu({
   activePath,
 }: SiteMenuProps) {
   const lenis = useLenis();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -81,25 +88,16 @@ export default function SiteMenu({
     body.style.overflow = "hidden";
     lenis?.stop();
 
-    const blockScroll = (e: Event) => {
-      const target = e.target as HTMLElement | null;
-      if (target?.closest("[data-site-menu-scroll]")) return;
-      e.preventDefault();
-    };
-
-    window.addEventListener("wheel", blockScroll, { passive: false });
-    window.addEventListener("touchmove", blockScroll, { passive: false });
-
     return () => {
       html.style.overflow = prevHtmlOverflow;
       body.style.overflow = prevBodyOverflow;
       lenis?.start();
-      window.removeEventListener("wheel", blockScroll);
-      window.removeEventListener("touchmove", blockScroll);
     };
   }, [isOpen, lenis]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen ? (
         <motion.div
@@ -108,8 +106,7 @@ export default function SiteMenu({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.45, ease: EASE }}
-          className="fixed inset-0 z-[95] overflow-y-auto overscroll-contain text-cream"
-          data-site-menu-scroll
+          className="fixed inset-0 z-[200] flex h-[100dvh] max-h-[100dvh] flex-col overflow-hidden text-cream"
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
@@ -126,8 +123,7 @@ export default function SiteMenu({
             <div className="absolute inset-0 bg-base/82" />
           </div>
 
-          {/* Sticky close — text only */}
-          <div className="sticky top-0 z-30 flex justify-end px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-2 sm:px-8 md:px-10 lg:px-14">
+          <div className="relative z-30 flex shrink-0 justify-end px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-2 sm:px-8 md:px-10 lg:px-14">
             <button
               type="button"
               onClick={onClose}
@@ -146,8 +142,10 @@ export default function SiteMenu({
             </button>
           </div>
 
-          <div className="relative z-10 flex min-h-[calc(100svh-3.5rem)] flex-col px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-12 md:px-10 lg:px-14">
-            {/* Brand */}
+          <div
+            data-site-menu-scroll
+            className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-12 md:px-10 lg:px-14"
+          >
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -162,10 +160,8 @@ export default function SiteMenu({
               </p>
             </motion.div>
 
-            {/* Columns: stack + tight on mobile, centered row on desktop */}
-            <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start pt-8 pb-6 sm:pt-10 md:justify-center md:py-8 lg:py-6">
-              <div className="grid w-full grid-cols-1 items-start gap-10 sm:gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,32rem)_minmax(0,1fr)] md:gap-8 lg:gap-10">
-                {/* Navigate */}
+            <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start pt-6 pb-8 sm:pt-10 md:justify-center md:py-8 lg:py-6">
+              <div className="grid w-full grid-cols-1 items-start gap-8 sm:gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,32rem)_minmax(0,1fr)] md:gap-8 lg:gap-10">
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -185,7 +181,6 @@ export default function SiteMenu({
                     className="mt-4 flex flex-col items-center gap-3 sm:mt-6 sm:gap-4"
                     aria-label="Menu"
                   >
-                    {/* Temp: home options in one row on mobile until a single home is chosen */}
                     <div className="flex flex-row flex-wrap items-center justify-center gap-x-4 gap-y-2 md:flex-col md:gap-4">
                       {HOME_LINKS.map((link) => {
                         const active = activePath === link.href;
@@ -259,7 +254,6 @@ export default function SiteMenu({
                   </Link>
                 </motion.div>
 
-                {/* Instagram */}
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -289,7 +283,7 @@ export default function SiteMenu({
                     className="mt-2.5 h-px w-14 bg-cream/35 sm:mt-4 sm:w-20"
                   />
 
-                  <div className="mt-4 grid w-full max-w-[32rem] grid-cols-3 gap-2.5 self-center sm:mt-6 sm:gap-3.5 md:gap-4">
+                  <div className="mt-4 grid w-full max-w-[17.5rem] grid-cols-3 gap-2 self-center sm:mt-6 sm:max-w-[24rem] sm:gap-3.5 md:max-w-[32rem] md:gap-4">
                     {MENU_IMAGES.map((src) => (
                       <a
                         key={src}
@@ -302,7 +296,7 @@ export default function SiteMenu({
                           src={src}
                           alt=""
                           fill
-                          sizes="(max-width: 768px) 30vw, 170px"
+                          sizes="(max-width: 768px) 28vw, 170px"
                           className="object-cover object-center transition-transform duration-500 hover:scale-105"
                         />
                       </a>
@@ -310,12 +304,11 @@ export default function SiteMenu({
                   </div>
                 </motion.div>
 
-                {/* Elsewhere */}
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.32, duration: 0.55, ease: EASE }}
-                  className="relative flex min-w-0 w-full flex-col items-center pb-2 text-center md:min-h-[22rem] md:pb-0"
+                  className="relative flex min-w-0 w-full flex-col items-center pb-6 text-center md:min-h-[22rem] md:pb-0"
                 >
                   <p className="font-script text-[26px] leading-none tracking-[0.01em] text-cream/90 normal-case sm:text-[32px] md:text-[36px]">
                     elsewhere
@@ -385,6 +378,7 @@ export default function SiteMenu({
           </div>
         </motion.div>
       ) : null}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
