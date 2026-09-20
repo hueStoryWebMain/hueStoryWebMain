@@ -14,13 +14,7 @@ const AUTO_SPEED_PX_S = 11;
 const INERTIA_FRICTION = 0.95;
 const INERTIA_MIN_V = 0.08;
 
-const QUOTE_PARTS = [
-  "“quietly",
-  "intentional",
-  "in",
-  "every",
-  "hue”",
-] as const;
+const QUOTE_WORDS = "“quietly intentional in every hue”".split(" ");
 
 type Frame = {
   src: string;
@@ -241,13 +235,10 @@ function MarqueeRow({
  */
 export default function HomePortfolioTHS() {
   const sectionRef = useRef<HTMLElement>(null);
-  const quoteWrapRef = useRef<HTMLDivElement>(null);
-  const quoteRef = useRef<HTMLParagraphElement>(null);
   const inViewRef = useRef(false);
   const idleTimerRef = useRef<number | undefined>(undefined);
   const quotePlayedRef = useRef(false);
   const [autoScroll, setAutoScroll] = useState(false);
-  const [quoteSize, setQuoteSize] = useState<number | null>(null);
   const [quoteIn, setQuoteIn] = useState(false);
 
   const clearIdle = useCallback(() => {
@@ -306,44 +297,6 @@ export default function HomePortfolioTHS() {
     };
   }, [armIdle, clearIdle]);
 
-  useEffect(() => {
-    const wrap = quoteWrapRef.current;
-    const quote = quoteRef.current;
-    if (!wrap || !quote) return;
-
-    const fit = () => {
-      const available = wrap.clientWidth;
-      if (available <= 0) return;
-
-      quote.style.maxWidth = "none";
-      quote.style.width = "max-content";
-      quote.style.fontSize = "80px";
-      const natural = quote.scrollWidth;
-      if (natural <= 0) return;
-
-      const next = (available / natural) * 80 * 0.78;
-      quote.style.fontSize = `${next}px`;
-      setQuoteSize(next);
-    };
-
-    const run = () => {
-      fit();
-      void document.fonts.ready.then(() => {
-        fit();
-        requestAnimationFrame(fit);
-      });
-    };
-
-    run();
-    const ro = new ResizeObserver(() => fit());
-    ro.observe(wrap);
-    window.addEventListener("resize", fit);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", fit);
-    };
-  }, []);
-
   return (
     <section
       ref={sectionRef}
@@ -352,34 +305,29 @@ export default function HomePortfolioTHS() {
       style={{ backgroundColor: "#F7F3EB" }}
     >
       <div className="relative z-10 flex flex-col gap-3 pt-5 pb-7 sm:gap-4 sm:pt-4 sm:pb-10 md:gap-5 md:pb-12 lg:pb-14">
-        <div
-          ref={quoteWrapRef}
-          className="flex w-full items-center justify-center overflow-visible px-5 py-4 sm:px-6 sm:py-5"
-        >
+        {/*
+          Script glyphs overhang their layout box. Fitting text to the viewport
+          edge + transform on inline-block spans was clipping letters (l, y, h).
+          Use CSS clamp sizing, plain inline spans, opacity-only reveal.
+        */}
+        <div className="w-full overflow-visible px-5 py-5 sm:px-8 sm:py-6 md:px-10">
           <p
-            ref={quoteRef}
-            className="font-script mx-auto block w-max max-w-full text-center leading-[1.65] tracking-[0.02em] normal-case select-none"
-            style={{
-              color: "#A5BDD5",
-              fontSize: quoteSize ? `${quoteSize}px` : "5.5vw",
-              padding: "0.2em 0.12em",
-            }}
+            className="font-script mx-auto max-w-[22rem] text-center text-[clamp(1.55rem,7.4vw,2.75rem)] leading-[1.75] tracking-[0.02em] normal-case select-none sm:max-w-none sm:text-[clamp(1.85rem,4.2vw,3.35rem)] sm:leading-[1.55]"
+            style={{ color: "#A5BDD5" }}
           >
-            {QUOTE_PARTS.map((part, i) => (
+            {QUOTE_WORDS.map((word, i) => (
               <span
-                key={part}
-                className="inline-block px-[0.06em] align-baseline"
+                key={`${word}-${i}`}
+                className="inline"
                 style={{
                   opacity: quoteIn ? 1 : 0,
-                  transform: quoteIn
-                    ? "translate3d(0,0,0)"
-                    : "translate3d(-0.4em,0,0)",
                   transition: quoteIn
-                    ? `opacity 0.28s ease-out ${i * 0.055}s, transform 0.28s ease-out ${i * 0.055}s`
+                    ? `opacity 0.35s ease-out ${i * 0.06}s`
                     : "none",
                 }}
               >
-                {part}
+                {word}
+                {i < QUOTE_WORDS.length - 1 ? " " : ""}
               </span>
             ))}
           </p>

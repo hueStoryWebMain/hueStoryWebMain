@@ -256,36 +256,65 @@ export default function SiteMenu({
                   </Link>
                 </motion.div>
 
+                {/* Mobile: follow along elsewhere → icons → images */}
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.24, duration: 0.55, ease: EASE }}
-                  className="flex min-w-0 w-full flex-col items-center text-center"
+                  className="flex min-w-0 w-full flex-col items-center text-center md:hidden"
                 >
-                  <div className="flex flex-col items-center gap-0.5 sm:gap-1">
-                    <p className="font-title text-[11px] font-normal tracking-[0.28em] text-cream uppercase sm:text-[13px] md:text-[14px]">
-                      Instagram
-                    </p>
-                    <p className="font-script text-[20px] leading-none tracking-[0.01em] text-cream/85 normal-case sm:text-[26px] md:text-[28px]">
-                      Follow Along
-                    </p>
-                  </div>
-
+                  <p className="font-script py-1 text-[26px] leading-[1.35] tracking-[0.01em] text-cream/90 normal-case">
+                    follow along elsewhere
+                  </p>
                   <a
                     href={INSTAGRAM}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-title mt-3 text-[9px] font-normal tracking-[0.2em] text-cream/55 uppercase transition-colors duration-300 hover:text-blush sm:mt-5 sm:text-[10px]"
+                    className="font-title mt-2 text-[9px] font-normal tracking-[0.2em] text-cream/55 uppercase transition-colors duration-300 hover:text-blush"
                   >
                     {INSTAGRAM_HANDLE}
                   </a>
 
+                  <div className="mt-4 flex items-center justify-center gap-4">
+                    {SOCIAL_LINKS.map((social) => (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.name}
+                        className="flex h-11 w-11 items-center justify-center text-cream/80 transition-colors duration-300 hover:text-blush"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="h-4 w-4 fill-current"
+                          aria-hidden
+                        >
+                          <path d={social.iconPath} />
+                        </svg>
+                      </a>
+                    ))}
+                    <a
+                      href="mailto:hello@thehuestory.com"
+                      aria-label="Email"
+                      className="flex h-11 w-11 items-center justify-center text-cream/80 transition-colors duration-300 hover:text-blush"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="h-4 w-4 fill-current"
+                        aria-hidden
+                      >
+                        <path d={MAIL_PATH} />
+                      </svg>
+                    </a>
+                  </div>
+
                   <div
                     aria-hidden
-                    className="mt-2.5 h-px w-14 bg-cream/35 sm:mt-4 sm:w-20"
+                    className="mt-4 h-px w-14 bg-cream/35"
                   />
 
-                  <div className="mt-4 grid w-full max-w-[17.5rem] grid-cols-3 gap-2 self-center sm:mt-6 sm:max-w-[24rem] sm:gap-3.5 md:max-w-[32rem] md:gap-4">
+                  <div className="mt-4 grid w-full max-w-[17.5rem] grid-cols-3 gap-2 self-center">
                     {MENU_IMAGES.map((src) => (
                       <a
                         key={src}
@@ -298,7 +327,7 @@ export default function SiteMenu({
                           src={src}
                           alt=""
                           fill
-                          sizes="(max-width: 768px) 28vw, 170px"
+                          sizes="28vw"
                           className="object-cover object-center transition-transform duration-500 hover:scale-105"
                         />
                       </a>
@@ -306,20 +335,72 @@ export default function SiteMenu({
                   </div>
                 </motion.div>
 
+                {/* Desktop: Instagram */}
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.24, duration: 0.55, ease: EASE }}
+                  className="hidden min-w-0 w-full flex-col items-center text-center md:flex"
+                >
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="font-title text-[13px] font-normal tracking-[0.28em] text-cream uppercase md:text-[14px]">
+                      Instagram
+                    </p>
+                    <p className="font-script text-[26px] leading-[1.3] tracking-[0.01em] text-cream/85 normal-case md:text-[28px]">
+                      Follow Along
+                    </p>
+                  </div>
+
+                  <a
+                    href={INSTAGRAM}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-title mt-5 text-[10px] font-normal tracking-[0.2em] text-cream/55 uppercase transition-colors duration-300 hover:text-blush"
+                  >
+                    {INSTAGRAM_HANDLE}
+                  </a>
+
+                  <div
+                    aria-hidden
+                    className="mt-4 h-px w-20 bg-cream/35"
+                  />
+
+                  <div className="mt-6 grid w-full max-w-[24rem] grid-cols-3 gap-3.5 self-center md:max-w-[32rem] md:gap-4">
+                    {MENU_IMAGES.map((src) => (
+                      <a
+                        key={src}
+                        href={INSTAGRAM}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative aspect-square w-full min-w-0 overflow-hidden bg-cream/10"
+                      >
+                        <Image
+                          src={src}
+                          alt=""
+                          fill
+                          sizes="170px"
+                          className="object-cover object-center transition-transform duration-500 hover:scale-105"
+                        />
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Elsewhere — desktop only (mobile icons live above images) */}
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.32, duration: 0.55, ease: EASE }}
-                  className="relative flex min-w-0 w-full flex-col items-center pb-6 text-center md:min-h-[22rem] md:pb-0"
+                  className="relative hidden min-w-0 w-full flex-col items-center text-center md:flex md:min-h-[22rem]"
                 >
-                  <p className="font-script py-1 text-[24px] leading-[1.35] tracking-[0.01em] text-cream/90 normal-case sm:text-[32px] sm:leading-none md:text-[36px]">
+                  <p className="font-script py-1 text-[32px] leading-[1.3] tracking-[0.01em] text-cream/90 normal-case md:text-[36px]">
                     elsewhere
                   </p>
-                  <p className="font-body mt-2 text-[8px] font-medium tracking-[0.22em] text-cream/50 uppercase sm:mt-3.5 sm:text-[10px]">
+                  <p className="font-body mt-3.5 text-[10px] font-medium tracking-[0.22em] text-cream/50 uppercase">
                     Find Us On Social Media
                   </p>
 
-                  <div className="mt-4 flex items-center justify-center gap-4 pb-2 sm:mt-7 sm:gap-6 sm:pb-0">
+                  <div className="mt-7 flex items-center justify-center gap-6">
                     {SOCIAL_LINKS.map((social) => (
                       <a
                         key={social.name}
@@ -331,7 +412,7 @@ export default function SiteMenu({
                       >
                         <svg
                           viewBox="0 0 24 24"
-                          className="h-4 w-4 fill-current sm:h-[17px] sm:w-[17px]"
+                          className="h-[17px] w-[17px] fill-current"
                           aria-hidden
                         >
                           <path d={social.iconPath} />
@@ -345,7 +426,7 @@ export default function SiteMenu({
                     >
                       <svg
                         viewBox="0 0 24 24"
-                        className="h-4 w-4 fill-current sm:h-[17px] sm:w-[17px]"
+                        className="h-[17px] w-[17px] fill-current"
                         aria-hidden
                       >
                         <path d={MAIL_PATH} />
@@ -353,17 +434,17 @@ export default function SiteMenu({
                     </a>
                   </div>
 
-                  <div className="mt-8 hidden flex-col items-center md:absolute md:right-0 md:bottom-0 md:mt-0 md:flex md:items-end">
+                  <div className="absolute right-0 bottom-0 mt-0 flex flex-col items-end">
                     <div className="relative flex items-end gap-0">
                       <div
                         aria-hidden
-                        className="pointer-events-none absolute right-full bottom-[50%] hidden h-px w-16 bg-cream/30 md:block lg:w-24"
+                        className="pointer-events-none absolute right-full bottom-[50%] h-px w-16 bg-cream/30 lg:w-24"
                       />
                       <div
                         aria-hidden
-                        className="pointer-events-none absolute bottom-full left-1/2 hidden h-16 w-px -translate-x-1/2 bg-cream/30 md:block lg:h-24"
+                        className="pointer-events-none absolute bottom-full left-1/2 h-16 w-px -translate-x-1/2 bg-cream/30 lg:h-24"
                       />
-                      <div className="relative h-16 w-16 sm:h-20 sm:w-20 md:h-28 md:w-28 lg:h-32 lg:w-32">
+                      <div className="relative h-28 w-28 lg:h-32 lg:w-32">
                         <Image
                           src="/images/logo/logo-light.png"
                           alt=""
