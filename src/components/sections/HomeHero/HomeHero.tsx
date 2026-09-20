@@ -171,7 +171,7 @@ export default function HomeHero() {
           <HeroNav light />
 
           <p
-            className="pointer-events-none absolute right-4 bottom-[8.5rem] z-10 font-body text-[9px] font-medium tracking-[0.28em] text-white/65 tabular-nums sm:right-6 sm:bottom-40 sm:text-[10px] md:right-5 md:bottom-[6.5rem] lg:right-6 lg:bottom-28"
+            className="pointer-events-none absolute right-4 bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-10 font-body text-[9px] font-medium tracking-[0.28em] text-white/65 tabular-nums sm:right-6 sm:bottom-40 sm:text-[10px] md:right-5 md:bottom-[6.5rem] lg:right-6 lg:bottom-28"
             aria-live="polite"
           >
             {slideLabel}

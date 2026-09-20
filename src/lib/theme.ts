@@ -47,6 +47,8 @@ export const colors = {
   /* ——— Extended palette (named lock) ——— */
   oxblood: "#41111A",
   wedgewoodBlue: "#A5BDD5",
+  /** Script accent — Intentional / archive marks */
+  cobalt: "#3A5FBF",
   vellum: "#EAE0BC",
   milkGlass: "#F7F4F0",
   fieldstone: "#AC9F90",

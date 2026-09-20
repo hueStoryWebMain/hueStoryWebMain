@@ -28,9 +28,7 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = [
   { name: "Portfolio", href: ROUTES.PORTFOLIO },
-  { name: "Services", href: ROUTES.SERVICES },
   { name: "About", href: ROUTES.ABOUT },
-  { name: "Experience", href: ROUTES.THE_EXPERIENCE },
   { name: "Enquire", href: ROUTES.CONTACT },
 ] as const;
 
@@ -97,6 +95,13 @@ export const PATTERN_BG = {
   navyVine: "/images/patternsbg/IMG_0515.PNG",
   /** Cream botanical — portfolio marquee band */
   creamBotanical: "/images/patternsbg/IMG_0518.PNG",
+  /** Soft stripe — founder panel */
+  stripeAlternate: "/images/patternsbg/patternalternate.png",
+} as const;
+
+export const FOUNDER = {
+  name: "Roshni Kurup",
+  image: "/images/founderImages/roshiniImage1.jpeg",
 } as const;
 
 /**

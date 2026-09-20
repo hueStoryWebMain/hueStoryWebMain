@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { PATTERN_BG } from "@/lib/constants";
+import { colors } from "@/lib/theme";
 
 /**
  * AboutHomeTHS — pattern-framed cream paper panel
@@ -137,7 +138,7 @@ export default function AboutHomeTHS() {
           <p
             className="font-script pointer-events-none absolute right-5 bottom-4 z-20 text-[36px] font-semibold leading-none tracking-[0.02em] normal-case sm:right-7 sm:bottom-5 sm:text-[42px] md:right-8 md:bottom-6 md:text-[48px] lg:text-[54px]"
             style={{
-              color: "#A5BDD5",
+              color: colors.cobalt,
               opacity: visible ? 1 : 0,
               transform: visible
                 ? "translateY(0) rotate(-12deg)"
