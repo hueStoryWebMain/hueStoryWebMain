@@ -286,8 +286,12 @@ export default function HomePortfolioTHS() {
               if (mq.matches) setQuoteIn(true);
               else requestAnimationFrame(() => setQuoteIn(true));
             };
-            if (document.fonts?.status === "loaded") show();
-            else void document.fonts?.ready.then(show).catch(show) ?? show();
+            if (typeof document !== "undefined" && document.fonts) {
+              if (document.fonts.status === "loaded") show();
+              else void document.fonts.ready.then(show).catch(show);
+            } else {
+              show();
+            }
           }
         } else {
           clearIdle();
