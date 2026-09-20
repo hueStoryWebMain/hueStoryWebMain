@@ -130,7 +130,7 @@ export default function HomeHero() {
 
   return (
     <div className="relative z-0 h-[200svh]">
-      <div className="sticky top-0 h-[100svh] min-h-[560px] w-full overflow-hidden bg-base sm:min-h-[640px]">
+      <div className="sticky top-0 h-[100svh] min-h-[560px] w-full overflow-x-clip bg-base sm:min-h-[640px]">
         <div className="absolute inset-0">
           {HERO_SLIDES.map((src, i) => {
             const active = i === index;

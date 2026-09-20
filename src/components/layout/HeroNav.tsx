@@ -84,12 +84,12 @@ export default function HeroNav({ light = true }: HeroNavProps) {
         <div className="h-px w-full bg-white/45" aria-hidden />
 
         {/* Meta strip — editorial label left, socials + mail right */}
-        <div className="pointer-events-auto relative z-10 flex w-full items-center justify-between px-4 py-2.5 sm:px-6 sm:py-3.5 lg:px-8">
-          <p className="font-script overflow-visible py-1 text-[18px] leading-[1.4] tracking-[0.04em] text-warm-white/95 normal-case sm:text-[20px] md:text-[22px]">
+        <div className="pointer-events-auto relative z-10 flex w-full items-center justify-between overflow-visible px-4 py-3 sm:px-6 sm:py-3.5 lg:px-8">
+          <p className="font-script overflow-visible py-1.5 pr-2 text-[17px] leading-[1.5] tracking-[0.04em] text-warm-white/95 normal-case sm:text-[20px] md:text-[22px]">
             Elsewhere
           </p>
 
-          <div className="flex items-center gap-4 sm:gap-5">
+          <div className="flex shrink-0 items-center gap-3.5 sm:gap-5">
             {SOCIAL_LINKS.map((social) => (
               <a
                 key={social.name}

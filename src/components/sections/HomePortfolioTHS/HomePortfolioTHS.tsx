@@ -321,7 +321,7 @@ export default function HomePortfolioTHS() {
       const natural = quote.scrollWidth;
       if (natural <= 0) return;
 
-      const next = (available / natural) * 80 * 0.88;
+      const next = (available / natural) * 80 * 0.78;
       quote.style.fontSize = `${next}px`;
       setQuoteSize(next);
     };
@@ -354,25 +354,26 @@ export default function HomePortfolioTHS() {
       <div className="relative z-10 flex flex-col gap-3 pt-5 pb-7 sm:gap-4 sm:pt-4 sm:pb-10 md:gap-5 md:pb-12 lg:pb-14">
         <div
           ref={quoteWrapRef}
-          className="flex w-full items-center justify-center overflow-visible px-4 py-2 sm:px-5 sm:py-3"
+          className="flex w-full items-center justify-center overflow-visible px-5 py-4 sm:px-6 sm:py-5"
         >
           <p
             ref={quoteRef}
-            className="font-script mx-auto flex w-max max-w-full flex-wrap items-baseline justify-center gap-x-[0.28em] gap-y-1 text-center leading-[1.45] tracking-[0.01em] normal-case select-none sm:flex-nowrap"
+            className="font-script mx-auto block w-max max-w-full text-center leading-[1.65] tracking-[0.02em] normal-case select-none"
             style={{
               color: "#A5BDD5",
-              fontSize: quoteSize ? `${quoteSize}px` : "6vw",
+              fontSize: quoteSize ? `${quoteSize}px` : "5.5vw",
+              padding: "0.2em 0.12em",
             }}
           >
             {QUOTE_PARTS.map((part, i) => (
               <span
                 key={part}
-                className="inline-block overflow-visible px-[0.04em] will-change-[opacity,transform]"
+                className="inline-block px-[0.06em] align-baseline"
                 style={{
                   opacity: quoteIn ? 1 : 0,
                   transform: quoteIn
-                    ? "translateX(0)"
-                    : "translateX(-0.55em)",
+                    ? "translate3d(0,0,0)"
+                    : "translate3d(-0.4em,0,0)",
                   transition: quoteIn
                     ? `opacity 0.28s ease-out ${i * 0.055}s, transform 0.28s ease-out ${i * 0.055}s`
                     : "none",

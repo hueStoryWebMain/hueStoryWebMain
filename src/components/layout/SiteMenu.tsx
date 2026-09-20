@@ -123,45 +123,45 @@ export default function SiteMenu({
             <div className="absolute inset-0 bg-base/82" />
           </div>
 
-          <div className="relative z-30 flex shrink-0 justify-end px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-2 sm:px-8 md:px-10 lg:px-14">
-            <button
-              type="button"
-              onClick={onClose}
-              className="inline-flex min-h-11 items-center gap-2 px-1 py-2 transition-colors"
-              aria-label="Close menu"
+          <button
+            type="button"
+            onClick={onClose}
+            className="absolute top-[max(0.5rem,env(safe-area-inset-top))] right-3 z-40 flex h-11 w-11 items-center justify-center text-cream/85 transition-colors hover:text-cream sm:right-6 md:right-8 lg:right-10"
+            aria-label="Close menu"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              aria-hidden
             >
-              <span className="font-body text-[10px] font-medium tracking-[0.22em] text-cream/75 uppercase transition-colors hover:text-cream sm:text-[11px]">
-                Close
-              </span>
-              <span
-                aria-hidden
-                className="font-body text-[18px] leading-none text-cream/80"
-              >
-                ×
-              </span>
-            </button>
-          </div>
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
 
           <div
             data-site-menu-scroll
-            className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-12 md:px-10 lg:px-14"
+            className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] px-5 pt-[max(2.75rem,calc(env(safe-area-inset-top)+2.25rem))] pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pt-14 sm:pb-12 md:px-10 lg:px-14"
           >
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.08, duration: 0.5, ease: EASE }}
-              className="mx-auto flex w-full max-w-3xl shrink-0 flex-col items-center pt-1 text-center sm:pt-2"
+              className="mx-auto flex w-full max-w-3xl shrink-0 flex-col items-center text-center"
             >
-              <p className="font-title text-[20px] leading-[1.05] font-normal tracking-[0.14em] text-cream uppercase sm:text-[28px] md:text-[34px] lg:text-[40px]">
+              <p className="font-title text-[18px] leading-[1.05] font-normal tracking-[0.14em] text-cream uppercase sm:text-[28px] md:text-[34px] lg:text-[40px]">
                 {SITE_NAME}
               </p>
-              <p className="font-body mt-2 max-w-[16rem] text-[8px] font-medium tracking-[0.18em] text-cream/55 uppercase sm:mt-3 sm:max-w-md sm:text-[10px] md:tracking-[0.26em]">
+              <p className="font-body mt-1.5 max-w-[16rem] text-[8px] font-medium tracking-[0.18em] text-cream/55 uppercase sm:mt-3 sm:max-w-md sm:text-[10px] md:tracking-[0.26em]">
                 {SITE_TAGLINE}
               </p>
             </motion.div>
 
-            <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start pt-6 pb-8 sm:pt-10 md:justify-center md:py-8 lg:py-6">
-              <div className="grid w-full grid-cols-1 items-start gap-8 sm:gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,32rem)_minmax(0,1fr)] md:gap-8 lg:gap-10">
+            <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start pt-5 pb-8 sm:pt-10 md:justify-center md:py-8 lg:py-6">
+              <div className="grid w-full grid-cols-1 items-start gap-7 sm:gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,32rem)_minmax(0,1fr)] md:gap-8 lg:gap-10">
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -312,14 +312,14 @@ export default function SiteMenu({
                   transition={{ delay: 0.32, duration: 0.55, ease: EASE }}
                   className="relative flex min-w-0 w-full flex-col items-center pb-6 text-center md:min-h-[22rem] md:pb-0"
                 >
-                  <p className="font-script text-[26px] leading-none tracking-[0.01em] text-cream/90 normal-case sm:text-[32px] md:text-[36px]">
+                  <p className="font-script py-1 text-[24px] leading-[1.35] tracking-[0.01em] text-cream/90 normal-case sm:text-[32px] sm:leading-none md:text-[36px]">
                     elsewhere
                   </p>
-                  <p className="font-body mt-2.5 text-[8px] font-medium tracking-[0.22em] text-cream/50 uppercase sm:mt-3.5 sm:text-[10px]">
+                  <p className="font-body mt-2 text-[8px] font-medium tracking-[0.22em] text-cream/50 uppercase sm:mt-3.5 sm:text-[10px]">
                     Find Us On Social Media
                   </p>
 
-                  <div className="mt-5 flex items-center justify-center gap-5 sm:mt-7 sm:gap-6">
+                  <div className="mt-4 flex items-center justify-center gap-4 pb-2 sm:mt-7 sm:gap-6 sm:pb-0">
                     {SOCIAL_LINKS.map((social) => (
                       <a
                         key={social.name}
