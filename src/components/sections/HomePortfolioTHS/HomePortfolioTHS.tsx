@@ -312,7 +312,7 @@ export default function HomePortfolioTHS() {
         */}
         <div className="w-full overflow-visible px-5 py-5 sm:px-8 sm:py-6 md:px-10">
           <p
-            className="font-script mx-auto max-w-[22rem] text-center text-[clamp(1.55rem,7.4vw,2.75rem)] leading-[1.75] tracking-[0.02em] normal-case select-none sm:max-w-none sm:text-[clamp(1.85rem,4.2vw,3.35rem)] sm:leading-[1.55]"
+            className="font-script mx-auto max-w-[24rem] text-center text-[clamp(1.95rem,9.2vw,2.9rem)] leading-[1.7] tracking-[0.02em] normal-case select-none sm:max-w-none sm:text-[clamp(1.85rem,4.2vw,3.35rem)] sm:leading-[1.55]"
             style={{ color: "#A5BDD5" }}
           >
             {QUOTE_WORDS.map((word, i) => (
