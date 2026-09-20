@@ -20,11 +20,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_NAME} | Luxury Editorial Weddings`,
+    default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
   description: `${SITE_TAGLINE}. Quiet, intentional planning — colour chosen once, carried through every detail.`,
   metadataBase: new URL(SITE_URL),
+  icons: {
+    icon: [{ url: "/images/logo/logo-primary.png", type: "image/png" }],
+    apple: [{ url: "/images/logo/logo-primary.png", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
