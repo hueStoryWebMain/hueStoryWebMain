@@ -96,7 +96,7 @@ export default function MeetTHS() {
     >
       {/* Full-bleed single line left→right + hairline, then flower */}
       <div className="flex w-full flex-col items-center pt-5 sm:pt-6 md:pt-7">
-        <p className="font-body w-full whitespace-nowrap px-3 text-center text-[10px] leading-none font-medium tracking-[0.18em] text-cream/55 uppercase sm:px-4 sm:text-[11px] sm:tracking-[0.2em] md:text-[12px]">
+        <p className="font-body w-full px-4 text-center text-[10px] leading-[1.55] font-medium tracking-[0.14em] text-cream/55 uppercase sm:px-4 sm:text-[11px] sm:leading-none sm:tracking-[0.2em] sm:whitespace-nowrap md:text-[12px]">
           <WordFade
             words={introWords}
             visible={visible}

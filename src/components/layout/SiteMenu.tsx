@@ -207,6 +207,7 @@ export default function SiteMenu({
                       const active =
                         activePath === link.href ||
                         activePath.startsWith(`${link.href}/`);
+                      const isContact = link.href === ROUTES.CONTACT;
 
                       return (
                         <Link
@@ -215,6 +216,7 @@ export default function SiteMenu({
                           onClick={onClose}
                           className={cn(
                             "transition-colors duration-300",
+                            isContact && "hidden md:inline",
                             "silk" in link && link.silk
                               ? "font-silk text-[17px] font-[200] tracking-[0.02em] italic normal-case sm:text-[20px]"
                               : "font-title text-[12px] font-normal tracking-[0.22em] uppercase sm:text-[14px]",

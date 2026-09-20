@@ -329,7 +329,7 @@ export default function FooterSection() {
         >
           <div className="relative flex w-full items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             <p
-              className="font-script pointer-events-none absolute left-1/2 bottom-full z-20 mb-2.5 -translate-x-1/2 text-center text-[30px] leading-none tracking-[0.01em] normal-case sm:mb-3 sm:text-[38px] md:mb-3.5 md:text-[46px] lg:text-[54px]"
+              className="font-script pointer-events-none absolute left-1/2 bottom-full z-20 mb-2 -translate-x-1/2 overflow-visible px-2 py-1 text-center text-[28px] leading-[1.35] tracking-[0.01em] normal-case sm:mb-3 sm:text-[38px] sm:leading-[1.25] md:mb-3.5 md:text-[46px] lg:text-[54px]"
               style={{
                 color: colors.cobalt,
                 ...fadeUp(stripVisible, "0s", "0.45rem"),

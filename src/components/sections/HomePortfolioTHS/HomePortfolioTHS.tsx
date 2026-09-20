@@ -321,7 +321,7 @@ export default function HomePortfolioTHS() {
       const natural = quote.scrollWidth;
       if (natural <= 0) return;
 
-      const next = (available / natural) * 80 * 0.96;
+      const next = (available / natural) * 80 * 0.88;
       quote.style.fontSize = `${next}px`;
       setQuoteSize(next);
     };
@@ -347,18 +347,18 @@ export default function HomePortfolioTHS() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full overflow-x-clip"
+      className="relative z-10 w-full"
       aria-label="Portfolio"
       style={{ backgroundColor: "#F7F3EB" }}
     >
       <div className="relative z-10 flex flex-col gap-3 pt-5 pb-7 sm:gap-4 sm:pt-4 sm:pb-10 md:gap-5 md:pb-12 lg:pb-14">
         <div
           ref={quoteWrapRef}
-          className="flex w-full items-center justify-center px-2 sm:px-1"
+          className="flex w-full items-center justify-center overflow-visible px-4 py-2 sm:px-5 sm:py-3"
         >
           <p
             ref={quoteRef}
-            className="font-script mx-auto flex w-max flex-nowrap items-baseline justify-center gap-[0.22em] text-center leading-[1.2] tracking-[-0.04em] normal-case select-none"
+            className="font-script mx-auto flex w-max max-w-full flex-wrap items-baseline justify-center gap-x-[0.28em] gap-y-1 text-center leading-[1.45] tracking-[0.01em] normal-case select-none sm:flex-nowrap"
             style={{
               color: "#A5BDD5",
               fontSize: quoteSize ? `${quoteSize}px` : "6vw",
@@ -367,7 +367,7 @@ export default function HomePortfolioTHS() {
             {QUOTE_PARTS.map((part, i) => (
               <span
                 key={part}
-                className="inline-block will-change-[opacity,transform]"
+                className="inline-block overflow-visible px-[0.04em] will-change-[opacity,transform]"
                 style={{
                   opacity: quoteIn ? 1 : 0,
                   transform: quoteIn
@@ -384,7 +384,7 @@ export default function HomePortfolioTHS() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 sm:gap-3 md:gap-3.5">
+        <div className="flex flex-col gap-2 overflow-x-clip sm:gap-3 md:gap-3.5">
           <MarqueeRow
             frames={PORTFOLIO_HOME_ROW_A}
             direction="rtl"

@@ -36,15 +36,15 @@ export default function HeroNav({ light = true }: HeroNavProps) {
 
   return (
     <>
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 pt-[env(safe-area-inset-top)]">
         <nav
-          className="pointer-events-auto relative flex h-[96px] w-full items-center lg:h-[112px]"
+          className="pointer-events-auto relative flex h-[72px] w-full items-center sm:h-[88px] lg:h-[112px]"
           aria-label="Primary"
         >
-          <div className="absolute top-[54%] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:top-[55%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <Logo
               variant="whiteName"
-              size={52}
+              size={44}
               priority
               className="sm:!h-14 md:!h-16"
             />
@@ -53,7 +53,7 @@ export default function HeroNav({ light = true }: HeroNavProps) {
           <button
             type="button"
             className={cn(
-              "absolute top-[54%] right-4 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center sm:right-6 lg:top-[55%] lg:right-8",
+              "absolute top-1/2 right-4 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center sm:right-6 lg:right-8",
               light ? "text-cream" : "text-ink"
             )}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -84,8 +84,8 @@ export default function HeroNav({ light = true }: HeroNavProps) {
         <div className="h-px w-full bg-white/45" aria-hidden />
 
         {/* Meta strip — editorial label left, socials + mail right */}
-        <div className="pointer-events-auto relative z-10 flex w-full items-center justify-between px-4 py-3 sm:px-6 sm:py-3.5 lg:px-8">
-          <p className="font-script text-[18px] leading-none tracking-[0.04em] text-warm-white/95 normal-case sm:text-[20px] md:text-[22px]">
+        <div className="pointer-events-auto relative z-10 flex w-full items-center justify-between px-4 py-2.5 sm:px-6 sm:py-3.5 lg:px-8">
+          <p className="font-script overflow-visible py-1 text-[18px] leading-[1.4] tracking-[0.04em] text-warm-white/95 normal-case sm:text-[20px] md:text-[22px]">
             Elsewhere
           </p>
 
