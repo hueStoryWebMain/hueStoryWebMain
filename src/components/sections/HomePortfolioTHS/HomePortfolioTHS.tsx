@@ -235,10 +235,13 @@ function MarqueeRow({
  */
 export default function HomePortfolioTHS() {
   const sectionRef = useRef<HTMLElement>(null);
+  const quoteWrapRef = useRef<HTMLDivElement>(null);
+  const quoteRef = useRef<HTMLParagraphElement>(null);
   const inViewRef = useRef(false);
   const idleTimerRef = useRef<number | undefined>(undefined);
   const quotePlayedRef = useRef(false);
   const [autoScroll, setAutoScroll] = useState(false);
+  const [quoteSize, setQuoteSize] = useState<number | null>(null);
   const [quoteIn, setQuoteIn] = useState(false);
 
   const clearIdle = useCallback(() => {
@@ -279,15 +282,19 @@ export default function HomePortfolioTHS() {
           armIdle();
           if (!quotePlayedRef.current) {
             quotePlayedRef.current = true;
-            if (mq.matches) setQuoteIn(true);
-            else requestAnimationFrame(() => setQuoteIn(true));
+            const show = () => {
+              if (mq.matches) setQuoteIn(true);
+              else requestAnimationFrame(() => setQuoteIn(true));
+            };
+            if (document.fonts?.status === "loaded") show();
+            else void document.fonts?.ready.then(show).catch(show) ?? show();
           }
         } else {
           clearIdle();
           setAutoScroll(false);
         }
       },
-      { threshold: 0.28 }
+      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
     );
     io.observe(el);
 
@@ -297,6 +304,52 @@ export default function HomePortfolioTHS() {
     };
   }, [armIdle, clearIdle]);
 
+  /* Desktop: fit nearly full width. Reserve side room so script overhangs
+     (l, y, h, f) are not clipped by overflow-x:clip on html/body. */
+  useEffect(() => {
+    const wrap = quoteWrapRef.current;
+    const quote = quoteRef.current;
+    if (!wrap || !quote) return;
+
+    const fit = () => {
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        quote.style.fontSize = "";
+        setQuoteSize(null);
+        return;
+      }
+
+      const sidePad = Math.max(56, wrap.clientWidth * 0.05);
+      const available = wrap.clientWidth - sidePad * 2;
+      if (available <= 0) return;
+
+      quote.style.whiteSpace = "nowrap";
+      quote.style.fontSize = "140px";
+      const natural = quote.scrollWidth;
+      if (natural <= 0) return;
+
+      const next = Math.min(140, (available / natural) * 140 * 0.94);
+      quote.style.fontSize = `${next}px`;
+      setQuoteSize(next);
+    };
+
+    const run = () => {
+      fit();
+      void document.fonts.ready.then(() => {
+        fit();
+        requestAnimationFrame(fit);
+      });
+    };
+
+    run();
+    const ro = new ResizeObserver(() => fit());
+    ro.observe(wrap);
+    window.addEventListener("resize", fit);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", fit);
+    };
+  }, []);
+
   return (
     <section
       ref={sectionRef}
@@ -305,15 +358,17 @@ export default function HomePortfolioTHS() {
       style={{ backgroundColor: "#F7F3EB" }}
     >
       <div className="relative z-10 flex flex-col gap-3 pt-5 pb-7 sm:gap-4 sm:pt-4 sm:pb-10 md:gap-5 md:pb-12 lg:pb-14">
-        {/*
-          Script glyphs overhang their layout box. Fitting text to the viewport
-          edge + transform on inline-block spans was clipping letters (l, y, h).
-          Use CSS clamp sizing, plain inline spans, opacity-only reveal.
-        */}
-        <div className="w-full overflow-visible px-5 py-5 sm:px-8 sm:py-6 md:px-10">
+        <div
+          ref={quoteWrapRef}
+          className="w-full overflow-visible px-5 py-5 sm:px-8 sm:py-6 md:px-6 md:py-7 lg:px-8"
+        >
           <p
-            className="font-script mx-auto max-w-[24rem] text-center text-[clamp(1.95rem,9.2vw,2.9rem)] leading-[1.7] tracking-[0.02em] normal-case select-none sm:max-w-none sm:text-[clamp(1.85rem,4.2vw,3.35rem)] sm:leading-[1.55]"
-            style={{ color: "#A5BDD5" }}
+            ref={quoteRef}
+            className="font-script mx-auto max-w-[24rem] text-center text-[clamp(1.95rem,9.2vw,2.9rem)] leading-[1.7] tracking-[0.02em] normal-case select-none sm:max-w-none md:max-w-none md:whitespace-nowrap md:leading-[1.55]"
+            style={{
+              color: "#A5BDD5",
+              ...(quoteSize ? { fontSize: `${quoteSize}px` } : null),
+            }}
           >
             {QUOTE_WORDS.map((word, i) => (
               <span
@@ -322,7 +377,7 @@ export default function HomePortfolioTHS() {
                 style={{
                   opacity: quoteIn ? 1 : 0,
                   transition: quoteIn
-                    ? `opacity 0.35s ease-out ${i * 0.06}s`
+                    ? `opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) ${0.08 + i * 0.1}s`
                     : "none",
                 }}
               >
