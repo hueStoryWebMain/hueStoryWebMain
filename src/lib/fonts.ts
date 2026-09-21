@@ -73,6 +73,11 @@ export const silkSerif = localFont({
       style: "normal",
     },
     {
+      path: "../../public/fonts/SilkSerif-LightItalic.ttf",
+      weight: "300",
+      style: "italic",
+    },
+    {
       path: "../../public/fonts/SilkSerif-ExtraLightItalic.ttf",
       weight: "200",
       style: "italic",

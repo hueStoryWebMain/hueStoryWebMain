@@ -166,7 +166,7 @@ export default function FooterSection() {
             className="order-1 flex flex-col items-center px-6 pt-12 pb-8 text-center sm:pt-14 sm:pb-10 md:order-2 md:justify-center md:border-t-0 md:px-8 md:py-16"
             style={fadeUp(upperVisible, "0s")}
           >
-            <Logo variant="alt" size={68} className="opacity-90" />
+            <Logo variant="mainSlate" size={68} className="opacity-90" />
             <p className="font-silk mt-4 max-w-xs text-[14px] leading-snug font-[200] tracking-[0.01em] text-ink/75 italic normal-case sm:mt-5 sm:text-[15px] md:mt-6 md:text-[17px]">
               Wedding &amp; Event Design. Worldwide.
             </p>

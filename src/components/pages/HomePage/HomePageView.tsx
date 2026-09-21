@@ -10,26 +10,13 @@ import IntentionalHomeTHS from "@/components/sections/IntentionalHomeTHS/Intenti
 import PhilosophyHomeTHS from "@/components/sections/PhilosophyHomeTHS/PhilosophyHomeTHS";
 import TestimonialHomeTHS from "@/components/sections/TestimonialHomeTHS/TestimonialHomeTHS";
 import StructuredData from "@/components/seo/StructuredData";
-import { cn } from "@/lib/utils";
-
-export type FontPairing = 1 | 2 | 3;
-
-type HomePageViewProps = {
-  pairing: FontPairing;
-};
-
-const PAIRING_CLASS: Record<FontPairing, string> = {
-  1: "pairing-1",
-  2: "pairing-2",
-  3: "pairing-3",
-};
 
 /**
- * Shared home composition — pairing scopes for client font tests.
+ * Home composition — locked to font pairing 1
  */
-export default function HomePageView({ pairing }: HomePageViewProps) {
+export default function HomePageView() {
   return (
-    <div className={cn(PAIRING_CLASS[pairing])}>
+    <div className="pairing-1">
       <StructuredData />
       <HomeHero />
       <div className="relative z-10 bg-base" style={{ marginTop: "-100svh" }}>

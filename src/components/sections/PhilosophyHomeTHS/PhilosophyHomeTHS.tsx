@@ -123,7 +123,7 @@ export default function PhilosophyHomeTHS() {
               alt=""
               fill
               sizes="(max-width: 768px) 100vw, 28vw"
-              className="object-cover object-[center_20%] sm:object-center"
+              className="object-cover object-[center_12%] sm:object-[center_15%]"
               priority
             />
           </div>
@@ -162,11 +162,11 @@ export default function PhilosophyHomeTHS() {
             }}
           />
 
-          <div className="mt-5 space-y-4 sm:mt-6 sm:space-y-5">
+          <div className="mt-5 space-y-3.5 sm:mt-6 sm:space-y-4">
             {PARAS.map((para, i) => (
               <p
                 key={para.slice(0, 24)}
-                className="font-body text-[11px] leading-[1.8] font-light tracking-[0.01em] text-ink/75 sm:text-[12px] sm:leading-[1.85] lg:text-[13px]"
+                className="font-silk text-[12px] leading-[1.7] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:text-[13px] sm:leading-[1.75] lg:text-[14px]"
                 style={fadeUp(visible, `${0.46 + i * 0.1}s`, "0.75rem")}
               >
                 {para}
@@ -186,11 +186,11 @@ export default function PhilosophyHomeTHS() {
                 aria-hidden
                 className="pointer-events-none absolute inset-0 translate-x-1.5 translate-y-1.5 border border-ink/35 transition-colors duration-300 group-hover:border-blush/70 sm:translate-x-2 sm:translate-y-2"
               />
-              <span className="relative inline-flex items-center justify-center gap-x-2 border border-ink bg-transparent px-7 py-3 transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_22%,#FAF8F4)] sm:gap-x-2.5 sm:px-8 sm:py-3.5">
-                <span className="font-body text-[10px] font-medium tracking-[0.24em] text-ink uppercase transition-colors duration-300 sm:text-[11px]">
+              <span className="relative inline-flex items-baseline justify-center gap-x-2 border border-ink bg-transparent px-7 py-3 transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_22%,#FAF8F4)] sm:gap-x-2.5 sm:px-8 sm:py-3.5">
+                <span className="font-body text-[10px] leading-none font-medium tracking-[0.24em] text-ink uppercase transition-colors duration-300 sm:text-[11px]">
                   Inquire about
                 </span>
-                <span className="font-silk text-[15px] font-[200] tracking-normal text-ink italic normal-case transition-colors duration-300 sm:text-[17px]">
+                <span className="font-silk inline-block translate-y-[0.12em] text-[15px] leading-none font-[300] tracking-normal text-ink italic normal-case transition-colors duration-300 sm:text-[17px]">
                   your celebration
                 </span>
               </span>
@@ -211,7 +211,7 @@ export default function PhilosophyHomeTHS() {
               alt=""
               fill
               sizes="(max-width: 768px) 100vw, 42vw"
-              className="object-cover object-[center_22%] sm:object-center"
+              className="object-cover object-[center_14%] sm:object-[center_18%]"
               priority
             />
           </div>

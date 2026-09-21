@@ -1,12 +1,7 @@
-import type { Metadata } from "next";
-import HomePageView from "@/components/pages/HomePage/HomePageView";
-import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
+import { redirect } from "next/navigation";
+import { ROUTES } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: `Home 2 · Font Pairing | ${SITE_NAME}`,
-  description: `${SITE_TAGLINE}. Font pairing 2 — Florian, Poppins Light, Monsieur La Doulaise.`,
-};
-
-export default function Home2Page() {
-  return <HomePageView pairing={2} />;
+/** Legacy pairing preview URL → site home */
+export default function Home2Redirect() {
+  redirect(ROUTES.HOME);
 }

@@ -4,7 +4,7 @@
 /**
  * The Hue Story — Round 04 Deep Editorial
  * Active base: Slate Blue #5C6E73
- * Type/buttons: Warm Cream · Sections: Cool Mist · Accent: Soft Blush
+ * Type/buttons: Warm Cream · Sections: Pale Slate · Accent: Soft Blush
  */
 @theme {
   /* Deep bases */
@@ -19,7 +19,7 @@
   --color-bare: #e0cdc9;
 
   /* Section bands */
-  --color-mist: #e2e9f5;
+  --color-mist: #c0c9d2;
   --color-sheet: #f2efe9;
 
   /* Brand + ink on light */

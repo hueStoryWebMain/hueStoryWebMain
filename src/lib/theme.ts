@@ -30,8 +30,8 @@ export const colors = {
   /** Muted captions / soft support */
   bare: "#E0CDC9",
 
-  /** Light section band paired with Slate Blue */
-  mist: "#E2E9F5",
+  /** Light section band paired with Slate Blue — Pale Slate */
+  mist: "#C0C9D2",
   /** Light section band for Forest / Taupe / Burgundy */
   sheet: "#F2EFE9",
 

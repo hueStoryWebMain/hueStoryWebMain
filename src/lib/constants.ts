@@ -4,10 +4,7 @@ export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const ROUTES = {
-  HOME: "/home-1",
-  HOME_1: "/home-1",
-  HOME_2: "/home-2",
-  HOME_3: "/home-3",
+  HOME: "/",
   PORTFOLIO: "/portfolio",
   ABOUT: "/about",
   SERVICES: "/services",
@@ -15,11 +12,9 @@ export const ROUTES = {
   CONTACT: "/get-in-touch",
 } as const;
 
-/** Primary nav — Home 1 / 2 / 3 for font pairing review */
+/** Primary nav */
 export const NAV_LINKS = [
-  { name: "Home 1", href: ROUTES.HOME_1 },
-  { name: "Home 2", href: ROUTES.HOME_2 },
-  { name: "Home 3", href: ROUTES.HOME_3 },
+  { name: "Home", href: ROUTES.HOME },
   { name: "Portfolio", href: ROUTES.PORTFOLIO },
   { name: "Services", href: ROUTES.SERVICES },
   { name: "About", href: ROUTES.ABOUT },
@@ -60,6 +55,7 @@ export const LOGOS = {
   alt: "/images/logo/logo-alt.png",
   altWhite: "/images/logo/logo-alt-white.png",
   emblem: "/images/logo/logo-emblem.png",
+  mainSlate: "/images/logo/logo-primary-blue-slate.png",
   /** Wordmark for photo heroes */
   whiteName: "/images/logo/whiteNamelogo.png",
 } as const;

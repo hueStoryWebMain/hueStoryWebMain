@@ -3,7 +3,7 @@ import { ROUTES, SITE_NAME } from "@/lib/constants";
 
 /**
  * Cool Mist utility bar — Home · brand title · Inquire
- * Soft Ink type on #E2E9F5 (Round 04 section band).
+ * Soft Ink type on Pale Slate #C0C9D2 (via bg-mist).
  */
 export default function MistBar() {
   return (

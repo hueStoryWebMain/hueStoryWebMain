@@ -16,7 +16,7 @@ const RECOGNITION =
 const INTRO_LINE =
   "A decade of destination weddings — taste, artisanship, and cultural fluency across the globe";
 
-const TITLE_LINE_1 = ["MEET"] as const;
+const TITLE_LINE_1 = ["ABOUT"] as const;
 const TITLE_LINE_2 = ["THE", "HUE", "STORY"] as const;
 
 function WordFade({
@@ -136,7 +136,7 @@ export default function MeetTHS() {
         </div>
       </div>
 
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-6 pt-8 pb-16 sm:gap-12 sm:px-8 sm:pt-10 sm:pb-20 md:px-10 md:pt-12 md:pb-24 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-14 lg:pt-14 lg:pb-28 xl:gap-20 xl:px-16">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-6 pt-8 pb-16 sm:gap-12 sm:px-8 sm:pt-10 sm:pb-20 md:px-10 md:pt-12 md:pb-24 lg:grid-cols-2 lg:items-start lg:gap-16 lg:px-14 lg:pt-14 lg:pb-28 xl:gap-20 xl:px-16">
         {/* ——— Left: title ——— */}
         <div className="min-w-0 overflow-visible">
           <h2
@@ -157,8 +157,8 @@ export default function MeetTHS() {
         </div>
 
         {/* ——— Right: copy + Enquire ——— */}
-        <div className="flex min-w-0 flex-col justify-center lg:pt-2">
-          <p className="font-body max-w-xl text-[13px] leading-[1.85] font-light tracking-[0.01em] text-cream/80 sm:text-[14px] sm:leading-[1.9] md:text-[15px]">
+        <div className="flex min-w-0 flex-col">
+          <p className="font-silk max-w-xl text-[14px] leading-[1.85] font-[300] tracking-[0.01em] text-cream/80 not-italic normal-case sm:text-[15px] sm:leading-[1.9] md:text-[16px]">
             <WordFade
               words={bodyWords}
               visible={visible}
@@ -167,7 +167,7 @@ export default function MeetTHS() {
             />
           </p>
 
-          <p className="font-body mt-7 max-w-xl text-[11px] leading-[1.7] font-medium tracking-[0.1em] text-cream/50 uppercase sm:mt-8 sm:text-[12px]">
+          <p className="font-silk mt-7 max-w-xl text-[12px] leading-[1.7] font-[300] tracking-[0.1em] text-cream/80 italic uppercase sm:mt-8 sm:text-[13px]">
             <WordFade
               words={recognitionWords}
               visible={visible}
@@ -195,10 +195,10 @@ export default function MeetTHS() {
                 className="pointer-events-none absolute inset-0 translate-x-1.5 translate-y-1.5 border border-cream/50 transition-colors duration-300 group-hover:border-blush/70 sm:translate-x-2 sm:translate-y-2"
               />
               <span className="relative inline-flex items-center justify-center gap-x-2 border border-cream bg-transparent px-7 py-3 transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_22%,#F7F3EB)] sm:gap-x-2.5 sm:px-8 sm:py-3.5">
-                <span className="font-body text-[10px] font-medium tracking-[0.24em] text-cream uppercase transition-colors duration-300 group-hover:text-ink sm:text-[11px]">
+                <span className="font-body text-[10px] leading-none font-medium tracking-[0.24em] text-cream uppercase transition-colors duration-300 group-hover:text-ink sm:text-[11px]">
                   Read about
                 </span>
-                <span className="font-silk text-[15px] font-[200] tracking-normal text-cream italic normal-case transition-colors duration-300 group-hover:text-ink sm:text-[17px]">
+                <span className="font-silk inline-block text-[15px] leading-none font-[300] tracking-normal text-cream italic normal-case transition-colors duration-300 group-hover:text-ink sm:text-[17px]">
                   US
                 </span>
               </span>

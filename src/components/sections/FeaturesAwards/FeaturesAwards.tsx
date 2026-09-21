@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FEATURED_PRESS } from "@/lib/constants";
 
 /**
- * Features + Awards — Cool Mist press band
+ * Features + Awards — Pale Slate press band
  * Editorial recognition line + publication marks
  */
 export default function FeaturesAwards() {
@@ -14,11 +14,11 @@ export default function FeaturesAwards() {
       <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-12 md:px-8 md:py-12 lg:px-12">
         {/* Title + logos row */}
         <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-center md:gap-0 md:text-left">
-          <div className="shrink-0 md:max-w-[11rem] md:pr-5 lg:max-w-none lg:pr-10">
+          <div className="shrink-0 md:max-w-[14rem] md:pr-5 lg:max-w-none lg:pr-10">
             <h2 className="font-heading text-[15px] font-light tracking-[0.14em] text-ink uppercase sm:text-[16px] md:text-[16px] lg:text-[17px]">
               Features + Awards
             </h2>
-            <p className="font-script mt-1.5 text-[16px] text-ink/70 normal-case sm:text-[18px] md:text-[16px] lg:text-[18px]">
+            <p className="font-script mt-1.5 text-[22px] leading-snug text-ink/75 normal-case sm:mt-2 sm:text-[26px] md:text-[24px] lg:text-[28px]">
               Press Publications and Recognitions
             </p>
           </div>
@@ -50,7 +50,7 @@ export default function FeaturesAwards() {
         {/* Editorial recognition */}
         <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center sm:mt-12 md:mt-14">
           <div className="mb-6 h-px w-12 bg-ink/20 sm:mb-7 sm:w-14" aria-hidden />
-          <p className="font-body text-center text-[12px] leading-[1.75] font-light tracking-[0.01em] text-ink/85 sm:text-[13px] md:text-[14px] md:leading-[1.7]">
+          <p className="font-silk text-center text-[13px] leading-[1.75] font-[300] tracking-[0.01em] text-ink/85 not-italic normal-case sm:text-[14px] md:text-[15px] md:leading-[1.7]">
             Entrusted by prominent and discerning families around the world, for
             occasions where refined taste and discretion are simply assumed.
           </p>

@@ -20,13 +20,8 @@ type SiteMenuProps = {
   activePath: string;
 };
 
-const HOME_LINKS = [
-  { name: "Home 1", href: ROUTES.HOME_1 },
-  { name: "Home 2", href: ROUTES.HOME_2 },
-  { name: "Home 3", href: ROUTES.HOME_3 },
-] as const;
-
 const MENU_LINKS = [
+  { name: "Home", href: ROUTES.HOME },
   { name: "About", href: ROUTES.ABOUT },
   { name: "Portfolio", href: ROUTES.PORTFOLIO },
   { name: "Contact", href: ROUTES.CONTACT, silk: true },
@@ -181,32 +176,12 @@ export default function SiteMenu({
                     className="mt-4 flex flex-col items-center gap-3 sm:mt-6 sm:gap-4"
                     aria-label="Menu"
                   >
-                    <div className="flex flex-row flex-wrap items-center justify-center gap-x-4 gap-y-2 md:flex-col md:gap-4">
-                      {HOME_LINKS.map((link) => {
-                        const active = activePath === link.href;
-
-                        return (
-                          <Link
-                            key={link.href}
-                            href={link.href}
-                            onClick={onClose}
-                            className={cn(
-                              "font-title text-[11px] font-normal tracking-[0.18em] uppercase transition-colors duration-300 sm:text-[14px] sm:tracking-[0.22em]",
-                              active
-                                ? "text-blush"
-                                : "text-cream/85 hover:text-blush"
-                            )}
-                          >
-                            {link.name}
-                          </Link>
-                        );
-                      })}
-                    </div>
-
                     {MENU_LINKS.map((link) => {
                       const active =
-                        activePath === link.href ||
-                        activePath.startsWith(`${link.href}/`);
+                        link.href === ROUTES.HOME
+                          ? activePath === "/" || activePath === ""
+                          : activePath === link.href ||
+                            activePath.startsWith(`${link.href}/`);
                       const isContact = link.href === ROUTES.CONTACT;
 
                       return (

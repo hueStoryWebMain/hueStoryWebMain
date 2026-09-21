@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   description: `${SITE_TAGLINE}. Quiet, intentional planning — colour chosen once, carried through every detail.`,
   metadataBase: new URL(SITE_URL),
   icons: {
-    icon: [{ url: "/images/logo/logo-primary.png", type: "image/png" }],
-    apple: [{ url: "/images/logo/logo-primary.png", type: "image/png" }],
+    icon: [{ url: "/images/logo/logo-primary-blue-slate.png", type: "image/png" }],
+    apple: [{ url: "/images/logo/logo-primary-blue-slate.png", type: "image/png" }],
   },
   openGraph: {
     type: "website",

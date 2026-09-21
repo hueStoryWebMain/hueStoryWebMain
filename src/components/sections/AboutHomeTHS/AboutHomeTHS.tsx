@@ -119,7 +119,7 @@ export default function AboutHomeTHS() {
             </p>
 
             <p
-              className="font-body mx-auto mt-8 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-10 sm:text-[13px] sm:leading-[1.9] md:mt-12 md:max-w-2xl md:text-[14px] md:leading-[1.95]"
+              className="font-silk mx-auto mt-8 max-w-xl text-[15px] leading-[1.85] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:mt-10 sm:text-[16px] sm:leading-[1.9] md:mt-12 md:max-w-2xl md:text-[17px] md:leading-[1.95]"
               style={item("0.36s")}
             >
               The Hue Story was founded on a conviction that has never wavered:
@@ -130,7 +130,7 @@ export default function AboutHomeTHS() {
             </p>
 
             <p
-              className="font-body mx-auto mt-5 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-6 sm:text-[13px] sm:leading-[1.9] md:max-w-2xl md:text-[14px] md:leading-[1.95]"
+              className="font-silk mx-auto mt-5 max-w-xl text-[15px] leading-[1.85] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:mt-6 sm:text-[16px] sm:leading-[1.9] md:max-w-2xl md:text-[17px] md:leading-[1.95]"
               style={item("0.48s")}
             >
               That decade gives us range: precision paired with cultural depth,
@@ -139,7 +139,7 @@ export default function AboutHomeTHS() {
             </p>
 
             <p
-              className="font-body mx-auto mt-8 max-w-lg text-[11px] leading-[1.7] font-medium tracking-[0.12em] text-ink/55 uppercase sm:mt-10 sm:text-[12px]"
+              className="font-silk mx-auto mt-8 max-w-lg text-[14px] leading-[1.7] font-[300] tracking-[0.1em] text-ink/80 italic uppercase sm:mt-10 sm:text-[15px]"
               style={item("0.6s")}
             >
               Recognized by Vogue, Architectural Digest, and the Vogue Wedding

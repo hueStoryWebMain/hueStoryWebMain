@@ -229,7 +229,7 @@ export default function AboutFounderHomeTHS() {
             co-founder and creative director
           </p>
 
-          <p className="font-body mt-6 max-w-md text-[13px] leading-[1.85] font-light tracking-[0.01em] text-ink/75 sm:mt-7 sm:text-[14px] sm:leading-[1.9]">
+          <p className="font-silk mt-6 max-w-md text-[14px] leading-[1.85] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:mt-7 sm:text-[15px] sm:leading-[1.9]">
             <WordFade
               words={bodyWords}
               visible={visible}
