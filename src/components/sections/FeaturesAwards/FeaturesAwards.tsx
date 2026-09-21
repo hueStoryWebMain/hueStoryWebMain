@@ -11,14 +11,14 @@ export default function FeaturesAwards() {
       className="relative z-10 w-full bg-mist text-ink"
       aria-label="Features and awards"
     >
-      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-12 md:py-12 lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-12 md:px-8 md:py-12 lg:px-12">
         {/* Title + logos row */}
         <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-center md:gap-0 md:text-left">
-          <div className="shrink-0 md:pr-8 lg:pr-10">
-            <h2 className="font-heading text-[15px] font-light tracking-[0.14em] text-ink uppercase sm:text-[16px] md:text-[17px]">
+          <div className="shrink-0 md:max-w-[11rem] md:pr-5 lg:max-w-none lg:pr-10">
+            <h2 className="font-heading text-[15px] font-light tracking-[0.14em] text-ink uppercase sm:text-[16px] md:text-[16px] lg:text-[17px]">
               Features + Awards
             </h2>
-            <p className="font-script mt-1.5 text-[16px] text-ink/70 normal-case sm:text-[18px]">
+            <p className="font-script mt-1.5 text-[16px] text-ink/70 normal-case sm:text-[18px] md:text-[16px] lg:text-[18px]">
               Press Publications and Recognitions
             </p>
           </div>
@@ -29,17 +29,17 @@ export default function FeaturesAwards() {
             aria-hidden
           />
 
-          <div className="flex w-full min-w-0 flex-1 flex-col items-center gap-8 md:flex-row md:justify-evenly md:gap-12 md:pl-8 lg:gap-16 lg:pl-10">
+          <div className="flex w-full min-w-0 flex-1 flex-col items-center gap-8 md:flex-row md:flex-wrap md:justify-center md:gap-x-6 md:gap-y-5 md:pl-5 lg:flex-nowrap lg:justify-evenly lg:gap-12 lg:pl-10">
             {FEATURED_PRESS.map((item) => (
               <div
                 key={item.src}
-                className="relative flex h-12 w-40 items-center justify-center sm:h-14 sm:w-44 md:h-12 md:w-40 md:shrink-0"
+                className="relative h-12 w-40 shrink-0 sm:h-14 sm:w-44 md:h-12 md:w-32 lg:h-12 lg:w-40"
               >
                 <Image
                   src={item.src}
                   alt={item.name}
                   fill
-                  sizes="180px"
+                  sizes="(max-width: 1024px) 128px, 176px"
                   className="object-contain object-center opacity-80"
                 />
               </div>

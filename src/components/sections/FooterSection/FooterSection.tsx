@@ -471,13 +471,13 @@ export default function FooterSection() {
           className="relative z-10 border-t border-cream/15 px-5 py-5 sm:px-6 sm:py-6 md:px-8"
           style={fadeUp(brandVisible, "0.3s", "0.4rem")}
         >
-          <div className="flex w-full flex-col items-center gap-3.5 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left">
-            <p className="font-body order-2 max-w-[18rem] text-[9px] leading-relaxed tracking-[0.06em] text-cream/45 uppercase sm:order-1 sm:max-w-none sm:shrink-0 sm:text-left sm:text-[11px]">
+          <div className="flex w-full min-w-0 flex-col items-center gap-3.5 text-center lg:flex-row lg:items-center lg:gap-5 lg:text-left">
+            <p className="font-body order-2 max-w-[20rem] text-[9px] leading-relaxed tracking-[0.06em] text-cream/45 uppercase sm:max-w-md sm:text-[10px] lg:order-1 lg:max-w-[14rem] lg:shrink-0 lg:text-left lg:text-[11px] xl:max-w-none">
               Copyright {new Date().getFullYear()} {SITE_NAME}. All rights
               reserved
             </p>
 
-            <div className="order-1 flex min-w-0 w-full items-center gap-3 sm:order-2 sm:w-auto sm:flex-1 sm:gap-4">
+            <div className="order-1 flex min-w-0 w-full items-center gap-3 lg:order-2 lg:w-auto lg:flex-1 lg:gap-4">
               <div aria-hidden className="h-px min-w-[1rem] flex-1 bg-cream/30" />
               <p className="font-title shrink-0 text-[8px] tracking-[0.24em] text-cream/55 uppercase sm:text-[10px]">
                 Elsewhere
@@ -518,13 +518,13 @@ export default function FooterSection() {
               <div aria-hidden className="h-px min-w-[1rem] flex-1 bg-cream/30" />
             </div>
 
-            <p className="font-body order-3 text-[9px] tracking-[0.04em] text-cream/45 sm:shrink-0 sm:text-right sm:text-[11px]">
+            <p className="font-body order-3 min-w-0 max-w-full px-2 text-[9px] tracking-[0.04em] text-cream/45 sm:text-[10px] lg:shrink-0 lg:px-0 lg:text-right lg:text-[11px]">
               Website designed by{" "}
               <a
                 href="https://www.instagram.com/bymotifstudios/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-silk text-[12px] font-[200] tracking-normal text-cream/70 italic normal-case transition-colors duration-300 hover:text-blush sm:text-[14px]"
+                className="font-silk text-[12px] font-[200] tracking-normal text-cream/70 italic normal-case transition-colors duration-300 hover:text-blush sm:text-[13px] lg:text-[14px]"
               >
                 bymotifstudios
               </a>
