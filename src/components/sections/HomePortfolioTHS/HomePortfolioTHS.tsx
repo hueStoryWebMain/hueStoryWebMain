@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import {
   PORTFOLIO_HOME_ROW_A,
@@ -13,6 +14,8 @@ const IDLE_MS = 15_000;
 const AUTO_SPEED_PX_S = 11;
 const INERTIA_FRICTION = 0.95;
 const INERTIA_MIN_V = 0.08;
+/** Finger jitter on tap often exceeds 10px */
+const TAP_MAX_PX = 18;
 
 const QUOTE_WORDS = "“quietly intentional in every hue”".split(" ");
 
@@ -20,6 +23,84 @@ type Frame = {
   src: string;
   shape: "portrait" | "wide";
 };
+
+function PortfolioLightbox({
+  src,
+  onClose,
+}: {
+  src: string;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [onClose]);
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[210] h-[100dvh] max-h-[100dvh] bg-black/88"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Portfolio image"
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        aria-label="Close image"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        className="absolute top-[max(0.75rem,env(safe-area-inset-top))] right-[max(0.75rem,env(safe-area-inset-right))] z-20 flex h-11 w-11 items-center justify-center text-cream transition-opacity duration-200 hover:opacity-70"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden
+        >
+          <path
+            d="M5 5l14 14M19 5L5 19"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+        </svg>
+      </button>
+
+      <div className="pointer-events-none flex h-full w-full items-center justify-center px-4 py-14">
+        <Image
+          src={src}
+          alt=""
+          width={1600}
+          height={2000}
+          priority
+          sizes="100vw"
+          draggable={false}
+          onClick={(e) => e.stopPropagation()}
+          className="pointer-events-auto h-auto max-h-[min(86dvh,100%)] w-auto max-w-[min(94vw,100%)] object-contain select-none"
+        />
+      </div>
+    </div>,
+    document.body
+  );
+}
 
 function FrameCard({
   frame,
@@ -58,12 +139,14 @@ function MarqueeRow({
   autoScroll,
   onInteract,
   priority,
+  onOpenImage,
 }: {
   frames: readonly Frame[];
   direction: "rtl" | "ltr";
   autoScroll: boolean;
   onInteract: () => void;
   priority?: boolean;
+  onOpenImage?: (src: string) => void;
 }) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -72,6 +155,8 @@ function MarqueeRow({
   const vRef = useRef(0);
   const draggingRef = useRef(false);
   const axisRef = useRef<"h" | "v" | null>(null);
+  const didDragRef = useRef(false);
+  const pressSrcRef = useRef<string | null>(null);
   const lastXRef = useRef(0);
   const startXRef = useRef(0);
   const startYRef = useRef(0);
@@ -145,11 +230,20 @@ function MarqueeRow({
     return () => window.cancelAnimationFrame(raf);
   }, [applyX, direction]);
 
+  const srcFromEvent = (e: React.SyntheticEvent) => {
+    const el = (e.target as HTMLElement | null)?.closest?.(
+      "[data-portfolio-src]"
+    ) as HTMLElement | null;
+    return el?.dataset.portfolioSrc ?? null;
+  };
+
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType === "mouse" && e.button !== 0) return;
     /* Only drag-to-scroll while holding — never steal wheel / page scroll */
     draggingRef.current = true;
     axisRef.current = null;
+    didDragRef.current = false;
+    pressSrcRef.current = srcFromEvent(e);
     vRef.current = 0;
     lastXRef.current = e.clientX;
     startXRef.current = e.clientX;
@@ -170,6 +264,8 @@ function MarqueeRow({
         return;
       }
       /* Confirmed horizontal hold-drag */
+      didDragRef.current = true;
+      pressSrcRef.current = null;
       onInteract();
       e.currentTarget.setPointerCapture(e.pointerId);
       e.currentTarget.classList.add("cursor-grabbing");
@@ -188,6 +284,17 @@ function MarqueeRow({
 
   const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
     const wasHorizontal = axisRef.current === "h";
+    const adx = Math.abs(e.clientX - startXRef.current);
+    const ady = Math.abs(e.clientY - startYRef.current);
+    const src = pressSrcRef.current;
+    const wasTap =
+      Boolean(onOpenImage) &&
+      Boolean(src) &&
+      !didDragRef.current &&
+      !wasHorizontal &&
+      adx < TAP_MAX_PX &&
+      ady < TAP_MAX_PX;
+
     draggingRef.current = false;
     axisRef.current = null;
     e.currentTarget.classList.remove("cursor-grabbing");
@@ -198,6 +305,12 @@ function MarqueeRow({
         /* already released */
       }
     }
+
+    if (wasTap && src && onOpenImage) {
+      e.preventDefault();
+      onOpenImage(src);
+    }
+    pressSrcRef.current = null;
   };
 
   return (
@@ -218,11 +331,16 @@ function MarqueeRow({
         style={{ transform: "translate3d(0, 0, 0)" }}
       >
         {track.map((frame, i) => (
-          <FrameCard
+          <div
             key={`${frame.src}-${i}`}
-            frame={frame}
-            priority={priority && i < frames.length}
-          />
+            data-portfolio-src={frame.src}
+            className="relative shrink-0"
+          >
+            <FrameCard
+              frame={frame}
+              priority={priority && i < frames.length}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -232,6 +350,7 @@ function MarqueeRow({
 /**
  * HomePortfolioTHS — paper cream · full-bleed quote · dual marquees
  * Smooth transform drift · drag / wheel / touch with inertia
+ * Tap / click image → full-screen lightbox
  */
 export default function HomePortfolioTHS() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -243,6 +362,9 @@ export default function HomePortfolioTHS() {
   const [autoScroll, setAutoScroll] = useState(false);
   const [quoteSize, setQuoteSize] = useState<number | null>(null);
   const [quoteIn, setQuoteIn] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const lightboxSrcRef = useRef<string | null>(null);
+  lightboxSrcRef.current = lightboxSrc;
 
   const clearIdle = useCallback(() => {
     if (idleTimerRef.current !== undefined) {
@@ -253,17 +375,31 @@ export default function HomePortfolioTHS() {
 
   const armIdle = useCallback(() => {
     clearIdle();
-    if (!inViewRef.current) return;
+    if (!inViewRef.current || lightboxSrcRef.current) return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) return;
     idleTimerRef.current = window.setTimeout(() => {
-      if (inViewRef.current) setAutoScroll(true);
+      if (inViewRef.current && !lightboxSrcRef.current) setAutoScroll(true);
     }, IDLE_MS);
   }, [clearIdle]);
 
   const onInteract = useCallback(() => {
     if (!inViewRef.current) return;
     setAutoScroll(false);
+    armIdle();
+  }, [armIdle]);
+
+  const openLightbox = useCallback(
+    (src: string) => {
+      setAutoScroll(false);
+      clearIdle();
+      setLightboxSrc(src);
+    },
+    [clearIdle]
+  );
+
+  const closeLightbox = useCallback(() => {
+    setLightboxSrc(null);
     armIdle();
   }, [armIdle]);
 
@@ -396,18 +532,24 @@ export default function HomePortfolioTHS() {
           <MarqueeRow
             frames={PORTFOLIO_HOME_ROW_A}
             direction="rtl"
-            autoScroll={autoScroll}
+            autoScroll={autoScroll && !lightboxSrc}
             onInteract={onInteract}
             priority
+            onOpenImage={openLightbox}
           />
           <MarqueeRow
             frames={PORTFOLIO_HOME_ROW_B}
             direction="ltr"
-            autoScroll={autoScroll}
+            autoScroll={autoScroll && !lightboxSrc}
             onInteract={onInteract}
+            onOpenImage={openLightbox}
           />
         </div>
       </div>
+
+      {lightboxSrc ? (
+        <PortfolioLightbox src={lightboxSrc} onClose={closeLightbox} />
+      ) : null}
     </section>
   );
 }
