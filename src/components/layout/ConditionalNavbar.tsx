@@ -6,8 +6,13 @@ import Navbar from "./Navbar";
 export default function ConditionalNavbar() {
   const pathname = usePathname();
 
-  // Home: logo + menu live inside the sticky hero (HeroNav)
-  if (!pathname || pathname === "/" || pathname.startsWith("/studio")) {
+  // Home + About: logo + menu live inside the sticky / page hero (HeroNav)
+  if (
+    !pathname ||
+    pathname === "/" ||
+    pathname === "/about" ||
+    pathname.startsWith("/studio")
+  ) {
     return null;
   }
 

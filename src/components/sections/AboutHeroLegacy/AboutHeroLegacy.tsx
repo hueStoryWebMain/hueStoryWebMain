@@ -1,79 +1,158 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ABOUT_HOME_IMAGES, LOGOS, ROUTES, SITE_NAME } from "@/lib/constants";
+import { ABOUT_HOME_IMAGES, LOGOS, SITE_NAME } from "@/lib/constants";
+
+const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
 
 /**
- * AboutHeroLegacy — archived editorial about band (pre–font-pairing).
- * Kept for reference; not mounted on the live homepage.
- * New About home section will be redesigned separately as AboutHomeTHS.
- *
- * Fonts locked to original system: Silk Serif · Gallient · Raleway (CTA chrome)
+ * AboutHeroLegacy — editorial about band below AboutHeroTHS
  */
 export default function AboutHeroLegacy() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const collageRef = useRef<HTMLDivElement>(null);
+  const [copyIn, setCopyIn] = useState(false);
+  const [collageIn, setCollageIn] = useState(false);
+
   useEffect(() => {
     document.body.style.overflow = "";
   }, []);
 
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) {
+      setCopyIn(true);
+      setCollageIn(true);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCopyIn(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = collageRef.current;
+    if (!el) return;
+
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) {
+      setCollageIn(true);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCollageIn(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const fade = (on: boolean, delay: string, dist = "1.25rem") =>
+    ({
+      opacity: on ? 1 : 0,
+      transform: on ? "translate3d(0,0,0)" : `translate3d(0,${dist},0)`,
+      transition: `opacity 1.2s ${EASE} ${delay}, transform 1.3s ${EASE} ${delay}`,
+    }) as const;
+
+  const imageFade = (on: boolean, delay: string) =>
+    ({
+      opacity: on ? 1 : 0,
+      transform: on
+        ? "translate3d(0,0,0) scale(1)"
+        : "translate3d(0,1.5rem,0) scale(0.98)",
+      transition: `opacity 1.35s ${EASE} ${delay}, transform 1.5s ${EASE} ${delay}`,
+    }) as const;
+
   return (
     <section
+      ref={sectionRef}
       className="relative z-10 w-full overflow-x-clip bg-base"
       aria-labelledby="about-hero-legacy-heading"
     >
       <div className="mx-auto flex max-w-5xl flex-col items-center px-5 pt-14 text-center sm:px-8 sm:pt-20 md:px-8 md:pt-28 lg:px-12">
         <h2
           id="about-hero-legacy-heading"
-          className="font-silk about-reveal max-w-4xl text-[25px] leading-[1.2] font-light tracking-[0.01em] text-[#FCFBF6] lowercase sm:text-[30px] sm:leading-[1.18] md:text-[46px] md:leading-[1.15] lg:text-[54px]"
+          className="font-title max-w-4xl text-[22px] leading-[1.2] font-normal tracking-[0.08em] text-cream uppercase will-change-[opacity,transform] sm:text-[26px] md:text-[34px] lg:text-[40px]"
+          style={fade(copyIn, "0.05s", "1.4rem")}
         >
-          <span className="block">
-            <em className="font-[200] italic">intentional</em> planning,{" "}
-            <em className="font-[200] italic">editorial</em>
-          </span>
-          <span className="block">
-            vision, <em className="font-[200] italic">seamless</em> days,
-          </span>
-          <span className="block">
-            <em className="font-[200] italic">unforgettable</em> hue
-          </span>
+          An Atelier for the World&apos;s Weddings.
         </h2>
 
         <div
-          className="about-reveal mt-7 h-px w-20 origin-center bg-bare/45 sm:mt-10 sm:w-28 md:mt-12 md:w-40"
-          style={{ animationDelay: "0.08s" }}
+          className="mt-7 h-px w-20 origin-center bg-bare/45 will-change-[opacity,transform] sm:mt-10 sm:w-28 md:mt-12 md:w-40"
           aria-hidden="true"
+          style={{
+            opacity: copyIn ? 1 : 0,
+            transform: copyIn ? "scaleX(1)" : "scaleX(0.35)",
+            transition: `opacity 1s ${EASE} 0.18s, transform 1.15s ${EASE} 0.18s`,
+          }}
         />
 
-        <p
-          className="font-silk about-reveal mt-7 max-w-2xl text-[13px] leading-[1.7] font-[200] italic text-[#FCFBF6]/90 sm:mt-10 sm:text-[15px] sm:leading-[1.75] md:mt-12 md:text-[17px]"
-          style={{ animationDelay: "0.14s" }}
-        >
-          The Hue Story designs and produces elegant, timeless destination
-          weddings and private events across the globe. With a decade of
-          meticulous attention to detail and a passion for turning culture and
-          place into lived experience, we take a hands-on approach to crafting
-          celebrations that exceed expectation. Our considered approach,
-          inventive design, and flawless execution create unforgettable
-          occasions that leave a lasting impression on our clients and their
-          guests.
-        </p>
+        <div className="mt-7 flex max-w-2xl flex-col gap-5 sm:mt-10 sm:gap-6 md:mt-12">
+          <p
+            className="font-silk text-[13px] leading-[1.75] font-[300] tracking-[0.01em] text-cream/90 not-italic normal-case will-change-[opacity,transform] sm:text-[15px] sm:leading-[1.8] md:text-[17px]"
+            style={fade(copyIn, "0.28s")}
+          >
+            The Hue Story was founded on a conviction that has never wavered: an
+            occasion of real significance deserves genuine authorship.
+          </p>
+          <p
+            className="font-silk text-[13px] leading-[1.75] font-[300] tracking-[0.01em] text-cream/90 not-italic normal-case will-change-[opacity,transform] sm:text-[15px] sm:leading-[1.8] md:text-[17px]"
+            style={fade(copyIn, "0.4s")}
+          >
+            Every project is led personally, from the first conversation to the
+            final toast, by a team built over a decade of relationships with
+            artisans, chefs, and makers around the world.
+          </p>
+          <p
+            className="font-silk text-[13px] leading-[1.75] font-[300] tracking-[0.01em] text-cream/90 not-italic normal-case will-change-[opacity,transform] sm:text-[15px] sm:leading-[1.8] md:text-[17px]"
+            style={fade(copyIn, "0.52s")}
+          >
+            A decade of experience gives us range: precision paired with genuine
+            cultural depth, an eye equally at home with a Rajasthani palace, a
+            Balinese cliffside, or a California vineyard. It is this range that
+            gives each occasion its particular elegance
+          </p>
+        </div>
 
         <p
-          className="font-display about-reveal mt-12 text-center text-[22px] tracking-[0.08em] text-[#FCFBF6] uppercase sm:mt-14 sm:text-[28px] md:mt-16 md:text-[34px] lg:text-[40px]"
-          style={{ animationDelay: "0.22s" }}
+          className="font-script mt-12 text-center text-[22px] font-normal tracking-[0.02em] text-cream normal-case will-change-[opacity,transform] sm:mt-14 sm:text-[28px] md:mt-16 md:text-[34px] lg:text-[40px]"
+          style={fade(copyIn, "0.66s", "0.9rem")}
         >
           Authored
         </p>
       </div>
 
       {/* Editorial collage */}
-      <div className="relative overflow-x-clip px-4 pb-2 pt-10 sm:px-8 sm:pb-3 sm:pt-14 md:px-8 md:pb-4 md:pt-16 lg:px-12">
+      <div
+        ref={collageRef}
+        className="relative overflow-x-clip px-4 pt-10 pb-16 sm:px-8 sm:pt-14 sm:pb-20 md:px-8 md:pt-16 md:pb-24 lg:px-12"
+      >
         <div className="relative mx-auto w-full max-w-6xl">
           <div className="relative mx-auto h-[min(118vw,420px)] sm:h-[min(95vw,560px)] md:h-[min(78vw,900px)]">
             <div
-              className="pointer-events-none absolute top-[26%] right-0 z-0 w-[48%] overflow-hidden sm:right-[-2%] md:right-[-4%]"
+              className="pointer-events-none absolute top-[26%] right-0 z-0 w-[48%] overflow-hidden will-change-[opacity,transform] sm:right-[-2%] md:right-[-4%]"
               aria-hidden
+              style={imageFade(collageIn, "0.05s")}
             >
               <div className="relative aspect-[16/10] w-full">
                 <Image
@@ -87,7 +166,10 @@ export default function AboutHeroLegacy() {
               </div>
             </div>
 
-            <figure className="absolute top-[12%] left-0 z-10 w-[34%]">
+            <figure
+              className="absolute top-[12%] left-0 z-10 w-[34%] will-change-[opacity,transform]"
+              style={imageFade(collageIn, "0.16s")}
+            >
               <div
                 className="pointer-events-none absolute left-0 top-0 z-40 h-12 w-12 -translate-x-[55%] -translate-y-[55%] sm:h-16 sm:w-16 md:h-24 md:w-24 lg:h-28 lg:w-28"
                 aria-hidden
@@ -118,7 +200,10 @@ export default function AboutHeroLegacy() {
               />
             </figure>
 
-            <figure className="absolute top-[2%] left-[40%] z-20 w-[26%]">
+            <figure
+              className="absolute top-[2%] left-[40%] z-20 w-[26%] will-change-[opacity,transform]"
+              style={imageFade(collageIn, "0.28s")}
+            >
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
                   src={ABOUT_HOME_IMAGES.outsideDecor}
@@ -130,7 +215,10 @@ export default function AboutHeroLegacy() {
               </div>
             </figure>
 
-            <figure className="absolute top-[48%] left-[46%] z-30 w-[24%]">
+            <figure
+              className="absolute top-[48%] left-[46%] z-30 w-[24%] will-change-[opacity,transform]"
+              style={imageFade(collageIn, "0.4s")}
+            >
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
                   src={ABOUT_HOME_IMAGES.decorCloseup}
@@ -142,7 +230,10 @@ export default function AboutHeroLegacy() {
               </div>
             </figure>
 
-            <figure className="absolute top-[16%] right-[1%] z-20 w-[26%]">
+            <figure
+              className="absolute top-[16%] right-[1%] z-20 w-[26%] will-change-[opacity,transform]"
+              style={imageFade(collageIn, "0.34s")}
+            >
               <div
                 aria-hidden
                 className="pointer-events-none absolute bottom-full left-0 z-[5] mb-2 h-px bg-bare/40 sm:mb-3 md:mb-4"
@@ -159,34 +250,6 @@ export default function AboutHeroLegacy() {
               </div>
             </figure>
           </div>
-        </div>
-      </div>
-
-      {/* Vertical rule + offset-frame portfolio CTA */}
-      <div className="flex flex-col items-center px-5 pt-0 pb-16 sm:pb-20 md:pb-24">
-        <div
-          aria-hidden
-          className="h-10 w-px bg-bare/50 sm:h-14 md:h-16"
-        />
-
-        <div className="mt-5 sm:mt-6">
-          <Link
-            href={ROUTES.PORTFOLIO}
-            className="group relative inline-block"
-          >
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-0 -translate-x-1.5 -translate-y-1.5 border border-cream/55 transition-colors duration-300 group-hover:border-cream/80 sm:-translate-x-2 sm:-translate-y-2"
-            />
-            <span className="relative flex flex-wrap items-center justify-center gap-x-2 gap-y-1 bg-bare px-5 py-3.5 transition-colors duration-300 group-hover:bg-bare/90 sm:gap-x-2.5 sm:px-8 sm:py-4 md:px-10">
-              <span className="font-raleway text-[10px] font-medium tracking-[0.24em] text-ink uppercase sm:text-[11px] md:text-xs">
-                Explore our
-              </span>
-              <span className="font-silk text-[15px] font-[200] italic text-ink sm:text-[17px] md:text-[19px]">
-                Portfolio
-              </span>
-            </span>
-          </Link>
         </div>
       </div>
     </section>

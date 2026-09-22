@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/common/PageHeader";
-import AboutPlaceholder from "@/components/pages/AboutPage/AboutPlaceholder";
+import AboutPageView from "@/components/pages/AboutPage/AboutPageView";
 
 export const metadata: Metadata = {
   title: "About",
@@ -9,14 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return (
-    <>
-      <PageHeader
-        eyebrow="The studio"
-        title="About"
-        subtitle="A quiet, intentional practice — colour chosen once, carried through every detail."
-      />
-      <AboutPlaceholder />
-    </>
-  );
+  return <AboutPageView />;
 }
