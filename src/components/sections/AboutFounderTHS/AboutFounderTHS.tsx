@@ -90,7 +90,7 @@ export default function AboutFounderTHS() {
         <div className="relative z-10 w-[min(68vw,280px)] sm:w-[min(52vw,320px)] md:w-[340px] lg:w-[380px]">
           <div
             aria-hidden
-            className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-[138%] w-[148%] will-change-[opacity,transform]"
+            className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-[124%] w-[132%] will-change-[opacity,transform] sm:h-[132%] sm:w-[140%] md:h-[138%] md:w-[148%]"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible
