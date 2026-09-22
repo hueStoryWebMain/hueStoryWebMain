@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { colors } from "@/lib/theme";
 
 const SCRIPT_WORD = "Intentional";
 
@@ -127,7 +126,7 @@ export default function IntentionalHomeTHS() {
               id="intentional-home-heading"
               className="font-script text-[52px] leading-[0.95] tracking-[0.01em] normal-case sm:text-[68px] md:text-[84px] lg:text-[96px]"
               style={{
-                color: colors.cobalt,
+                color: "#2C2723",
                 ...item("0.18s"),
               }}
             >

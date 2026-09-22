@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FOUNDER, PATTERN_BG, ROUTES } from "@/lib/constants";
-import { colors } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 const BODY =
@@ -159,7 +158,7 @@ export default function AboutFounderHomeTHS() {
                       : "translate-x-[18%] translate-y-[48%] -rotate-[11deg] opacity-0 sm:translate-x-[40%] sm:translate-y-[44%] md:translate-x-[60%] md:translate-y-[42%] lg:translate-x-[88%] lg:translate-y-[42%]"
                   )}
                   style={{
-                    color: colors.cobalt,
+                    color: "#2C2723",
                     transition:
                       "opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.3s, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.3s",
                   }}
@@ -181,7 +180,7 @@ export default function AboutFounderHomeTHS() {
                           cy="24"
                           rx="54"
                           ry="18"
-                          stroke={colors.cobalt}
+                          stroke="#2C2723"
                           strokeWidth="1.6"
                           strokeLinecap="round"
                           transform="rotate(-6 60 24)"
@@ -229,7 +228,7 @@ export default function AboutFounderHomeTHS() {
             co-founder and creative director
           </p>
 
-          <p className="font-silk mt-6 max-w-md text-[14px] leading-[1.85] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:mt-7 sm:text-[15px] sm:leading-[1.9]">
+          <p className="font-body mt-6 max-w-md text-[13px] leading-[1.85] font-light tracking-[0.01em] text-ink/75 sm:mt-7 sm:text-[14px] sm:leading-[1.9]">
             <WordFade
               words={bodyWords}
               visible={visible}

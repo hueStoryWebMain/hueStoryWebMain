@@ -198,7 +198,7 @@ export default function WhatWeDoTHS() {
               aria-hidden
             />
 
-            <p className="font-silk mt-5 max-w-md text-[13px] leading-[1.75] font-[300] tracking-[0.01em] text-cream/80 not-italic normal-case sm:mt-6 sm:text-[14px]">
+            <p className="font-body mt-5 max-w-md text-[12px] leading-[1.75] font-light tracking-[0.01em] text-cream/75 sm:mt-6 sm:text-[13px]">
               Every celebration is built on finesse and restraint: opulent,
               understated, and made to last.
             </p>
@@ -224,7 +224,7 @@ export default function WhatWeDoTHS() {
                       {service.title}
                     </h3>
                   </div>
-                  <p className="font-silk mt-2 max-w-md pl-6 text-[12px] leading-[1.7] font-[300] tracking-[0.01em] text-cream/75 not-italic normal-case sm:mt-2.5 sm:pl-7 sm:text-[13px] md:text-[14px]">
+                  <p className="font-body mt-2 max-w-md pl-6 text-[11px] leading-[1.7] font-light tracking-[0.01em] text-cream/70 sm:mt-2.5 sm:pl-7 sm:text-[12px] md:text-[13px]">
                     {service.body}
                   </p>
                   <Link

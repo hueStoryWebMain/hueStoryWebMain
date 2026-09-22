@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { PATTERN_BG } from "@/lib/constants";
-import { colors } from "@/lib/theme";
 
 /**
  * AboutHomeTHS — pattern-framed cream paper panel
@@ -43,10 +42,11 @@ export default function AboutHomeTHS() {
     }) as const;
 
   const patternStyle = {
-    backgroundImage: `url(${PATTERN_BG.navyVine})`,
-    backgroundRepeat: "repeat",
-    backgroundSize: "min(520px, 72vw) auto",
-    backgroundPosition: "center top",
+    backgroundColor: "var(--color-base)",
+    backgroundImage: `url(${PATTERN_BG.aboutTHS})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center center",
   } as const;
 
   return (
@@ -62,7 +62,8 @@ export default function AboutHomeTHS() {
         aria-hidden
         style={patternStyle}
       >
-        <div className="absolute inset-0 bg-[color-mix(in_srgb,var(--color-base)_18%,transparent)]" />
+        <div className="absolute inset-0 bg-base/45" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Pinned pattern — dvh covers iPhone chrome expand/collapse */}
@@ -71,7 +72,8 @@ export default function AboutHomeTHS() {
         aria-hidden
         style={patternStyle}
       >
-        <div className="pointer-events-none absolute inset-0 bg-[color-mix(in_srgb,var(--color-base)_18%,transparent)]" />
+        <div className="pointer-events-none absolute inset-0 bg-base/45" />
+        <div className="pointer-events-none absolute inset-0 bg-black/30" />
       </div>
 
       {/* Paper scrolls over pattern */}
@@ -119,7 +121,7 @@ export default function AboutHomeTHS() {
             </p>
 
             <p
-              className="font-silk mx-auto mt-8 max-w-xl text-[15px] leading-[1.85] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:mt-10 sm:text-[16px] sm:leading-[1.9] md:mt-12 md:max-w-2xl md:text-[17px] md:leading-[1.95]"
+              className="font-body mx-auto mt-8 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-10 sm:text-[13px] sm:leading-[1.9] md:mt-12 md:max-w-2xl md:text-[14px] md:leading-[1.95]"
               style={item("0.36s")}
             >
               The Hue Story was founded on a conviction that has never wavered:
@@ -130,7 +132,7 @@ export default function AboutHomeTHS() {
             </p>
 
             <p
-              className="font-silk mx-auto mt-5 max-w-xl text-[15px] leading-[1.85] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:mt-6 sm:text-[16px] sm:leading-[1.9] md:max-w-2xl md:text-[17px] md:leading-[1.95]"
+              className="font-body mx-auto mt-5 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-6 sm:text-[13px] sm:leading-[1.9] md:max-w-2xl md:text-[14px] md:leading-[1.95]"
               style={item("0.48s")}
             >
               That decade gives us range: precision paired with cultural depth,
@@ -139,18 +141,20 @@ export default function AboutHomeTHS() {
             </p>
 
             <p
-              className="font-silk mx-auto mt-8 max-w-lg text-[14px] leading-[1.7] font-[300] tracking-[0.1em] text-ink/80 italic uppercase sm:mt-10 sm:text-[15px]"
+              className="font-body mx-auto mt-8 max-w-lg text-[11px] leading-[1.7] font-medium tracking-[0.12em] text-ink/55 uppercase sm:mt-10 sm:text-[12px]"
               style={item("0.6s")}
             >
-              Recognized by Vogue, Architectural Digest, and the Vogue Wedding
-              Book
+              Recognized by{" "}
+              <span className="font-silk text-[14px] font-[300] tracking-[0.02em] text-ink/70 italic normal-case sm:text-[15px] md:text-[16px]">
+                Vogue, Architectural Digest, and the Vogue Wedding Book
+              </span>
             </p>
           </div>
 
           <p
-            className="font-script pointer-events-none absolute right-5 bottom-4 z-20 text-[36px] font-semibold leading-none tracking-[0.02em] normal-case sm:right-7 sm:bottom-5 sm:text-[42px] md:right-8 md:bottom-6 md:text-[48px] lg:text-[54px]"
+            className="font-script pointer-events-none absolute right-5 bottom-4 z-20 text-[36px] font-normal leading-none tracking-[0.02em] normal-case sm:right-7 sm:bottom-5 sm:text-[42px] md:right-8 md:bottom-6 md:text-[48px] lg:text-[54px]"
             style={{
-              color: colors.cobalt,
+              color: "#2C2723",
               opacity: visible ? 1 : 0,
               transform: visible
                 ? "translateY(0) rotate(-12deg)"

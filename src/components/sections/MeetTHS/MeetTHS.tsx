@@ -9,8 +9,9 @@ import { cn } from "@/lib/utils";
 const BODY =
   "The Hue Story designs multi-day destination weddings and private events for clients across the globe. A decade spent crafting weddings for families across the United States, India, Australia, Italy, Kenya, Sri Lanka, South Africa, the Emirates, Bali, and beyond has left us with an inheritance of taste, artisanship, and cultural fluency, one that now travels with us wherever we work.";
 
-const RECOGNITION =
-  "Recognized by Vogue, Architectural Digest, and the Vogue Wedding Book";
+const RECOGNITION_LEAD = "Recognized by";
+const RECOGNITION_NAMES =
+  "Vogue, Architectural Digest, and the Vogue Wedding Book";
 
 /** Full-bleed opener above the flower */
 const INTRO_LINE =
@@ -85,7 +86,8 @@ export default function MeetTHS() {
   }, []);
 
   const bodyWords = BODY.split(" ");
-  const recognitionWords = RECOGNITION.split(" ");
+  const recognitionLeadWords = RECOGNITION_LEAD.split(" ");
+  const recognitionNameWords = RECOGNITION_NAMES.split(" ");
   const introWords = INTRO_LINE.split(" ");
 
   return (
@@ -167,13 +169,22 @@ export default function MeetTHS() {
             />
           </p>
 
-          <p className="font-silk mt-7 max-w-xl text-[12px] leading-[1.7] font-[300] tracking-[0.1em] text-cream/80 italic uppercase sm:mt-8 sm:text-[13px]">
+          <p className="font-body mt-7 max-w-xl text-[11px] leading-[1.7] font-medium tracking-[0.1em] text-cream/50 uppercase sm:mt-8 sm:text-[12px]">
             <WordFade
-              words={recognitionWords}
+              words={recognitionLeadWords}
               visible={visible}
               baseDelay={0.42}
               stagger={0.02}
             />
+            {" "}
+            <span className="font-silk text-[14px] font-[300] tracking-[0.02em] text-cream/75 italic normal-case sm:text-[15px] md:text-[16px]">
+              <WordFade
+                words={recognitionNameWords}
+                visible={visible}
+                baseDelay={0.48}
+                stagger={0.02}
+              />
+            </span>
           </p>
 
           <div

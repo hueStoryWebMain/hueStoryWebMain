@@ -304,10 +304,10 @@ export default function TestimonialHomeTHS() {
                     />
 
                     <div className="mt-5 flex flex-col gap-4 sm:mt-6">
-                      <p className="font-silk text-[13px] leading-[1.75] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:text-[14px] sm:leading-[1.8]">
+                      <p className="font-body text-[13px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:text-[14px] sm:leading-[1.9]">
                         {item.paraA}
                       </p>
-                      <p className="font-silk text-[13px] leading-[1.75] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:text-[14px] sm:leading-[1.8]">
+                      <p className="font-body text-[13px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:text-[14px] sm:leading-[1.9]">
                         {item.paraB}
                       </p>
                     </div>

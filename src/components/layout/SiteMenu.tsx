@@ -47,7 +47,7 @@ const MAIL_PATH =
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Full-bleed editorial menu — photo overlay · navigate · instagram · elsewhere
+ * Full-bleed editorial menu — photo overlay · navigate · instagram · social
  * Portaled to body so sticky/overflow ancestors cannot clip it on mobile.
  */
 export default function SiteMenu({
@@ -231,7 +231,7 @@ export default function SiteMenu({
                   </Link>
                 </motion.div>
 
-                {/* Mobile: follow along elsewhere → icons → images */}
+                {/* Mobile: follow along → icons → images */}
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -239,7 +239,7 @@ export default function SiteMenu({
                   className="flex min-w-0 w-full flex-col items-center text-center md:hidden"
                 >
                   <p className="font-script py-1 text-[26px] leading-[1.35] tracking-[0.01em] text-cream/90 normal-case">
-                    follow along elsewhere
+                    follow along
                   </p>
                   <a
                     href={INSTAGRAM}
@@ -361,17 +361,14 @@ export default function SiteMenu({
                   </div>
                 </motion.div>
 
-                {/* Elsewhere — desktop only (mobile icons live above images) */}
+                {/* Social — desktop only (mobile icons live above images) */}
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.32, duration: 0.55, ease: EASE }}
                   className="relative hidden min-w-0 w-full flex-col items-center text-center md:flex md:min-h-[22rem]"
                 >
-                  <p className="font-script py-1 text-[32px] leading-[1.3] tracking-[0.01em] text-cream/90 normal-case md:text-[36px]">
-                    elsewhere
-                  </p>
-                  <p className="font-body mt-3.5 text-[10px] font-medium tracking-[0.22em] text-cream/50 uppercase">
+                  <p className="font-body text-[10px] font-medium tracking-[0.22em] text-cream/50 uppercase">
                     Find Us On Social Media
                   </p>
 

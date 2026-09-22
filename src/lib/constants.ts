@@ -55,7 +55,7 @@ export const LOGOS = {
   alt: "/images/logo/logo-alt.png",
   altWhite: "/images/logo/logo-alt-white.png",
   emblem: "/images/logo/logo-emblem.png",
-  mainSlate: "/images/logo/logo-primary-blue-slate.png",
+  mainSlate: "/images/logo/SlateBlue-logo.png",
   /** Wordmark for photo heroes */
   whiteName: "/images/logo/whiteNamelogo.png",
 } as const;
@@ -87,7 +87,9 @@ export const ABOUT_HOME_IMAGES = {
 
 /** Pattern wallpaper for AboutHomeTHS frame */
 export const PATTERN_BG = {
-  /** Navy vine + pinstripe — primary editorial frame */
+  /** Quatrefoil tile — AboutHomeTHS sticky frame */
+  aboutTHS: "/images/patternsbg/about-ths-pattern.png",
+  /** Navy vine + pinstripe — legacy editorial frame */
   navyVine: "/images/patternsbg/IMG_0515.PNG",
   /** Cream botanical — portfolio marquee band */
   creamBotanical: "/images/patternsbg/IMG_0518.PNG",

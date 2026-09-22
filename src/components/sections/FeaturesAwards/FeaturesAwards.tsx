@@ -50,7 +50,7 @@ export default function FeaturesAwards() {
         {/* Editorial recognition */}
         <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center sm:mt-12 md:mt-14">
           <div className="mb-6 h-px w-12 bg-ink/20 sm:mb-7 sm:w-14" aria-hidden />
-          <p className="font-silk text-center text-[13px] leading-[1.75] font-[300] tracking-[0.01em] text-ink/85 not-italic normal-case sm:text-[14px] md:text-[15px] md:leading-[1.7]">
+          <p className="font-body text-center text-[12px] leading-[1.75] font-light tracking-[0.01em] text-ink/85 sm:text-[13px] md:text-[14px] md:leading-[1.7]">
             Entrusted by prominent and discerning families around the world, for
             occasions where refined taste and discretion are simply assumed.
           </p>

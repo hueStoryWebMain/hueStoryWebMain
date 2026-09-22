@@ -24,7 +24,7 @@ const PARAS = [
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 /**
- * PhilosophyHomeTHS — flush editorial · PHILOSOPHY copy · inquire · elsewhere grid
+ * PhilosophyHomeTHS — flush editorial · PHILOSOPHY copy · inquire · image grid
  */
 export default function PhilosophyHomeTHS() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -166,7 +166,7 @@ export default function PhilosophyHomeTHS() {
             {PARAS.map((para, i) => (
               <p
                 key={para.slice(0, 24)}
-                className="font-silk text-[12px] leading-[1.7] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:text-[13px] sm:leading-[1.75] lg:text-[14px]"
+                className="font-silk text-[12px] leading-[1.75] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:text-[13px] sm:leading-[1.8] lg:text-[14px]"
                 style={fadeUp(visible, `${0.46 + i * 0.1}s`, "0.75rem")}
               >
                 {para}
@@ -218,7 +218,7 @@ export default function PhilosophyHomeTHS() {
         </div>
       </div>
 
-      {/* ——— Elsewhere grid ——— */}
+      {/* ——— Lower image grid ——— */}
       <div
         ref={lowerRef}
         className="mt-2 grid w-full grid-cols-1 items-start gap-2 sm:mt-3 sm:grid-cols-12 sm:gap-3 md:mt-4 md:gap-3 lg:mt-4 lg:gap-4"
@@ -267,7 +267,7 @@ export default function PhilosophyHomeTHS() {
             style={fadeUp(lowerVisible, "0.28s", "0.7rem")}
           >
             <p className="font-body text-[9px] font-medium tracking-[0.28em] text-ink/50 uppercase sm:text-[10px]">
-              Find us elsewhere
+              Follow along
             </p>
             <div
               aria-hidden

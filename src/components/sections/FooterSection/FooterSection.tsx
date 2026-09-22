@@ -9,7 +9,6 @@ import {
   SITE_NAME,
   SOCIAL_LINKS,
 } from "@/lib/constants";
-import { colors } from "@/lib/theme";
 import Logo from "@/components/common/Logo";
 
 const NAVIGATE = [
@@ -331,7 +330,7 @@ export default function FooterSection() {
             <p
               className="font-script pointer-events-none absolute left-1/2 bottom-full z-20 mb-2 -translate-x-1/2 overflow-visible px-2 py-1 text-center text-[28px] leading-[1.35] tracking-[0.01em] normal-case sm:mb-3 sm:text-[38px] sm:leading-[1.25] md:mb-3.5 md:text-[46px] lg:text-[54px]"
               style={{
-                color: colors.cobalt,
+                color: "#2C2723",
                 ...fadeUp(stripVisible, "0s", "0.45rem"),
               }}
             >
@@ -479,9 +478,6 @@ export default function FooterSection() {
 
             <div className="order-1 flex min-w-0 w-full items-center gap-3 lg:order-2 lg:w-auto lg:flex-1 lg:gap-4">
               <div aria-hidden className="h-px min-w-[1rem] flex-1 bg-cream/30" />
-              <p className="font-title shrink-0 text-[8px] tracking-[0.24em] text-cream/55 uppercase sm:text-[10px]">
-                Elsewhere
-              </p>
               <div className="flex shrink-0 items-center gap-3.5">
                 {SOCIAL_LINKS.map((social) => (
                   <a

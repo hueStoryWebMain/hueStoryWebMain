@@ -506,7 +506,7 @@ export default function HomePortfolioTHS() {
             ref={quoteRef}
             className="font-script mx-auto max-w-[24rem] text-center text-[clamp(1.95rem,9.2vw,2.9rem)] leading-[1.7] tracking-[0.02em] normal-case select-none sm:max-w-none md:max-w-none md:whitespace-nowrap md:leading-[1.55]"
             style={{
-              color: "#A5BDD5",
+              color: "#2C2723",
               ...(quoteSize ? { fontSize: `${quoteSize}px` } : null),
             }}
           >
