@@ -41,7 +41,7 @@ export default function HeroNav({ light = true }: HeroNavProps) {
             <Link
               href={ROUTES.HOME}
               className={cn(
-                "font-title block whitespace-nowrap text-[13px] font-normal tracking-[0.06em] uppercase transition-opacity hover:opacity-80 sm:text-[16px] sm:tracking-[0.08em] md:text-[18px] md:tracking-[0.1em] lg:text-[22px]",
+                "font-title block whitespace-nowrap text-[19px] font-normal tracking-[0.06em] uppercase transition-opacity hover:opacity-80 sm:text-[20px] sm:tracking-[0.08em] md:text-[20px] md:tracking-[0.1em] lg:text-[24px]",
                 light ? "text-cream" : "text-ink"
               )}
             >

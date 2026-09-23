@@ -91,6 +91,8 @@ export const PATTERN_BG = {
   aboutTHS: "/images/patternsbg/about-ths-pattern.png",
   /** Damask foliage — About page hero */
   aboutPage: "/images/patternsbg/about-page-pattern.png",
+  /** Pattern plate — Portfolio page hero */
+  portfolioPage: "/images/patternsbg/portfolioHeader2.png",
   /** Navy vine + pinstripe — legacy editorial frame */
   navyVine: "/images/patternsbg/IMG_0515.PNG",
   /** Cream botanical — portfolio marquee band */

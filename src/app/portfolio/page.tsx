@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/common/PageHeader";
-import PortfolioPlaceholder from "@/components/pages/PortfolioPage/PortfolioPlaceholder";
+import PortfolioPageView from "@/components/pages/PortfolioPage/PortfolioPageView";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -9,14 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
-  return (
-    <>
-      <PageHeader
-        eyebrow="Our work"
-        title="Portfolio"
-        subtitle="Weddings and events with a palette of their own."
-      />
-      <PortfolioPlaceholder />
-    </>
-  );
+  return <PortfolioPageView />;
 }

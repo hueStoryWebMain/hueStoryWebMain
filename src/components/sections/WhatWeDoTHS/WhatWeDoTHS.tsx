@@ -23,13 +23,13 @@ const SERVICES = [
     title: "Private Events",
     body: "Milestone occasions, designed and directed with the same rigour and imagination as a wedding.",
     href: ROUTES.PORTFOLIO,
-    cta: "Learn More",
+    cta: "Explore",
   },
   {
-    title: "Galas & Curated Events",
+    title: "Galas And Curated Events",
     body: "Evenings built around a cause, a launch, or an impeccable guest list, composed to the last detail.",
     href: ROUTES.PORTFOLIO,
-    cta: "Learn More",
+    cta: "Explore",
   },
 ] as const;
 

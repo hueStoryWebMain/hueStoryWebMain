@@ -110,14 +110,18 @@ export default function AboutHomeTHS() {
               className="font-title text-[20px] font-normal leading-[1.2] tracking-[0.08em] text-ink uppercase sm:text-[24px] md:text-[28px] lg:text-[32px]"
               style={item("0.1s")}
             >
-              An Atelier for the World&apos;s Weddings
+              An Atelier for the World
+              <span className="font-silk inline-block px-[0.04em] text-[0.9em] leading-none font-[400] not-italic normal-case text-ink">
+                ’
+              </span>
+              s Weddings
             </h2>
 
             <p
               className="font-script mt-5 text-[26px] leading-snug text-ink/80 normal-case sm:mt-6 sm:text-[32px] md:text-[38px] lg:text-[42px]"
               style={item("0.22s")}
             >
-              where colour becomes memory
+              Curating Memories Of A Lifetime
             </p>
 
             <p
@@ -144,9 +148,9 @@ export default function AboutHomeTHS() {
               className="font-body mx-auto mt-8 max-w-lg text-[11px] leading-[1.7] font-medium tracking-[0.12em] text-ink/55 uppercase sm:mt-10 sm:text-[12px]"
               style={item("0.6s")}
             >
-              Recognized by{" "}
-              <span className="font-silk text-[14px] font-[300] tracking-[0.02em] text-ink/70 italic normal-case sm:text-[15px] md:text-[16px]">
-                Vogue, Architectural Digest, and the Vogue Wedding Book
+              Featured In{" "}
+              <span className="font-silk text-[14px] font-[300] tracking-[0.02em] text-ink/70 italic uppercase sm:text-[15px] md:text-[16px]">
+                Vogue, Architectural Digest and the Vogue Wedding Book
               </span>
             </p>
           </div>
