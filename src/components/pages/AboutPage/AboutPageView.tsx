@@ -13,7 +13,7 @@ export default function AboutPageView() {
       <AboutHeroTHS />
       <AboutHeroLegacy />
       <AboutFounderTHS />
-      <AboutProcessTHS />
+      <AboutProcessTHS tone="slate" />
       <FeaturesAwards />
     </main>
   );

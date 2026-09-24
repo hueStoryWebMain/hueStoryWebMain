@@ -3,18 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-const SCRIPT_WORD = "Intentional";
-
-const BODY_LINES = [
-  "Colour chosen once",
-  "Carried through",
-  "Every detail",
+const QUOTE_LINES = [
+  "It's all in the details,",
+  "made with love, finesse & craft,",
+  "opulent yet understated",
 ] as const;
 
-
 /**
- * IntentionalHomeTHS — slate canvas · cream paper plate
- * Big blue script + 3-line tracked body
+ * IntentionalHomeTHS — slate canvas · cream paper plate · script quote
  */
 export default function IntentionalHomeTHS() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -58,7 +54,7 @@ export default function IntentionalHomeTHS() {
     >
       <div className="flex w-full justify-center px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-14 lg:py-32">
         <div
-          className="relative w-full max-w-xl overflow-visible px-8 pt-6 pb-16 text-center sm:max-w-2xl sm:px-12 sm:pt-7 sm:pb-20 md:max-w-3xl md:px-16 md:pt-8 md:pb-24 lg:px-20 lg:pt-9 lg:pb-28"
+          className="relative w-full max-w-xl overflow-visible px-8 pt-6 pb-16 text-center sm:max-w-2xl sm:px-12 sm:pt-7 sm:pb-20 md:max-w-3xl md:px-16 md:pt-8 md:pb-24 lg:max-w-4xl lg:px-20 lg:pt-9 lg:pb-28"
           style={{
             backgroundColor: "#F7F3EB",
             boxShadow:
@@ -124,25 +120,18 @@ export default function IntentionalHomeTHS() {
 
             <h2
               id="intentional-home-heading"
-              className="font-script text-[52px] leading-[0.95] tracking-[0.01em] normal-case sm:text-[68px] md:text-[84px] lg:text-[96px]"
+              className="font-script flex max-w-[19rem] flex-col items-center gap-1 text-center text-[clamp(1.65rem,6.5vw,2.15rem)] leading-[1.3] tracking-[0.015em] normal-case sm:max-w-[28rem] sm:gap-1.5 sm:text-[clamp(1.9rem,3.8vw,2.5rem)] md:max-w-none md:text-[clamp(2.1rem,2.8vw,2.75rem)]"
               style={{
                 color: "#2C2723",
                 ...item("0.18s"),
               }}
             >
-              {SCRIPT_WORD}
-            </h2>
-
-            <div
-              className="font-body mt-8 flex flex-col items-center gap-1.5 text-[11px] leading-[1.45] font-medium tracking-[0.2em] text-base uppercase sm:mt-10 sm:gap-2 sm:text-[12px] sm:tracking-[0.22em] md:mt-12 md:text-[13px]"
-              style={item("0.32s")}
-            >
-              {BODY_LINES.map((line) => (
+              {QUOTE_LINES.map((line) => (
                 <span key={line} className="block">
                   {line}
                 </span>
               ))}
-            </div>
+            </h2>
           </div>
         </div>
       </div>

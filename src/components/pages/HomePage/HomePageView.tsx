@@ -3,6 +3,7 @@ import MistBar from "@/components/sections/MistBar/MistBar";
 import AboutHomeTHS from "@/components/sections/AboutHomeTHS/AboutHomeTHS";
 import FeaturesAwards from "@/components/sections/FeaturesAwards/FeaturesAwards";
 import WhatWeDoTHS from "@/components/sections/WhatWeDoTHS/WhatWeDoTHS";
+import AboutProcessTHS from "@/components/sections/AboutProcessTHS/AboutProcessTHS";
 import HomePortfolioTHS from "@/components/sections/HomePortfolioTHS/HomePortfolioTHS";
 import MeetTHS from "@/components/sections/MeetTHS/MeetTHS";
 import AboutFounderHomeTHS from "@/components/sections/AboutFounderHomeTHS/AboutFounderHomeTHS";
@@ -25,6 +26,7 @@ export default function HomePageView() {
         <FeaturesAwards />
         <MeetTHS />
         <WhatWeDoTHS />
+        <AboutProcessTHS />
         <HomePortfolioTHS />
         <AboutFounderHomeTHS />
         <IntentionalHomeTHS />
