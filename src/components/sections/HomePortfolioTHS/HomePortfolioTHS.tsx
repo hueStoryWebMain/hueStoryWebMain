@@ -17,7 +17,13 @@ const INERTIA_MIN_V = 0.08;
 /** Finger jitter on tap often exceeds 10px */
 const TAP_MAX_PX = 18;
 
-const QUOTE_WORDS = "“quietly intentional in every hue”".split(" ");
+const QUOTE_LINES = [
+  "A little magic, everywhere.",
+  "It's all in the details. Made to last.",
+] as const;
+
+const QUOTE_WORDS = QUOTE_LINES.join(" ").split(" ");
+
 
 type Frame = {
   src: string;
@@ -454,6 +460,7 @@ export default function HomePortfolioTHS() {
     const fit = () => {
       if (window.matchMedia("(max-width: 767px)").matches) {
         quote.style.fontSize = "";
+        quote.style.whiteSpace = "";
         setQuoteSize(null);
         return;
       }
@@ -500,11 +507,33 @@ export default function HomePortfolioTHS() {
       <div className="relative z-10 flex flex-col gap-3 pt-5 pb-7 sm:gap-4 sm:pt-4 sm:pb-10 md:gap-5 md:pb-12 lg:pb-14">
         <div
           ref={quoteWrapRef}
-          className="w-full overflow-visible px-5 py-5 sm:px-8 sm:py-6 md:px-6 md:py-7 lg:px-8"
+          className="w-full overflow-x-clip px-5 py-5 sm:px-8 sm:py-6 md:overflow-visible md:px-6 md:py-7 lg:px-8"
         >
+          {/* Mobile / tablet — three lines, balanced script spacing */}
+          <p
+            className="font-script mx-auto flex w-full max-w-[22rem] flex-col items-center gap-1 text-center text-[clamp(1.75rem,8vw,2.2rem)] leading-[1.4] tracking-[0.015em] normal-case select-none sm:max-w-[28rem] sm:gap-1.5 sm:text-[clamp(1.9rem,4.8vw,2.35rem)] md:hidden"
+            style={{ color: "#2C2723" }}
+          >
+            {QUOTE_LINES.map((line, i) => (
+              <span
+                key={line}
+                className="block will-change-[opacity]"
+                style={{
+                  opacity: quoteIn ? 1 : 0,
+                  transition: quoteIn
+                    ? `opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) ${0.08 + i * 0.14}s`
+                    : "none",
+                }}
+              >
+                {line}
+              </span>
+            ))}
+          </p>
+
+          {/* Desktop — single line, auto-fit */}
           <p
             ref={quoteRef}
-            className="font-script mx-auto max-w-[24rem] text-center text-[clamp(1.95rem,9.2vw,2.9rem)] leading-[1.7] tracking-[0.02em] normal-case select-none sm:max-w-none md:max-w-none md:whitespace-nowrap md:leading-[1.55]"
+            className="font-script mx-auto hidden text-center tracking-[0.02em] normal-case select-none md:block md:whitespace-nowrap md:leading-[1.55]"
             style={{
               color: "#2C2723",
               ...(quoteSize ? { fontSize: `${quoteSize}px` } : null),

@@ -15,7 +15,7 @@ const ROMAN = ["I", "II", "III"] as const;
 const SERVICES = [
   {
     title: "Weddings",
-    body: "Full creative direction from concept to execution for ceremonies of any scale, including multi-day and cross-cultural celebrations.",
+    body: "Full creative direction from concept to execution: design, production, and coordination for ceremonies of any scale, including multi-day celebrations and unions that layer two cultures, faiths, or family traditions into one shared story.",
     href: ROUTES.PORTFOLIO,
     cta: "Explore",
   },
@@ -26,8 +26,8 @@ const SERVICES = [
     cta: "Explore",
   },
   {
-    title: "Galas And Curated Events",
-    body: "Evenings built around a cause, a launch, or an impeccable guest list, composed to the last detail.",
+    title: "Galas & Curated Events",
+    body: "Evenings built around a cause, a launch, or the pleasure of an impeccable guest list, composed down to the smallest, most memorable detail.",
     href: ROUTES.PORTFOLIO,
     cta: "Explore",
   },
@@ -147,7 +147,7 @@ export default function WhatWeDoTHS() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full overflow-x-clip bg-base text-cream"
+      className="relative z-10 w-full overflow-x-clip border-t border-cream/20 bg-base text-cream"
       aria-labelledby="what-we-do-heading"
     >
       <div className="grid w-full grid-cols-1 lg:grid-cols-2 lg:items-stretch">
@@ -198,18 +198,18 @@ export default function WhatWeDoTHS() {
               aria-hidden
             />
 
-            <p className="font-body mt-5 max-w-md text-[12px] leading-[1.75] font-light tracking-[0.01em] text-cream/75 sm:mt-6 sm:text-[13px]">
+            <p className="font-body mt-5 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-cream/75 sm:mt-6 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
               Every celebration is built on finesse and restraint: opulent,
               understated, and made to last.
             </p>
 
-            <div className="mt-7 sm:mt-8">
+            <div className="mt-6 sm:mt-7">
               {SERVICES.map((service, i) => (
                 <div
                   key={service.title}
                   style={serviceEnter(i)}
                   className={cn(
-                    "py-5 sm:py-6",
+                    "py-4 sm:py-5",
                     i < SERVICES.length - 1 && "border-b border-cream/20"
                   )}
                 >
@@ -221,10 +221,20 @@ export default function WhatWeDoTHS() {
                       {ROMAN[i]}
                     </span>
                     <h3 className="font-title text-[18px] font-normal tracking-[0.08em] text-cream uppercase sm:text-[22px] md:text-[24px]">
-                      {service.title}
+                      {service.title.includes("&") ? (
+                        <>
+                          {service.title.split("&")[0]}
+                          <span className="font-silk inline-block px-[0.04em] text-[0.92em] leading-none font-[300] not-italic normal-case tracking-normal">
+                            &
+                          </span>
+                          {service.title.split("&")[1]}
+                        </>
+                      ) : (
+                        service.title
+                      )}
                     </h3>
                   </div>
-                  <p className="font-body mt-2 max-w-md pl-6 text-[11px] leading-[1.7] font-light tracking-[0.01em] text-cream/70 sm:mt-2.5 sm:pl-7 sm:text-[12px] md:text-[13px]">
+                  <p className="font-body mt-2 max-w-xl pl-6 text-[12px] leading-[1.85] font-light tracking-[0.01em] text-cream/70 sm:mt-2.5 sm:pl-7 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
                     {service.body}
                   </p>
                   <Link

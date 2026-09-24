@@ -6,8 +6,11 @@ import Link from "next/link";
 import { FOUNDER, PATTERN_BG, ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const BODY =
-  "Roshni Kurup is a cultural strategist, creative director, and entrepreneur whose work explores culture, place, and aesthetics. At its core, her practice is about creating spaces and experiences that make culture tangible, meaningful, and alive.";
+const BODY_A =
+  "Roshni Kurup is a cultural strategist, creative director, and entrepreneur whose work explores the relationship between culture, place, aesthetics, and human experience.";
+
+const BODY_B =
+  "Roshni's practice is, at its core, about creating spaces, experiences, and ideas that make culture tangible, meaningful, and alive.";
 
 function WordFade({
   words,
@@ -72,7 +75,8 @@ export default function AboutFounderHomeTHS() {
     return () => io.disconnect();
   }, []);
 
-  const bodyWords = BODY.split(" ");
+  const bodyAWords = BODY_A.split(" ");
+  const bodyBWords = BODY_B.split(" ");
 
   return (
     <section
@@ -228,11 +232,20 @@ export default function AboutFounderHomeTHS() {
             co-founder and creative director
           </p>
 
-          <p className="font-body mt-6 max-w-md text-[13px] leading-[1.85] font-light tracking-[0.01em] text-ink/75 sm:mt-7 sm:text-[14px] sm:leading-[1.9]">
+          <p className="font-body mt-6 max-w-md text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-7 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
             <WordFade
-              words={bodyWords}
+              words={bodyAWords}
               visible={visible}
               baseDelay={0.28}
+              stagger={0.012}
+            />
+          </p>
+
+          <p className="font-body mt-1.5 max-w-md text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
+            <WordFade
+              words={bodyBWords}
+              visible={visible}
+              baseDelay={0.42}
               stagger={0.012}
             />
           </p>

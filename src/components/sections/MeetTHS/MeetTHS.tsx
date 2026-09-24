@@ -6,19 +6,21 @@ import Link from "next/link";
 import { ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+const HEADLINE = "A World, Gathered Into One Story.";
+
 const BODY =
   "The Hue Story designs multi-day destination weddings and private events for clients across the globe. A decade spent crafting weddings for families across the United States, India, Australia, Italy, Kenya, Sri Lanka, South Africa, the Emirates, Bali, and beyond has left us with an inheritance of taste, artisanship, and cultural fluency, one that now travels with us wherever we work.";
 
-const RECOGNITION_LEAD = "Recognized by";
-const RECOGNITION_NAMES =
-  "Vogue, Architectural Digest, and the Vogue Wedding Book";
+const RECOGNITION =
+  "Featured In Vogue, Architectural Digest and The Vogue Wedding Book";
 
 /** Full-bleed opener above the flower */
 const INTRO_LINE =
   "A decade of destination weddings — taste, artisanship, and cultural fluency across the globe";
 
 const TITLE_LINE_1 = ["ABOUT"] as const;
-const TITLE_LINE_2 = ["THE", "HUE", "STORY"] as const;
+const HEADLINE_WORDS = HEADLINE.replace(/\.$/, "").split(" ");
+
 
 function WordFade({
   words,
@@ -86,8 +88,7 @@ export default function MeetTHS() {
   }, []);
 
   const bodyWords = BODY.split(" ");
-  const recognitionLeadWords = RECOGNITION_LEAD.split(" ");
-  const recognitionNameWords = RECOGNITION_NAMES.split(" ");
+  const recognitionWords = RECOGNITION.split(" ");
   const introWords = INTRO_LINE.split(" ");
 
   return (
@@ -139,7 +140,7 @@ export default function MeetTHS() {
       </div>
 
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-6 pt-8 pb-16 sm:gap-12 sm:px-8 sm:pt-10 sm:pb-20 md:px-10 md:pt-12 md:pb-24 lg:grid-cols-2 lg:items-start lg:gap-16 lg:px-14 lg:pt-14 lg:pb-28 xl:gap-20 xl:px-16">
-        {/* ——— Left: title ——— */}
+        {/* ——— Left: ABOUT / THE HUE STORY ——— */}
         <div className="min-w-0 overflow-visible">
           <h2
             id="meet-ths-heading"
@@ -148,43 +149,48 @@ export default function MeetTHS() {
             <span className="block text-[40px] leading-[0.95] tracking-[0.08em] text-cream transition-colors duration-500 ease-out hover:text-blush sm:text-[52px] md:text-[64px] lg:text-[72px] xl:text-[80px]">
               <WordFade words={TITLE_LINE_1} visible={visible} baseDelay={0} />
             </span>
-            <span className="mt-2 block whitespace-nowrap text-[clamp(1.35rem,5.6vw,3.75rem)] leading-[1.05] tracking-[0.06em] sm:mt-2.5 sm:tracking-[0.07em] md:text-[clamp(2.25rem,4.2vw,3.75rem)] lg:tracking-[0.08em]">
-              <WordFade
-                words={TITLE_LINE_2}
-                visible={visible}
-                baseDelay={0.08}
-              />
-            </span>
           </h2>
         </div>
 
-        {/* ——— Right: copy + Enquire ——— */}
+        {/* ——— Right: headline + copy + Enquire ——— */}
         <div className="flex min-w-0 flex-col">
-          <p className="font-silk max-w-xl text-[14px] leading-[1.85] font-[300] tracking-[0.01em] text-cream/80 not-italic normal-case sm:text-[15px] sm:leading-[1.9] md:text-[16px]">
+          <p className="font-title mb-5 whitespace-nowrap text-[clamp(1.05rem,2.4vw,1.5rem)] leading-[1.2] font-normal tracking-[0.04em] text-cream uppercase sm:mb-6">
+            <WordFade
+              words={HEADLINE_WORDS}
+              visible={visible}
+              baseDelay={0.12}
+              stagger={0.035}
+            />
+            <span
+              className="inline-block will-change-[opacity,transform]"
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateX(0)" : "translateX(-0.55em)",
+                transition: visible
+                  ? `opacity 0.26s ease-out ${0.12 + 0.035 * HEADLINE_WORDS.length}s, transform 0.26s ease-out ${0.12 + 0.035 * HEADLINE_WORDS.length}s`
+                  : "none",
+              }}
+            >
+              .
+            </span>
+          </p>
+
+          <p className="font-body max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-cream/80 normal-case sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
             <WordFade
               words={bodyWords}
               visible={visible}
-              baseDelay={0.16}
+              baseDelay={0.28}
               stagger={0.012}
             />
           </p>
 
-          <p className="font-body mt-7 max-w-xl text-[11px] leading-[1.7] font-medium tracking-[0.1em] text-cream/50 uppercase sm:mt-8 sm:text-[12px]">
+          <p className="font-silk mt-7 max-w-xl text-[15px] leading-[1.7] font-[300] tracking-[0.02em] text-cream/75 italic normal-case sm:mt-8 sm:text-[16px] md:text-[17px]">
             <WordFade
-              words={recognitionLeadWords}
+              words={recognitionWords}
               visible={visible}
               baseDelay={0.42}
               stagger={0.02}
             />
-            {" "}
-            <span className="font-silk text-[14px] font-[300] tracking-[0.02em] text-cream/75 italic normal-case sm:text-[15px] md:text-[16px]">
-              <WordFade
-                words={recognitionNameWords}
-                visible={visible}
-                baseDelay={0.48}
-                stagger={0.02}
-              />
-            </span>
           </p>
 
           <div

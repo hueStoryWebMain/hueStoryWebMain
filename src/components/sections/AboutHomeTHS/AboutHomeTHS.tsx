@@ -121,7 +121,7 @@ export default function AboutHomeTHS() {
               className="font-script mt-5 text-[26px] leading-snug text-ink/80 normal-case sm:mt-6 sm:text-[32px] md:text-[38px] lg:text-[42px]"
               style={item("0.22s")}
             >
-              Curating Memories Of A Lifetime
+              curating memories of a lifetime
             </p>
 
             <p
@@ -130,28 +130,32 @@ export default function AboutHomeTHS() {
             >
               The Hue Story was founded on a conviction that has never wavered:
               an occasion of real significance deserves genuine authorship.
-              Every project is led personally, from the first conversation to
-              the final toast, by a team built over a decade with artisans,
-              chefs, and makers around the world.
             </p>
 
             <p
               className="font-body mx-auto mt-5 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-6 sm:text-[13px] sm:leading-[1.9] md:max-w-2xl md:text-[14px] md:leading-[1.95]"
-              style={item("0.48s")}
+              style={item("0.44s")}
             >
-              That decade gives us range: precision paired with cultural depth,
-              equally at home in a Rajasthani palace, a Balinese cliffside, or a
-              California vineyard, the elegance particular to each occasion.
+              Every project is led personally, from the first conversation to
+              the final toast, by a team built over a decade of relationships
+              with artisans, chefs, and makers around the world.
             </p>
 
             <p
-              className="font-body mx-auto mt-8 max-w-lg text-[11px] leading-[1.7] font-medium tracking-[0.12em] text-ink/55 uppercase sm:mt-10 sm:text-[12px]"
+              className="font-body mx-auto mt-5 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-6 sm:text-[13px] sm:leading-[1.9] md:max-w-2xl md:text-[14px] md:leading-[1.95]"
+              style={item("0.52s")}
+            >
+              A decade of experience gives us a precision paired with genuine
+              cultural depth, an eye equally at home with a Rajasthani palace, a
+              Balinese cliffside, or a California vineyard. It is this what
+              gives each occasion its certain elan.
+            </p>
+
+            <p
+              className="font-silk mx-auto mt-8 max-w-lg text-[14px] leading-[1.7] font-[300] tracking-[0.02em] text-ink/70 italic normal-case sm:mt-10 sm:text-[15px] md:text-[16px]"
               style={item("0.6s")}
             >
-              Featured In{" "}
-              <span className="font-silk text-[14px] font-[300] tracking-[0.02em] text-ink/70 italic uppercase sm:text-[15px] md:text-[16px]">
-                Vogue, Architectural Digest and the Vogue Wedding Book
-              </span>
+              Featured in Vogue, Architecture Digest and The Vogue Wedding Book
             </p>
           </div>
 

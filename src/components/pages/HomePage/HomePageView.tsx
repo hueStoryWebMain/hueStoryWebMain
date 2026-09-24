@@ -23,9 +23,9 @@ export default function HomePageView() {
         <MistBar />
         <AboutHomeTHS />
         <FeaturesAwards />
+        <MeetTHS />
         <WhatWeDoTHS />
         <HomePortfolioTHS />
-        <MeetTHS />
         <AboutFounderHomeTHS />
         <IntentionalHomeTHS />
         <PhilosophyHomeTHS />
