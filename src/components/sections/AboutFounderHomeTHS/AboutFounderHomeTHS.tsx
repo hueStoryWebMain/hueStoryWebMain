@@ -86,7 +86,7 @@ export default function AboutFounderHomeTHS() {
     >
       <div className="grid w-full grid-cols-1 lg:grid-cols-2 lg:items-stretch">
         {/* ——— Left: stripe pattern + Roshini + angled script ——— */}
-        <div className="relative min-h-[520px] w-full overflow-visible pb-10 sm:min-h-[560px] sm:pb-12 md:min-h-[620px] lg:min-h-[680px] lg:pb-0">
+        <div className="relative min-h-[580px] w-full overflow-visible pb-12 sm:min-h-[640px] sm:pb-14 md:min-h-[720px] lg:min-h-[780px] lg:pb-0">
           <div
             className="absolute inset-0"
             aria-hidden
@@ -98,7 +98,7 @@ export default function AboutFounderHomeTHS() {
             }}
           />
 
-          <div className="relative z-10 flex h-full items-center justify-center px-6 py-12 sm:px-12 sm:py-14 md:px-14 md:py-16 lg:px-16">
+          <div className="relative z-10 flex h-full items-center justify-center px-6 py-16 sm:px-12 sm:py-20 md:px-14 md:py-20 lg:px-16 lg:py-24">
             {/* Mobile: nudge image left so script has room on the right */}
             <div className="relative w-full max-w-[240px] -translate-x-3 sm:max-w-[300px] sm:translate-x-0 md:max-w-[340px] lg:max-w-[360px]">
               <div className="relative">
@@ -202,7 +202,7 @@ export default function AboutFounderHomeTHS() {
 
         {/* ——— Right: paper cream + title, para, CTA ——— */}
         <div
-          className="flex flex-col justify-center px-6 py-14 text-ink sm:px-10 sm:py-16 md:px-12 lg:px-14 lg:py-20 xl:px-16"
+          className="flex flex-col justify-center px-6 py-16 text-ink sm:px-10 sm:py-20 md:px-12 lg:px-14 lg:py-24 xl:px-16"
           style={{ backgroundColor: "#F7F3EB" }}
         >
           <h2

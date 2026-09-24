@@ -504,7 +504,7 @@ export default function HomePortfolioTHS() {
       aria-label="Portfolio"
       style={{ backgroundColor: "#F7F3EB" }}
     >
-      <div className="relative z-10 flex flex-col gap-3 pt-5 pb-7 sm:gap-4 sm:pt-4 sm:pb-10 md:gap-5 md:pb-12 lg:pb-14">
+      <div className="relative z-10 flex flex-col gap-3 pt-5 pb-0 sm:gap-4 sm:pt-4 sm:pb-0 md:gap-5 md:pb-0 lg:pb-0">
         <div
           ref={quoteWrapRef}
           className="w-full overflow-x-clip px-5 py-5 sm:px-8 sm:py-6 md:overflow-visible md:px-6 md:py-7 lg:px-8"
