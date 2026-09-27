@@ -138,7 +138,7 @@ export default function TestimonialHomeTHS() {
       <div className="relative mx-auto w-full max-w-[1400px] px-0 pt-3 pb-16 sm:pt-4 sm:pb-20 md:pt-5 md:pb-24 lg:pt-6 lg:pb-28">
         <div className="relative z-0 px-5 sm:px-8 lg:px-10">
           <p
-            className="font-script mb-2 text-center text-[22px] leading-none tracking-[0.01em] text-cream/70 normal-case sm:mb-2.5 sm:text-[26px] md:mb-3 md:pl-[38%] md:text-left md:text-[28px] lg:pl-[36%] xl:pl-[34%]"
+            className="font-script mb-3 text-center text-[30px] leading-none tracking-[0.01em] text-cream/70 normal-case sm:mb-3.5 sm:text-[36px] md:mb-4 md:pl-[38%] md:text-left md:text-[40px] lg:text-[44px] lg:pl-[36%] xl:pl-[34%]"
             style={fadeUp("0.02s", "0.75rem")}
           >
             from our couples

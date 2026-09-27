@@ -18,10 +18,8 @@ const PARAS = [
   "We believe every celebration should be built from moments that feel like magic: guests spellbound and moved, carrying it with them long after the last guest has gone home.",
   "Every wedding begins with two people, the cultures, stories, and experiences they carry with them, and almost always, two traditions finding their way into one shared language. We build outward from there, texture upon texture, tradition upon tradition, sourcing flowers from Holland to Africa, chefs from Italy and France, and craftsmanship from India, until a celebration feels genuinely abundant.",
   "Whether an occasion leans quiet or exuberant, the secret is the same: restraint, the discernment to know which detail earns its place, keeping richness from tipping into excess.",
+  "The truest measure of our work is what follows it: families who return for a second wedding, then a third, no longer clients but friends of the house.",
 ] as const;
-
-const CLOSING =
-  "The truest measure of our work is what follows it: families who return for a second wedding, then a third, no longer clients but friends of the house.";
 
 
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
@@ -169,18 +167,12 @@ export default function PhilosophyHomeTHS() {
             {PARAS.map((para, i) => (
               <p
                 key={para.slice(0, 24)}
-                className="font-silk text-[12px] leading-[1.75] font-[300] tracking-[0.01em] text-ink/80 not-italic normal-case sm:text-[13px] sm:leading-[1.8] lg:text-[14px]"
+                className="font-body text-[11px] leading-[1.8] font-normal tracking-[0.01em] text-ink/80 normal-case sm:text-[12px] sm:leading-[1.85] lg:text-[12.5px]"
                 style={fadeUp(visible, `${0.46 + i * 0.1}s`, "0.75rem")}
               >
                 {para}
               </p>
             ))}
-            <p
-              className="font-body pt-1 text-[10px] leading-[1.7] font-medium tracking-[0.12em] text-ink/70 uppercase sm:pt-1.5 sm:text-[11px] sm:leading-[1.75] lg:text-[12px]"
-              style={fadeUp(visible, "0.76s", "0.75rem")}
-            >
-              {CLOSING}
-            </p>
           </div>
 
           <div
