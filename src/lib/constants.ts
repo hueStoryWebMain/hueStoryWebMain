@@ -221,3 +221,135 @@ export const SECTION_STOCK_IMAGES = [
   "/images/home/hero-19.webp",
   "/images/home/hero-04.webp",
 ] as const;
+
+export type PortfolioEvent = {
+  slug: string;
+  title: string;
+  couple: string;
+  cover: string;
+  gallery: readonly string[];
+};
+
+/**
+ * Portfolio events — placeholder titles and imagery until client assets land.
+ * Filenames carry pixel dimensions (e.g. 027_2500x3752) used for gallery aspect.
+ */
+export const PORTFOLIO_EVENTS: readonly PortfolioEvent[] = [
+  {
+    slug: "celebration-one",
+    title: "Celebration One",
+    couple: "Name & Name",
+    cover: "/images/portfolioHome/027_2500x3683.webp",
+    gallery: [
+      "/images/portfolioHome/027_2500x3683.webp",
+      "/images/portfolioHome/027_2456x3680.webp",
+      "/images/portfolioHome/022_2500x1667.webp",
+      "/images/portfolioHome/027_2500x3752.webp",
+      "/images/portfolioHome/026_2500x3693.webp",
+      "/images/portfolioHome/027_2500x3125.webp",
+      "/images/portfolioHome/023_2154x3350.webp",
+      "/images/portfolioHome/023_2500x3641.webp",
+      "/images/portfolioHome/019_2500x3690.webp",
+    ],
+  },
+  {
+    slug: "celebration-two",
+    title: "Celebration Two",
+    couple: "Name & Name",
+    cover: "/images/portfolioHome/018_2500x3750.webp",
+    gallery: [
+      "/images/portfolioHome/018_2500x3750.webp",
+      "/images/portfolioHome/018_2500x3841.webp",
+      "/images/portfolioHome/017_2500x1668.webp",
+      "/images/portfolioHome/018_2048x3071.webp",
+      "/images/portfolioHome/017_2500x3750.webp",
+      "/images/portfolioHome/017_2500x3687.webp",
+      "/images/portfolioHome/016_2048x3071.webp",
+      "/images/portfolioHome/015_2048x3071.webp",
+    ],
+  },
+  {
+    slug: "celebration-three",
+    title: "Celebration Three",
+    couple: "Name & Name",
+    cover: "/images/portfolioHome/003_2500x3877.webp",
+    gallery: [
+      "/images/portfolioHome/003_2500x3877.webp",
+      "/images/portfolioHome/004_2500x3404.webp",
+      "/images/portfolioHome/002_1826x1152.webp",
+      "/images/portfolioHome/003_2456x3680.webp",
+      "/images/portfolioHome/004_2500x3804.webp",
+      "/images/portfolioHome/003_2500x3766.webp",
+      "/images/portfolioHome/005_2500x3819.webp",
+      "/images/portfolioHome/005_2500x3794.webp",
+    ],
+  },
+  {
+    slug: "celebration-four",
+    title: "Celebration Four",
+    couple: "Name & Name",
+    cover: "/images/portfolioHome/036_2401x3600.webp",
+    gallery: [
+      "/images/portfolioHome/036_2401x3600.webp",
+      "/images/portfolioHome/032_2369x3629.webp",
+      "/images/portfolioHome/006_2500x1207.webp",
+      "/images/portfolioHome/036_2500x3670.webp",
+      "/images/portfolioHome/032_2400x3600.webp",
+      "/images/portfolioHome/032_2048x3078.webp",
+      "/images/portfolioHome/030_2500x3333.webp",
+      "/images/portfolioHome/029_2500x3874.webp",
+    ],
+  },
+  {
+    slug: "celebration-five",
+    title: "Celebration Five",
+    couple: "Name & Name",
+    cover: "/images/portfolioHome/028_2395x3600.webp",
+    gallery: [
+      "/images/portfolioHome/028_2395x3600.webp",
+      "/images/portfolioHome/028_2500x3309.webp",
+      "/images/portfolioHome/001_2048x1362.webp",
+      "/images/portfolioHome/028_2500x4033.webp",
+      "/images/portfolioHome/028_2048x3078.webp",
+      "/images/portfolioHome/029_2048x3078.webp",
+      "/images/portfolioHome/010_2500x3746.webp",
+      "/images/portfolioHome/010_2454x3344.webp",
+    ],
+  },
+  {
+    slug: "celebration-six",
+    title: "Celebration Six",
+    couple: "Name & Name",
+    cover: "/images/portfolioHome/021_2500x3764.webp",
+    gallery: [
+      "/images/portfolioHome/021_2500x3764.webp",
+      "/images/portfolioHome/021_2500x3750.webp",
+      "/images/portfolioHome/002_1694x1152.webp",
+      "/images/portfolioHome/021_2500x3847.webp",
+      "/images/portfolioHome/022_2500x3678.webp",
+      "/images/portfolioHome/021_2500x3333.webp",
+      "/images/portfolioHome/022_2500x3750.webp",
+      "/images/portfolioHome/009_2500x3750.webp",
+    ],
+  },
+] as const;
+
+export const portfolioEventHref = (slug: string) =>
+  `${ROUTES.PORTFOLIO}/${slug}`;
+
+/** Reads WxH from asset filenames like 027_2500x3752.webp */
+export function imageDimsFromPath(src: string) {
+  const match = src.match(/_(\d+)x(\d+)\./);
+  if (!match) return { width: 4, height: 5 };
+  return { width: Number(match[1]), height: Number(match[2]) };
+}
+
+/** First landscape frame in the event's gallery, falling back to the cover. */
+export function eventHeroImage(event: PortfolioEvent): string {
+  return (
+    event.gallery.find((src) => {
+      const { width, height } = imageDimsFromPath(src);
+      return width > height;
+    }) ?? event.cover
+  );
+}

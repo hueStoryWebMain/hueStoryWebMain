@@ -112,7 +112,7 @@ export default function PortfolioIntroTHS() {
         </h2>
 
         <p
-          className="font-heading mt-5 max-w-md text-[11px] leading-[1.7] font-normal tracking-[0.04em] text-cream/75 not-italic normal-case will-change-[opacity,transform] sm:mt-6 sm:text-[12px] md:text-[13px]"
+          className="font-body mt-5 max-w-lg text-[12px] leading-[1.85] font-normal tracking-[0.01em] text-cream/80 not-italic normal-case will-change-[opacity,transform] sm:mt-6 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]"
           style={fade("0.24s", "0.8rem", "1.25s")}
         >
           {LEAD}

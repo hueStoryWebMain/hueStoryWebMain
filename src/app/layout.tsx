@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import "react-photo-view/dist/react-photo-view.css";
 import ConditionalNavbar from "@/components/layout/ConditionalNavbar";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import PageTransition from "@/components/layout/PageTransition";
 import FooterSection from "@/components/sections/FooterSection/FooterSection";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -47,7 +48,9 @@ export default function RootLayout({
       <body className="min-h-dvh overflow-x-clip bg-base text-cream antialiased">
         <SmoothScroll>
           <ConditionalNavbar />
-          <main className="min-h-dvh">{children}</main>
+          <main className="min-h-dvh">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <FooterSection />
         </SmoothScroll>
         <Analytics />

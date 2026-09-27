@@ -1,8 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ReactLenis } from "lenis/react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { ReactLenis, useLenis } from "lenis/react";
 import "lenis/dist/lenis.css";
+
+/** Lenis keeps its own scroll target, so reset it on route change or it restores the old position. */
+function ScrollToTopOnRoute() {
+  const pathname = usePathname();
+  const lenis = useLenis();
+
+  useLayoutEffect(() => {
+    if (window.location.hash) return;
+    lenis?.scrollTo(0, { immediate: true, force: true });
+  }, [pathname, lenis]);
+
+  return null;
+}
 
 type SmoothScrollProps = {
   children: React.ReactNode;
@@ -38,6 +52,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
         syncTouch: false,
       }}
     >
+      <ScrollToTopOnRoute />
       {children}
     </ReactLenis>
   );
