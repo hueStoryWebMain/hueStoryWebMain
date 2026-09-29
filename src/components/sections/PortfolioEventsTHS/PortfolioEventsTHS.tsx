@@ -49,10 +49,6 @@ function EventCard({
             priority={index < 2}
             className="object-cover object-center"
           />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-ink/0 transition-colors duration-700 group-hover:bg-ink/10"
-          />
         </div>
       </Link>
 

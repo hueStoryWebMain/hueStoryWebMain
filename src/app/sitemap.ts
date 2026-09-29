@@ -6,7 +6,7 @@ const routes = [
   "/portfolio",
   "/about",
   "/the-experience",
-  "/get-in-touch",
+  "/inquire",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

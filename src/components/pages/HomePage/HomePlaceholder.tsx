@@ -7,7 +7,7 @@ export default function HomePlaceholder() {
           Home sections
         </h2>
         <p className="mt-4 font-body text-[15px] font-light leading-[1.7] text-ink/70 md:text-base">
-          Portfolio preview, about band, and closing enquire will live here as
+          Portfolio preview, about band, and closing inquire will live here as
           modular sections once the hero rhythm is approved.
         </p>
       </div>

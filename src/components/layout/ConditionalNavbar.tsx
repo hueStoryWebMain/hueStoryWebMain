@@ -13,6 +13,7 @@ export default function ConditionalNavbar() {
     pathname === "/about" ||
     pathname === "/portfolio" ||
     pathname.startsWith("/portfolio/") ||
+    pathname === "/inquire" ||
     pathname.startsWith("/studio")
   ) {
     return null;

@@ -9,7 +9,7 @@ export const ROUTES = {
   ABOUT: "/about",
   SERVICES: "/services",
   THE_EXPERIENCE: "/the-experience",
-  CONTACT: "/get-in-touch",
+  CONTACT: "/inquire",
 } as const;
 
 /** Primary nav */
@@ -24,7 +24,7 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = [
   { name: "Portfolio", href: ROUTES.PORTFOLIO },
   { name: "About", href: ROUTES.ABOUT },
-  { name: "Enquire", href: ROUTES.CONTACT },
+  { name: "Inquire", href: ROUTES.CONTACT },
 ] as const;
 
 export const SOCIAL_LINKS = [
@@ -93,6 +93,8 @@ export const PATTERN_BG = {
   aboutPage: "/images/patternsbg/about-page-pattern.png",
   /** Pattern plate — Portfolio page hero */
   portfolioPage: "/images/patternsbg/portfolioHeader2.png",
+  /** Blue stripes, arches + floral medallion — Inquire page hero */
+  contactPage: "/images/patternsbg/contact-header2.png",
   /** Navy vine + pinstripe — legacy editorial frame */
   navyVine: "/images/patternsbg/IMG_0515.PNG",
   /** Cream botanical — portfolio marquee band */

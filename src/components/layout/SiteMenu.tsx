@@ -24,7 +24,7 @@ const MENU_LINKS = [
   { name: "Home", href: ROUTES.HOME },
   { name: "About", href: ROUTES.ABOUT },
   { name: "Portfolio", href: ROUTES.PORTFOLIO },
-  { name: "Contact", href: ROUTES.CONTACT, silk: true },
+  { name: "Inquire", href: ROUTES.CONTACT, silk: true },
 ] as const;
 
 const MENU_BG = "/images/home/hero-lead-01.webp";

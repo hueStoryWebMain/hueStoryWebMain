@@ -58,7 +58,7 @@ function WordFade({
 }
 
 /**
- * MeetTHS — slate blue editorial split: title | copy + Enquire
+ * MeetTHS — slate blue editorial split: title | copy + Inquire
  */
 export default function MeetTHS() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -152,7 +152,7 @@ export default function MeetTHS() {
           </h2>
         </div>
 
-        {/* ——— Right: headline + copy + Enquire ——— */}
+        {/* ——— Right: headline + copy + Inquire ——— */}
         <div className="flex min-w-0 flex-col">
           <p className="font-title mb-5 whitespace-nowrap text-[clamp(1.05rem,2.4vw,1.5rem)] leading-[1.2] font-normal tracking-[0.04em] text-cream uppercase sm:mb-6">
             <WordFade

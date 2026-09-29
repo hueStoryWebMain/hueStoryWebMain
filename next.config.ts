@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: false,
   },
+  async redirects() {
+    return [
+      { source: "/get-in-touch", destination: "/inquire", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

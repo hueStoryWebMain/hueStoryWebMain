@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        /** Warm Cream filled — Enquire, Submit, Book on dark base */
+        /** Warm Cream filled — Inquire, Submit, Book on dark base */
         primary: "bg-cream text-base hover:bg-cream/90",
         /** Warm Cream outlined — View Story, Our Work */
         secondary:

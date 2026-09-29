@@ -13,11 +13,11 @@ import Logo from "@/components/common/Logo";
 
 const NAVIGATE = [
   { name: "Home", href: ROUTES.HOME },
-  ...FOOTER_LINKS.filter((l) => l.name !== "Enquire").map((l) => ({
+  ...FOOTER_LINKS.filter((l) => l.name !== "Inquire").map((l) => ({
     name: l.name,
     href: l.href,
   })),
-  { name: "Contact", href: ROUTES.CONTACT },
+  { name: "Inquire", href: ROUTES.CONTACT },
 ] as const;
 
 const LOCATIONS =
