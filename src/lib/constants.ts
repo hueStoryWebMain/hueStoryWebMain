@@ -93,8 +93,8 @@ export const PATTERN_BG = {
   aboutPage: "/images/patternsbg/about-page-pattern.png",
   /** Pattern plate — Portfolio page hero */
   portfolioPage: "/images/patternsbg/portfolioHeader2.png",
-  /** Blue stripes, arches + floral medallion — Inquire page hero */
-  contactPage: "/images/patternsbg/contact-header2.png",
+  /** Inquire page hero */
+  contactPage: "/images/patternsbg/contact-header3.png",
   /** Navy vine + pinstripe — legacy editorial frame */
   navyVine: "/images/patternsbg/IMG_0515.PNG",
   /** Cream botanical — portfolio marquee band */

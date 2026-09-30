@@ -27,13 +27,12 @@ export default function ContactHeroTHS() {
     >
       <div
         aria-hidden
-        className="absolute inset-0 will-change-[opacity,transform]"
+        className="absolute inset-0 bg-left will-change-[opacity,transform] md:bg-center"
         style={{
           backgroundColor: "var(--color-base)",
           backgroundImage: `url(${PATTERN_BG.contactPage})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "center center",
           opacity: ready ? 1 : 0,
           transform: ready ? "scale(1)" : "scale(1.08)",
           transition: `opacity 1.8s ${EASE} 0.05s, transform 3s ${EASE} 0.05s`,

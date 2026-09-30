@@ -184,6 +184,9 @@ export default function WhatWeDoTHS() {
           </p>
 
           <div className="flex flex-col justify-center px-6 pt-14 pb-10 sm:px-10 sm:pt-16 sm:pb-12 md:px-12 md:pt-16 lg:px-14 lg:pt-20 lg:pb-14 xl:px-16">
+            <p className="font-body mb-3 text-[11px] leading-[1.85] font-light tracking-[0.01em] text-cream/75 uppercase sm:mb-3.5 sm:text-[12px] sm:leading-[1.9] md:text-[13px] md:leading-[1.95]">
+              Our Services
+            </p>
             <h2
               id="what-we-do-heading"
               className="font-title text-[24px] font-normal tracking-[0.1em] text-cream uppercase sm:text-[28px] md:text-[32px]"
@@ -198,7 +201,7 @@ export default function WhatWeDoTHS() {
               aria-hidden
             />
 
-            <p className="font-body mt-5 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-cream/75 sm:mt-6 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
+            <p className="font-body mt-5 max-w-xl text-[11px] leading-[1.85] font-light tracking-[0.01em] text-cream/75 sm:mt-6 sm:text-[12px] sm:leading-[1.9] md:text-[13px] md:leading-[1.95]">
               Every celebration is built on finesse and restraint: opulent,
               understated, and made to last.
             </p>
@@ -220,21 +223,11 @@ export default function WhatWeDoTHS() {
                     >
                       {ROMAN[i]}
                     </span>
-                    <h3 className="font-title text-[18px] font-normal tracking-[0.08em] text-cream uppercase sm:text-[22px] md:text-[24px]">
-                      {service.title.includes("&") ? (
-                        <>
-                          {service.title.split("&")[0]}
-                          <span className="font-silk inline-block px-[0.04em] text-[0.92em] leading-none font-[300] not-italic normal-case tracking-normal">
-                            &
-                          </span>
-                          {service.title.split("&")[1]}
-                        </>
-                      ) : (
-                        service.title
-                      )}
+                    <h3 className="font-silk text-[22px] font-[300] tracking-[0.02em] text-cream italic normal-case sm:text-[24px] md:text-[26px]">
+                      {service.title}
                     </h3>
                   </div>
-                  <p className="font-body mt-2 max-w-xl pl-6 text-[12px] leading-[1.85] font-light tracking-[0.01em] text-cream/70 sm:mt-2.5 sm:pl-7 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
+                  <p className="font-body mt-2 max-w-xl pl-6 text-[11px] leading-[1.85] font-light tracking-[0.01em] text-cream/70 sm:mt-2.5 sm:pl-7 sm:text-[12px] sm:leading-[1.9] md:text-[13px] md:leading-[1.95]">
                     {service.body}
                   </p>
                   <Link

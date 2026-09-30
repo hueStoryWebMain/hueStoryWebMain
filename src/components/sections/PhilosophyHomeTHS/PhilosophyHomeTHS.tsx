@@ -14,13 +14,23 @@ const IMAGES = {
   gridWide: "/images/section-images/008_2500x3688.webp",
 } as const;
 
-const PARAS = [
-  "We believe every celebration should be built from moments that feel like magic: guests spellbound and moved, carrying it with them long after the last guest has gone home.",
-  "Every wedding begins with two people, the cultures, stories, and experiences they carry with them, and almost always, two traditions finding their way into one shared language. We build outward from there, texture upon texture, tradition upon tradition, sourcing flowers from Holland to Africa, chefs from Italy and France, and craftsmanship from India, until a celebration feels genuinely abundant.",
-  "Whether an occasion leans quiet or exuberant, the secret is the same: restraint, the discernment to know which detail earns its place, keeping richness from tipping into excess.",
-  "The truest measure of our work is what follows it: families who return for a second wedding, then a third, no longer clients but friends of the house.",
-] as const;
-
+const PARAS: readonly { heading?: string; body: string }[] = [
+  {
+    body: "We believe every celebration should be built from moments that feel like magic: guests spellbound and moved, carrying it with them long after the last guest has gone home.",
+  },
+  {
+    heading: "Two traditions, one language",
+    body: "Every wedding begins with two people, the cultures, stories, and experiences they carry with them, and almost always, two traditions finding their way into one shared language. We build outward from there, texture upon texture, tradition upon tradition, sourcing flowers from Holland to Africa, chefs from Italy and France, and craftsmanship from India, until a celebration feels genuinely abundant.",
+  },
+  {
+    heading: "The art of restraint",
+    body: "Whether an occasion leans quiet or exuberant, the secret is the same: restraint, the discernment to know which detail earns its place, keeping richness from tipping into excess.",
+  },
+  {
+    heading: "Friends of the house",
+    body: "The truest measure of our work is what follows it: families who return for a second wedding, then a third, no longer clients but friends of the house.",
+  },
+];
 
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
@@ -51,7 +61,7 @@ export default function PhilosophyHomeTHS() {
           io.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -74,7 +84,7 @@ export default function PhilosophyHomeTHS() {
           io.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -130,77 +140,79 @@ export default function PhilosophyHomeTHS() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center px-6 py-10 sm:px-8 md:col-span-4 md:px-6 md:py-12 lg:px-8 lg:py-14 xl:px-10">
-          <p
-            className="font-body text-[9px] font-medium tracking-[0.28em] text-ink/40 uppercase sm:text-[10px]"
-            style={fadeUp(visible, "0.14s", "0.6rem")}
-          >
-            What we believe
-          </p>
-
-          <h2
-            id="philosophy-home-heading"
-            className="font-title mt-3 text-[28px] leading-[1.05] font-normal tracking-[0.1em] text-ink uppercase sm:text-[32px] md:text-[28px] lg:text-[34px] xl:text-[38px]"
-            style={fadeUp(visible, "0.22s", "0.85rem")}
-          >
-            Philosophy
-          </h2>
-
-          <p
-            className="font-silk mt-3 text-[15px] font-[200] leading-snug tracking-[0.01em] text-ink/70 italic normal-case sm:mt-3.5 sm:text-[16px] lg:text-[17px]"
-            style={fadeUp(visible, "0.28s", "0.65rem")}
-          >
-            Where two stories become one.
-          </p>
-
-          <div
-            aria-hidden
-            className="mt-4 h-px w-10 origin-left bg-ink/20 sm:mt-5"
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? "scaleX(1)" : "scaleX(0)",
-              transition: `opacity 0.7s ${EASE} 0.4s, transform 0.85s ${EASE} 0.4s`,
-            }}
-          />
-
-          <div className="mt-5 space-y-3.5 sm:mt-6 sm:space-y-4">
-            {PARAS.map((para, i) => (
-              <p
-                key={para.slice(0, 24)}
-                className="font-body text-[11px] leading-[1.8] font-normal tracking-[0.01em] text-ink/80 normal-case sm:text-[12px] sm:leading-[1.85] lg:text-[12.5px]"
-                style={fadeUp(visible, `${0.46 + i * 0.1}s`, "0.75rem")}
-              >
-                {para}
-              </p>
-            ))}
-          </div>
-
-          <div
-            className="mt-9 sm:mt-10 lg:mt-11"
-            style={fadeUp(visible, "0.82s", "0.65rem")}
-          >
-            <Link
-              href={ROUTES.CONTACT}
-              className="group relative inline-block"
+        <div className="flex flex-col items-center justify-center px-6 py-12 sm:px-8 md:col-span-5 md:px-6 md:py-14 lg:px-8 lg:py-16 xl:px-10">
+          <div className="flex w-full flex-col items-center text-center md:items-start md:text-left">
+            <p
+              className="font-body text-[9px] font-normal tracking-[0.34em] text-ink/55 uppercase sm:text-[10px]"
+              style={fadeUp(visible, "0.14s", "0.6rem")}
             >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 translate-x-1.5 translate-y-1.5 border border-ink/35 transition-colors duration-300 group-hover:border-blush/70 sm:translate-x-2 sm:translate-y-2"
-              />
-              <span className="relative inline-flex items-baseline justify-center gap-x-2 border border-ink bg-transparent px-7 py-3 transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_22%,#FAF8F4)] sm:gap-x-2.5 sm:px-8 sm:py-3.5">
-                <span className="font-body text-[10px] leading-none font-medium tracking-[0.24em] text-ink uppercase transition-colors duration-300 sm:text-[11px]">
-                  Inquire about
+              What we believe
+            </p>
+
+            <h2
+              id="philosophy-home-heading"
+              className="font-title mt-3 text-[34px] leading-[1.05] font-normal tracking-[0.08em] text-ink uppercase sm:mt-4 sm:text-[40px] md:text-[32px] lg:text-[38px] xl:text-[44px]"
+              style={fadeUp(visible, "0.22s", "0.85rem")}
+            >
+              Philosophy
+            </h2>
+
+            <p
+              className="font-silk mt-3 text-[17px] font-[300] leading-snug tracking-[0.01em] text-ink/75 italic normal-case sm:mt-4 sm:text-[19px] lg:text-[20px]"
+              style={fadeUp(visible, "0.3s", "0.65rem")}
+            >
+              Where two stories become one.
+            </p>
+
+            <div className="mt-8 flex w-full flex-col items-center sm:mt-10 md:items-start">
+              {PARAS.map((para, i) => (
+                <div
+                  key={para.body.slice(0, 24)}
+                  className={cn(
+                    "flex flex-col items-center md:items-start",
+                    i > 0 && "mt-5 sm:mt-6",
+                  )}
+                  style={fadeUp(visible, `${0.42 + i * 0.1}s`, "0.75rem")}
+                >
+                  {para.heading ? (
+                    <h3 className="font-silk mb-4 text-[20px] leading-snug font-[300] tracking-[0.01em] text-ink italic normal-case sm:mb-5 sm:text-[22px] lg:text-[24px]">
+                      {para.heading}
+                    </h3>
+                  ) : null}
+                  <p className="font-body text-[10px] leading-[2] font-normal tracking-[0.12em] text-ink/75 uppercase sm:text-[11.5px] lg:text-[12px]">
+                    {para.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div
+              className="mt-10 sm:mt-12"
+              style={fadeUp(visible, "0.9s", "0.65rem")}
+            >
+              <Link
+                href={ROUTES.CONTACT}
+                className="group relative inline-block"
+              >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 translate-x-1.5 translate-y-1.5 border border-ink/35 transition-colors duration-300 group-hover:border-blush/70 sm:translate-x-2 sm:translate-y-2"
+                />
+                <span className="relative inline-flex items-baseline justify-center gap-x-2 border border-ink bg-transparent px-7 py-3 transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_22%,#FAF8F4)] sm:gap-x-2.5 sm:px-8 sm:py-3.5">
+                  <span className="font-body text-[10px] leading-none font-medium tracking-[0.24em] text-ink uppercase transition-colors duration-300 sm:text-[11px]">
+                    Inquire about
+                  </span>
+                  <span className="font-silk inline-block translate-y-[0.12em] text-[15px] leading-none font-[300] tracking-normal text-ink italic normal-case transition-colors duration-300 sm:text-[17px]">
+                    your celebration
+                  </span>
                 </span>
-                <span className="font-silk inline-block translate-y-[0.12em] text-[15px] leading-none font-[300] tracking-normal text-ink italic normal-case transition-colors duration-300 sm:text-[17px]">
-                  your celebration
-                </span>
-              </span>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
 
         <div
-          className="relative aspect-[4/5] w-full overflow-hidden md:col-span-5 md:aspect-auto md:min-h-[520px] lg:min-h-[580px]"
+          className="relative aspect-[4/5] w-full overflow-hidden md:col-span-4 md:aspect-auto md:min-h-[520px] lg:min-h-[580px]"
           style={fadeSide(visible, "0.12s", "right")}
         >
           <div
@@ -211,7 +223,7 @@ export default function PhilosophyHomeTHS() {
               src={IMAGES.heroRight}
               alt=""
               fill
-              sizes="(max-width: 768px) 100vw, 42vw"
+              sizes="(max-width: 768px) 100vw, 34vw"
               className="object-cover object-[center_14%] sm:object-[center_18%]"
               priority
             />
@@ -226,7 +238,7 @@ export default function PhilosophyHomeTHS() {
       >
         <div
           className={cn(
-            "relative aspect-[2/3] w-full overflow-hidden sm:col-span-3 sm:aspect-auto sm:h-[380px] md:h-[420px] lg:h-[460px]"
+            "relative aspect-[2/3] w-full overflow-hidden sm:col-span-3 sm:aspect-auto sm:h-[380px] md:h-[420px] lg:h-[460px]",
           )}
           style={fadeUp(lowerVisible, "0.05s", "1.4rem")}
         >

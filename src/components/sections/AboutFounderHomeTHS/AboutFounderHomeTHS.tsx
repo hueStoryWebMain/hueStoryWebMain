@@ -167,12 +167,10 @@ export default function AboutFounderHomeTHS() {
                       "opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.3s, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.3s",
                   }}
                 >
-                  <span className="block whitespace-nowrap">
-                    Timeless editorial
-                  </span>
-                  <span className="mt-0.5 block whitespace-nowrap">
-                    <span className="relative inline-block px-0.5">
-                      thoughtful
+                  <span className="block whitespace-nowrap">With love,</span>
+                  <span className="mt-0.5 block whitespace-nowrap pl-[1.4em]">
+                    <span className="relative inline-block px-1.5">
+                      RK
                       <svg
                         className="pointer-events-none absolute top-1/2 left-1/2 h-[135%] w-[120%] -translate-x-1/2 -translate-y-1/2"
                         viewBox="0 0 120 48"
@@ -191,8 +189,7 @@ export default function AboutFounderHomeTHS() {
                           opacity="0.9"
                         />
                       </svg>
-                    </span>{" "}
-                    Creative
+                    </span>
                   </span>
                 </p>
               </div>
@@ -264,13 +261,8 @@ export default function AboutFounderHomeTHS() {
               href={ROUTES.ABOUT}
               className="group inline-flex flex-col gap-2.5"
             >
-              <span className="inline-flex items-baseline gap-x-2 sm:gap-x-2.5">
-                <span className="font-body text-[10px] font-medium tracking-[0.22em] text-base uppercase transition-colors duration-300 group-hover:text-blush sm:text-[11px]">
-                  Read more about
-                </span>
-                <span className="font-silk text-[18px] font-[200] tracking-normal text-ink italic normal-case transition-colors duration-300 group-hover:text-blush sm:text-[20px]">
-                  Roshni
-                </span>
+              <span className="font-body text-[10px] font-medium tracking-[0.22em] text-base uppercase transition-colors duration-300 group-hover:text-blush sm:text-[11px]">
+                Read More
               </span>
               <span className="flex items-center gap-3">
                 <span
