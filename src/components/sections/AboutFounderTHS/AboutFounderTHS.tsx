@@ -9,7 +9,7 @@ const FLOWER = "/images/shapes/flowersbluePink.png";
 const INTRO = [
   "Roshni Kurup is a cultural strategist, creative director, and entrepreneur whose work explores the relationship between culture, place, aesthetics, and human experience.",
   "Her career has spanned strategy, finance, investment, entrepreneurship, luxury hospitality, and experiential design, with a life shaped across India, Singapore, Bali, and the United States.",
-  "She is the co-founder and creative director of The Hue Story, a luxury experiential design and destination events company, and has developed projects across hospitality, culture, design, and creative storytelling. Her wider body of work includes Belong and Tranquebar, alongside a growing portfolio of creative and cultural ventures.",
+  "She is the founder and creative director of The Hue Story, a luxury experiential design and destination events company, and has developed projects across hospitality, culture, design, and creative storytelling. Her wider body of work includes Belong and Tranquebar, alongside a growing portfolio of creative and cultural ventures.",
 ] as const;
 
 const CLOSING = [
@@ -59,6 +59,7 @@ export default function AboutFounderTHS() {
   return (
     <section
       ref={sectionRef}
+      id="founder"
       className="relative z-10 w-full overflow-x-clip text-ink"
       aria-labelledby="about-founder-heading"
       style={{ backgroundColor: "#F7F3EB" }}
@@ -122,7 +123,7 @@ export default function AboutFounderTHS() {
           >
             <Image
               src={FOUNDER.image}
-              alt={`${FOUNDER.name}, co-founder and creative director of The Hue Story`}
+              alt={`${FOUNDER.name}, founder and creative director of The Hue Story`}
               fill
               sizes="(max-width: 768px) 70vw, 380px"
               className="object-cover object-[center_18%]"
@@ -145,7 +146,7 @@ export default function AboutFounderTHS() {
           className="font-body text-center text-[10px] font-medium tracking-[0.28em] text-ink/50 uppercase will-change-[opacity,transform] sm:text-[11px]"
           style={fade("1.55s", "0.65rem", "1.2s")}
         >
-          Co-founder &amp; Creative Director
+          Founder &amp; Creative Director
         </p>
 
         <div

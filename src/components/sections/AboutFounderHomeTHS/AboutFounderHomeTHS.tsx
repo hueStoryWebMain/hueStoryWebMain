@@ -100,7 +100,7 @@ export default function AboutFounderHomeTHS() {
 
           <div className="relative z-10 flex h-full items-center justify-center px-6 py-16 sm:px-12 sm:py-20 md:px-14 md:py-20 lg:px-16 lg:py-24">
             {/* Mobile: nudge image left so script has room on the right */}
-            <div className="relative w-full max-w-[240px] -translate-x-3 sm:max-w-[300px] sm:translate-x-0 md:max-w-[340px] lg:max-w-[360px]">
+            <div className="relative w-full max-w-[240px] -translate-x-5 sm:max-w-[300px] sm:translate-x-0 md:max-w-[340px] lg:max-w-[360px]">
               <div className="relative">
                 {/* Offset plate outline — outside the photo */}
                 <div
@@ -158,8 +158,8 @@ export default function AboutFounderHomeTHS() {
                   className={cn(
                     "font-script pointer-events-none absolute right-0 bottom-0 z-20 origin-bottom-right text-left text-[26px] leading-[1.15] tracking-[0.01em] normal-case will-change-[opacity,transform] sm:text-[34px] md:text-[40px] lg:text-[46px]",
                     visible
-                      ? "translate-x-[18%] translate-y-[38%] -rotate-[11deg] opacity-100 sm:translate-x-[40%] sm:translate-y-[34%] md:translate-x-[60%] md:translate-y-[32%] lg:translate-x-[88%] lg:translate-y-[32%]"
-                      : "translate-x-[18%] translate-y-[48%] -rotate-[11deg] opacity-0 sm:translate-x-[40%] sm:translate-y-[44%] md:translate-x-[60%] md:translate-y-[42%] lg:translate-x-[88%] lg:translate-y-[42%]"
+                      ? "translate-x-[58%] translate-y-[86%] -rotate-[11deg] opacity-100 sm:translate-x-[40%] sm:translate-y-[34%] md:translate-x-[60%] md:translate-y-[32%] lg:translate-x-[88%] lg:translate-y-[32%]"
+                      : "translate-x-[58%] translate-y-[96%] -rotate-[11deg] opacity-0 sm:translate-x-[40%] sm:translate-y-[44%] md:translate-x-[60%] md:translate-y-[42%] lg:translate-x-[88%] lg:translate-y-[42%]"
                   )}
                   style={{
                     color: "#2C2723",
@@ -226,7 +226,7 @@ export default function AboutFounderHomeTHS() {
                 : "none",
             }}
           >
-            co-founder and creative director
+            founder and creative director
           </p>
 
           <p className="font-body mt-6 max-w-md text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-7 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
@@ -244,40 +244,20 @@ export default function AboutFounderHomeTHS() {
               visible={visible}
               baseDelay={0.42}
               stagger={0.012}
-            />
-          </p>
-
-          <div
-            className={cn("mt-9 sm:mt-10")}
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateX(0)" : "translateX(-0.75rem)",
-              transition: visible
-                ? "opacity 0.35s ease-out 0.65s, transform 0.35s ease-out 0.65s"
-                : "none",
-            }}
-          >
+            />{" "}
             <Link
-              href={ROUTES.ABOUT}
-              className="group inline-flex flex-col gap-2.5"
+              href={`${ROUTES.ABOUT}#founder`}
+              className="font-silk ml-1 inline-block text-[1.15em] font-[300] whitespace-nowrap text-base italic no-underline transition-colors duration-300 hover:text-blush"
+              style={{
+                opacity: visible ? 1 : 0,
+                transition: visible
+                  ? "opacity 0.4s ease-out 0.65s, color 0.3s"
+                  : "none",
+              }}
             >
-              <span className="font-body text-[10px] font-medium tracking-[0.22em] text-base uppercase transition-colors duration-300 group-hover:text-blush sm:text-[11px]">
-                Read More
-              </span>
-              <span className="flex items-center gap-3">
-                <span
-                  aria-hidden
-                  className="h-px w-10 origin-left bg-ink/30 transition-all duration-300 group-hover:w-16 group-hover:bg-blush sm:w-12 sm:group-hover:w-20"
-                />
-                <span
-                  aria-hidden
-                  className="font-body text-[11px] tracking-[0.18em] text-ink/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-blush"
-                >
-                  →
-                </span>
-              </span>
+              Read more
             </Link>
-          </div>
+          </p>
         </div>
       </div>
     </section>

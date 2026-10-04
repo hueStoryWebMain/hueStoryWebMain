@@ -180,7 +180,7 @@ export default function WhatWeDoTHS() {
             className="font-script pointer-events-none absolute top-3 right-3 z-20 text-right text-[28px] leading-none tracking-[0.02em] normal-case sm:top-4 sm:right-5 sm:text-[34px] md:top-5 md:right-6 md:text-[40px] lg:top-6 lg:right-8 lg:text-[44px]"
             style={{ color: "#FCFBF6" }}
           >
-            intentional
+            made with love
           </p>
 
           <div className="flex flex-col justify-center px-6 pt-14 pb-10 sm:px-10 sm:pt-16 sm:pb-12 md:px-12 md:pt-16 lg:px-14 lg:pt-20 lg:pb-14 xl:px-16">

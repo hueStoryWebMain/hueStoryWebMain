@@ -11,8 +11,9 @@ function ScrollToTopOnRoute() {
   const lenis = useLenis();
 
   useLayoutEffect(() => {
-    if (window.location.hash) return;
-    lenis?.scrollTo(0, { immediate: true, force: true });
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+    lenis?.scrollTo(target ?? 0, { immediate: true, force: true });
   }, [pathname, lenis]);
 
   return null;

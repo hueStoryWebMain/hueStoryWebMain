@@ -138,7 +138,7 @@ export default function AboutHeroLegacy() {
           className="font-script mt-12 text-center text-[22px] font-normal tracking-[0.02em] text-cream normal-case will-change-[opacity,transform] sm:mt-14 sm:text-[28px] md:mt-16 md:text-[34px] lg:text-[40px]"
           style={fade(copyIn, "0.66s", "0.9rem")}
         >
-          Authored
+          Chronicles of love, laughter and good times
         </p>
       </div>
 

@@ -18,8 +18,8 @@ export default function FeaturesAwards() {
             <h2 className="font-heading text-[15px] font-light tracking-[0.14em] text-ink uppercase sm:text-[16px] md:text-[16px] lg:text-[17px]">
               Features + Awards
             </h2>
-            <p className="font-script mt-1.5 text-[22px] leading-snug text-ink/75 normal-case sm:mt-2 sm:text-[26px] md:text-[24px] lg:text-[28px]">
-              Press Publications and Recognitions
+            <p className="font-script mt-1.5 text-[30px] leading-snug text-ink/75 normal-case sm:mt-2 sm:text-[34px] md:text-[32px] lg:text-[36px]">
+              press publications and recognitions
             </p>
           </div>
 

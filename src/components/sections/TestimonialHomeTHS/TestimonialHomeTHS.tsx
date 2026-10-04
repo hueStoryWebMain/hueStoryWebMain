@@ -12,8 +12,6 @@ const TESTIMONIALS = [
     image: ABOUT_HOME_IMAGES.couple1,
     name: "Ananya & Rohan",
     place: "Udaipur · 2024",
-    pull:
-      "Every detail carried meaning — from the flowers to the final toast.",
     paraA:
       "Working with The Hue Story felt like being gently guided through something sacred. Our families still talk about those days as if they happened yesterday.",
     paraB:
@@ -23,7 +21,6 @@ const TESTIMONIALS = [
     image: ABOUT_HOME_IMAGES.couple2,
     name: "Meera & James",
     place: "Tuscany · 2023",
-    pull: "They held our two cultures with such grace and care.",
     paraA:
       "Nothing felt forced — just texture upon texture until the celebration felt entirely ours. Guests still write to us about how deeply moved they were.",
     paraB:
@@ -33,7 +30,6 @@ const TESTIMONIALS = [
     image: "/images/section-images/013_2500x3333.webp",
     name: "Priya & Arjun",
     place: "Jaipur · 2024",
-    pull: "Richness without excess — beauty that never shouts.",
     paraA:
       "From the first conversation to the last dance, everything was considered. The restraint they bring is rare, and we felt held the entire way.",
     paraB:
@@ -43,7 +39,6 @@ const TESTIMONIALS = [
     image: "/images/section-images/018_2500x3841.webp",
     name: "Sofia & Kabir",
     place: "Bali · 2025",
-    pull: "It did not feel like planning — it felt like authoring a memory.",
     paraA:
       "The Hue Story made space for our families, our stories, and a shared language we did not know we needed until it appeared.",
     paraB:
@@ -52,7 +47,7 @@ const TESTIMONIALS = [
 ] as const;
 
 /**
- * TestimonialHomeTHS — slate · KIND WORDS · instant-ready crossfade carousel
+ * TestimonialHomeTHS — slate · LETTERS from our couples · instant-ready crossfade carousel
  */
 export default function TestimonialHomeTHS() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -113,14 +108,6 @@ export default function TestimonialHomeTHS() {
       aria-labelledby="testimonial-home-heading"
       aria-roledescription="carousel"
     >
-      <p
-        aria-hidden
-        className="font-title pointer-events-none absolute top-4 right-4 z-20 text-[11px] font-normal tracking-[0.28em] text-cream/45 uppercase sm:top-5 sm:right-5 sm:text-[12px] md:top-6 md:right-6 md:text-[13px] lg:top-7 lg:right-8"
-        style={fadeUp("0.1s", "0.5rem")}
-      >
-        Letters
-      </p>
-
       {/* Warm decode — all slides ready before first swap */}
       <div className="pointer-events-none absolute h-0 w-0 overflow-hidden opacity-0" aria-hidden>
         {TESTIMONIALS.map((item) => (
@@ -135,29 +122,24 @@ export default function TestimonialHomeTHS() {
         ))}
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1400px] px-0 pt-3 pb-16 sm:pt-4 sm:pb-20 md:pt-5 md:pb-24 lg:pt-6 lg:pb-28">
-        <div className="relative z-0 px-5 sm:px-8 lg:px-10">
+      <div className="relative mx-auto w-full max-w-[1400px] px-0 pt-8 pb-16 sm:pt-10 sm:pb-20 md:pt-12 md:pb-24 lg:pt-14 lg:pb-28">
+        <div className="relative z-0 flex flex-col items-center px-5 text-center sm:px-8 lg:px-10">
+          <h2
+            id="testimonial-home-heading"
+            className="font-title text-[18px] leading-none font-normal tracking-[0.2em] text-cream uppercase sm:text-[20px] md:text-[24px] lg:text-[28px]"
+            style={fadeUp("0.04s", "1.1rem")}
+          >
+            Letters
+          </h2>
           <p
-            className="font-script mb-3 text-center text-[30px] leading-none tracking-[0.01em] text-cream/70 normal-case sm:mb-3.5 sm:text-[36px] md:mb-4 md:pl-[38%] md:text-left md:text-[40px] lg:text-[44px] lg:pl-[36%] xl:pl-[34%]"
-            style={fadeUp("0.02s", "0.75rem")}
+            className="font-script mt-2 text-[40px] leading-none tracking-[0.01em] text-cream/75 normal-case sm:mt-2.5 sm:text-[48px] md:text-[56px] lg:text-[64px]"
+            style={fadeUp("0.16s", "0.75rem")}
           >
             from our couples
           </p>
-          <h2
-            id="testimonial-home-heading"
-            className="font-title pointer-events-none text-center text-[42px] leading-[0.92] font-normal tracking-[0.08em] text-cream uppercase sm:text-[56px] md:text-left md:text-[72px] lg:text-[88px] xl:text-[104px]"
-            style={fadeUp("0.06s", "1.25rem")}
-          >
-            <span className="block md:pl-[38%] lg:pl-[36%] xl:pl-[34%]">
-              Kind
-            </span>
-            <span className="block md:pl-[38%] lg:pl-[36%] xl:pl-[34%]">
-              Words
-            </span>
-          </h2>
         </div>
 
-        <div className="relative z-10 mt-[-1.25rem] grid grid-cols-1 items-start gap-6 px-5 sm:mt-[-1.75rem] sm:px-8 md:mt-[-2.25rem] md:grid-cols-12 md:gap-8 md:px-10 lg:mt-[-2.75rem] lg:gap-10">
+        <div className="relative z-10 mt-10 grid grid-cols-1 items-start gap-6 px-5 sm:mt-12 sm:px-8 md:mt-14 md:grid-cols-12 md:gap-8 md:px-10 lg:mt-16 lg:gap-10">
           <div
             className="mx-auto flex w-full max-w-[320px] flex-col sm:max-w-[360px] md:col-span-5 md:mx-0 md:max-w-none lg:col-span-5 xl:col-span-4"
             style={{
@@ -283,33 +265,39 @@ export default function TestimonialHomeTHS() {
                     }}
                     aria-hidden={i !== index}
                   >
-                    <p className="font-title text-[12px] font-normal tracking-[0.18em] text-ink/55 uppercase sm:text-[13px]">
-                      Warmest words from
-                    </p>
-
-                    <p className="font-title mt-3 text-[18px] font-normal tracking-[0.1em] text-ink uppercase sm:mt-3.5 sm:text-[20px] md:text-[22px]">
-                      {item.name}
-                    </p>
-                    <p className="font-silk mt-1.5 text-[14px] font-[200] tracking-[0.02em] text-ink/55 italic normal-case sm:text-[15px]">
-                      {item.place}
-                    </p>
-
-                    <p className="font-silk mt-4 min-h-[2.75rem] text-[16px] font-[200] leading-snug tracking-[0.01em] text-ink/75 italic normal-case sm:mt-5 sm:min-h-[3rem] sm:text-[17px] md:text-[18px]">
-                      “{item.pull}”
-                    </p>
-
-                    <div
+                    <span
                       aria-hidden
-                      className="mt-5 h-px w-10 shrink-0 bg-ink/20 sm:mt-6"
-                    />
+                      className="font-silk block h-8 text-[64px] leading-none font-[200] text-ink/25 italic sm:h-10 sm:text-[76px]"
+                    >
+                      “
+                    </span>
 
-                    <div className="mt-5 flex flex-col gap-4 sm:mt-6">
-                      <p className="font-body text-[13px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:text-[14px] sm:leading-[1.9]">
+                    <div className="mt-4 flex flex-col gap-4 sm:mt-5 sm:gap-5">
+                      <p className="font-silk text-[16px] leading-[1.75] font-[300] tracking-[0.01em] text-ink/80 italic sm:text-[17px] md:text-[18px]">
                         {item.paraA}
                       </p>
-                      <p className="font-body text-[13px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:text-[14px] sm:leading-[1.9]">
+                      <p className="font-silk text-[16px] leading-[1.75] font-[300] tracking-[0.01em] text-ink/80 italic sm:text-[17px] md:text-[18px]">
                         {item.paraB}
                       </p>
+                    </div>
+
+                    <div className="mt-8 flex items-center gap-4 sm:mt-10">
+                      <span aria-hidden className="block h-px w-10 shrink-0 bg-ink/25" />
+                      <div>
+                        <p className="font-title text-[15px] font-normal tracking-[0.12em] text-ink uppercase sm:text-[16px] md:text-[17px]">
+                          {item.name.split("&").map((part, j, arr) => (
+                            <span key={j}>
+                              {part}
+                              {j < arr.length - 1 ? (
+                                <span className="font-silk normal-case">&amp;</span>
+                              ) : null}
+                            </span>
+                          ))}
+                        </p>
+                        <p className="font-body mt-1 text-[10px] font-light tracking-[0.2em] text-ink/55 uppercase sm:text-[11px]">
+                          {item.place}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 ))}

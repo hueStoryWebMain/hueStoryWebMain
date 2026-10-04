@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const QUOTE_LINES = [
-  "It's all in the details,",
-  "made with love, finesse & craft,",
-  "opulent yet understated",
+  "Chronicles of love,",
+  "laughter and good times",
 ] as const;
 
 /**
@@ -120,7 +119,7 @@ export default function IntentionalHomeTHS() {
 
             <h2
               id="intentional-home-heading"
-              className="font-script flex max-w-[19rem] flex-col items-center gap-1 text-center text-[clamp(1.65rem,6.5vw,2.15rem)] leading-[1.3] tracking-[0.015em] normal-case sm:max-w-[28rem] sm:gap-1.5 sm:text-[clamp(1.9rem,3.8vw,2.5rem)] md:max-w-none md:text-[clamp(2.1rem,2.8vw,2.75rem)]"
+              className="font-script flex max-w-[19rem] flex-col items-center gap-1 text-center text-[clamp(1.9rem,8vw,2.4rem)] leading-[1.3] tracking-[0.015em] normal-case sm:max-w-[32rem] sm:gap-1.5 sm:text-[clamp(2.4rem,4.6vw,3rem)] md:max-w-none md:text-[clamp(2.8rem,3.4vw,3.4rem)]"
               style={{
                 color: "#2C2723",
                 ...item("0.18s"),
