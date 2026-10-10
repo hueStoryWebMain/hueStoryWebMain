@@ -99,6 +99,7 @@ export default function AboutProcessTHS({
 
   return (
     <section
+      id="process"
       ref={sectionRef}
       className={cn(
         "relative z-10 w-full overflow-x-clip",

@@ -16,6 +16,8 @@ export const ROUTES = {
   ABOUT: "/about",
   SERVICES: "/services",
   CONTACT: "/inquire",
+  PRIVACY: "/privacy-policy",
+  TERMS: "/terms",
 } as const;
 
 /** Primary nav */

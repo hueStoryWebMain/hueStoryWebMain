@@ -6,6 +6,8 @@ const routes = [
   "/portfolio",
   "/about",
   "/inquire",
+  "/privacy-policy",
+  "/terms",
   ...PORTFOLIO_EVENTS.map((event) => `/portfolio/${event.slug}`),
 ];
 

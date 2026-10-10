@@ -51,6 +51,7 @@ export default function AboutHomeTHS() {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
       className="relative z-10 w-full"
       aria-labelledby="about-home-heading"

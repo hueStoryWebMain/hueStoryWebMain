@@ -144,6 +144,7 @@ export default function WhatWeDoTHS() {
 
   return (
     <section
+      id="services"
       ref={sectionRef}
       className="relative z-10 w-full overflow-x-clip border-t border-cream/20 bg-base text-cream"
       aria-labelledby="what-we-do-heading"
