@@ -106,7 +106,6 @@ export default function AboutFounderTHS() {
               fill
               sizes="(max-width: 768px) 90vw, 520px"
               className="object-contain object-center opacity-95"
-              priority
             />
           </div>
 
@@ -127,7 +126,6 @@ export default function AboutFounderTHS() {
               fill
               sizes="(max-width: 768px) 70vw, 380px"
               className="object-cover object-[center_18%]"
-              priority
             />
           </div>
         </div>
@@ -146,7 +144,7 @@ export default function AboutFounderTHS() {
           className="font-body text-center text-[10px] font-medium tracking-[0.28em] text-ink/50 uppercase will-change-[opacity,transform] sm:text-[11px]"
           style={fade("1.55s", "0.65rem", "1.2s")}
         >
-          Founder &amp; Creative Director
+          Founder <span className="font-silk font-[400] normal-case">&amp;</span> Creative Director
         </p>
 
         <div

@@ -82,6 +82,16 @@ export const silkSerif = localFont({
       weight: "200",
       style: "italic",
     },
+    {
+      path: "../../public/fonts/silk-serif/silk-serif-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/silk-serif/silk-serif-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
   ],
   variable: "--font-silk-serif",
   display: "swap",

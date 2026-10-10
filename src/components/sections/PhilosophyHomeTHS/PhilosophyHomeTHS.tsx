@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ROUTES, SOCIAL_LINKS } from "@/lib/constants";
+import { ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const IMAGES = {
@@ -16,7 +16,7 @@ const IMAGES = {
 
 const PARAS: readonly { heading?: string; body: string }[] = [
   {
-    body: "We believe every celebration should be built from moments that feel like magic: guests spellbound and moved, carrying it with them long after the last guest has gone home.",
+    body: "We believe every celebration should be built from moments that feel like magic: everyone spellbound and moved, carrying it with them long after the last guest has gone home.",
   },
   {
     heading: "Two traditions, one language",
@@ -135,7 +135,6 @@ export default function PhilosophyHomeTHS() {
               fill
               sizes="(max-width: 768px) 100vw, 28vw"
               className="object-cover object-[center_12%] sm:object-[center_15%]"
-              priority
             />
           </div>
         </div>
@@ -151,7 +150,7 @@ export default function PhilosophyHomeTHS() {
 
             <h2
               id="philosophy-home-heading"
-              className="font-title mt-3 text-[34px] leading-[1.05] font-normal tracking-[0.08em] text-ink uppercase sm:mt-4 sm:text-[40px] md:text-[32px] lg:text-[38px] xl:text-[44px]"
+              className="font-title mt-3 text-[32px] leading-[1.05] font-normal tracking-[0.08em] text-ink uppercase sm:mt-4 sm:text-[40px] md:text-[36px] lg:text-[48px] xl:text-[52px]"
               style={fadeUp(visible, "0.22s", "0.85rem")}
             >
               Philosophy
@@ -169,7 +168,7 @@ export default function PhilosophyHomeTHS() {
                 <div
                   key={para.body.slice(0, 24)}
                   className={cn(
-                    "flex flex-col items-center md:items-start",
+                    "flex w-full flex-col items-center md:items-start",
                     i > 0 && "mt-5 sm:mt-6",
                   )}
                   style={fadeUp(visible, `${0.42 + i * 0.1}s`, "0.75rem")}
@@ -179,7 +178,7 @@ export default function PhilosophyHomeTHS() {
                       {para.heading}
                     </h3>
                   ) : null}
-                  <p className="font-body text-[10px] leading-[2] font-normal tracking-[0.12em] text-ink/75 uppercase sm:text-[11.5px] lg:text-[12px]">
+                  <p className="font-body w-full text-[12px] leading-[1.9] font-light tracking-[-0.03em] text-ink/80 uppercase sm:text-[13px] sm:leading-[1.95] lg:text-[13.5px]">
                     {para.body}
                   </p>
                 </div>
@@ -198,13 +197,8 @@ export default function PhilosophyHomeTHS() {
                   aria-hidden
                   className="pointer-events-none absolute inset-0 translate-x-1.5 translate-y-1.5 border border-ink/35 transition-colors duration-300 group-hover:border-blush/70 sm:translate-x-2 sm:translate-y-2"
                 />
-                <span className="relative inline-flex items-baseline justify-center gap-x-2 border border-ink bg-transparent px-7 py-3 transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_22%,#FAF8F4)] sm:gap-x-2.5 sm:px-8 sm:py-3.5">
-                  <span className="font-body text-[10px] leading-none font-medium tracking-[0.24em] text-ink uppercase transition-colors duration-300 sm:text-[11px]">
-                    Inquire about
-                  </span>
-                  <span className="font-silk inline-block translate-y-[0.12em] text-[15px] leading-none font-[300] tracking-normal text-ink italic normal-case transition-colors duration-300 sm:text-[17px]">
-                    your celebration
-                  </span>
+                <span className="font-body relative inline-flex items-center justify-center border border-ink bg-transparent px-10 py-3.5 text-[11px] leading-none font-normal tracking-[0.3em] text-ink uppercase transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_22%,#FAF8F4)] sm:px-12 sm:py-4 sm:text-[12px]">
+                  <span className="-mr-[0.3em]">Inquire</span>
                 </span>
               </Link>
             </div>
@@ -225,7 +219,6 @@ export default function PhilosophyHomeTHS() {
               fill
               sizes="(max-width: 768px) 100vw, 34vw"
               className="object-cover object-[center_14%] sm:object-[center_18%]"
-              priority
             />
           </div>
         </div>
@@ -258,7 +251,7 @@ export default function PhilosophyHomeTHS() {
 
         <div className="flex flex-col gap-2 sm:col-span-4 sm:gap-3">
           <div
-            className="relative aspect-[2/3] w-full overflow-hidden sm:aspect-auto sm:h-[320px] md:h-[350px] lg:h-[380px]"
+            className="relative aspect-[2/3] w-full overflow-hidden sm:aspect-auto sm:h-[380px] md:h-[420px] lg:h-[460px]"
             style={fadeUp(lowerVisible, "0.16s", "1.4rem")}
           >
             <div
@@ -272,57 +265,6 @@ export default function PhilosophyHomeTHS() {
                 sizes="(max-width: 640px) 100vw, 33vw"
                 className="object-cover object-[center_18%] sm:object-center"
               />
-            </div>
-          </div>
-
-          <div
-            className="flex flex-col items-center justify-center gap-2 bg-[#FAF8F4] px-3 py-4 sm:gap-2.5 sm:py-5"
-            style={fadeUp(lowerVisible, "0.28s", "0.7rem")}
-          >
-            <p className="font-body text-[9px] font-medium tracking-[0.28em] text-ink/50 uppercase sm:text-[10px]">
-              Follow along
-            </p>
-            <div
-              aria-hidden
-              className="h-px w-8 origin-center bg-ink/20 sm:w-10"
-              style={{
-                opacity: lowerVisible ? 1 : 0,
-                transform: lowerVisible ? "scaleX(1)" : "scaleX(0)",
-                transition: `opacity 0.6s ${EASE} 0.36s, transform 0.7s ${EASE} 0.36s`,
-              }}
-            />
-            <div className="flex items-center gap-3.5 sm:gap-4">
-              {SOCIAL_LINKS.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-ink/45 transition-colors duration-300 hover:text-blush"
-                  aria-label={social.name}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-4 w-4 fill-current sm:h-[17px] sm:w-[17px]"
-                    aria-hidden
-                  >
-                    <path d={social.iconPath} />
-                  </svg>
-                </a>
-              ))}
-              <a
-                href="mailto:hello@thehuestory.com"
-                className="text-ink/45 transition-colors duration-300 hover:text-blush"
-                aria-label="Email"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-4 w-4 fill-current sm:h-[17px] sm:w-[17px]"
-                  aria-hidden
-                >
-                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
-                </svg>
-              </a>
             </div>
           </div>
         </div>

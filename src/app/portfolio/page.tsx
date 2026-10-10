@@ -4,7 +4,7 @@ import PortfolioPageView from "@/components/pages/PortfolioPage/PortfolioPageVie
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Selected weddings and events from The Hue Story — photography-led, editorial celebrations.",
+    "Selected weddings and events from The Hue Story: photography-led, editorial celebrations.",
 };
 
 export default function PortfolioPage() {

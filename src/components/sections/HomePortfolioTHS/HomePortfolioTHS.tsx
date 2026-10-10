@@ -17,10 +17,10 @@ const INERTIA_MIN_V = 0.08;
 /** Finger jitter on tap often exceeds 10px */
 const TAP_MAX_PX = 18;
 
-const QUOTE_LINES = ["A little magic, everywhere."] as const;
+const QUOTE_LINES = ["a little magic, everywhere."] as const;
 
 /** Desktop auto-fit ceiling (px) — keeps the short line from ballooning */
-const QUOTE_MAX_PX = 104;
+const QUOTE_MAX_PX = 78;
 
 const QUOTE_WORDS = QUOTE_LINES.join(" ").split(" ");
 
@@ -128,7 +128,7 @@ function FrameCard({
     >
       <Image
         src={frame.src}
-        alt=""
+        alt="Wedding photograph from The Hue Story portfolio"
         fill
         draggable={false}
         sizes="(max-width: 640px) 55vw, (max-width: 1024px) 40vw, 34vw"
@@ -474,7 +474,7 @@ export default function HomePortfolioTHS() {
       const natural = quote.scrollWidth;
       if (natural <= 0) return;
 
-      const next = Math.min(QUOTE_MAX_PX, (available / natural) * 140 * 0.94);
+      const next = Math.min(QUOTE_MAX_PX, (available / natural) * 140 * 0.72);
       quote.style.fontSize = `${next}px`;
       setQuoteSize(next);
     };
@@ -504,14 +504,14 @@ export default function HomePortfolioTHS() {
       aria-label="Portfolio"
       style={{ backgroundColor: "#F7F3EB" }}
     >
-      <div className="relative z-10 flex flex-col gap-3 pt-5 pb-0 sm:gap-4 sm:pt-4 sm:pb-0 md:gap-5 md:pb-0 lg:pb-0">
+      <div className="relative z-10 flex flex-col gap-1 pt-0 pb-0 sm:gap-2">
         <div
           ref={quoteWrapRef}
-          className="w-full overflow-x-clip px-5 py-5 sm:px-8 sm:py-6 md:overflow-visible md:px-6 md:py-7 lg:px-8"
+          className="w-full overflow-x-clip px-5 pt-0 pb-1 sm:px-8 sm:pb-2 md:overflow-visible md:px-6 md:pb-2 lg:px-8"
         >
           {/* Mobile / tablet — balanced script spacing */}
           <p
-            className="font-script mx-auto flex w-full max-w-[24rem] flex-col items-center gap-1 text-center text-[clamp(2.4rem,11vw,3.1rem)] leading-[1.25] tracking-[0.015em] normal-case select-none sm:max-w-[34rem] sm:gap-1.5 sm:text-[clamp(2.8rem,7.5vw,3.6rem)] md:hidden"
+            className="font-script mx-auto flex w-full max-w-[24rem] flex-col items-center gap-1 text-center text-[clamp(1.85rem,8.4vw,2.35rem)] leading-[1.25] tracking-[0.015em] normal-case select-none sm:max-w-[34rem] sm:gap-1.5 sm:text-[clamp(2.1rem,5.6vw,2.7rem)] md:hidden"
             style={{ color: "#2C2723" }}
           >
             {QUOTE_LINES.map((line, i) => (
@@ -563,7 +563,6 @@ export default function HomePortfolioTHS() {
             direction="rtl"
             autoScroll={autoScroll && !lightboxSrc}
             onInteract={onInteract}
-            priority
             onOpenImage={openLightbox}
           />
           <MarqueeRow

@@ -20,6 +20,8 @@ const NAVIGATE = [
   { name: "Inquire", href: ROUTES.CONTACT },
 ] as const;
 
+const HOME_BASE = "California · San Francisco Bay Area";
+
 const LOCATIONS =
   "India · United States · Europe · Bali and beyond";
 
@@ -166,10 +168,13 @@ export default function FooterSection() {
             style={fadeUp(upperVisible, "0s")}
           >
             <Logo variant="mainSlate" size={68} className="opacity-90" />
-            <p className="font-silk mt-4 max-w-xs text-[14px] leading-snug font-[200] tracking-[0.01em] text-ink/75 italic normal-case sm:mt-5 sm:text-[15px] md:mt-6 md:text-[17px]">
+            <p className="font-silk mt-4 max-w-xs text-[14px] leading-snug font-[300] tracking-[0.01em] text-ink/90 italic normal-case sm:mt-5 sm:text-[15px] md:mt-6 md:text-[17px]">
               Wedding &amp; Event Design. Worldwide.
             </p>
-            <p className="font-body mt-4 max-w-[16rem] text-[10px] leading-[1.7] font-light tracking-[0.04em] text-ink/55 sm:mt-5 sm:max-w-sm sm:text-[11px] md:mt-6 md:text-[12px]">
+            <p className="font-body mt-3 text-[10px] font-medium tracking-[0.2em] text-ink/70 uppercase sm:text-[11px] md:mt-4">
+              {HOME_BASE}
+            </p>
+            <p className="font-body mt-4 max-w-[16rem] text-[10px] leading-[1.7] font-normal tracking-[0.04em] text-ink/80 sm:mt-5 sm:max-w-sm sm:text-[11px] md:mt-6 md:text-[12px]">
               {LOCATIONS}
             </p>
             {/* Mobile divider under brand */}
@@ -286,7 +291,7 @@ export default function FooterSection() {
             <span className="relative inline-flex items-center justify-center gap-x-2.5 border border-ink bg-transparent px-6 py-2.5 transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_18%,#F7F3EB)] sm:gap-x-3 sm:px-7 sm:py-3">
               <span className="font-body text-[10px] font-medium tracking-[0.24em] text-ink uppercase sm:text-[11px]">
                 Back to
-              </span>
+              </span>{" "}
               <span className="font-silk text-[15px] font-[200] tracking-normal text-ink italic normal-case sm:text-[16px]">
                 top
               </span>
@@ -314,8 +319,7 @@ export default function FooterSection() {
               alt=""
               fill
               sizes="100vw"
-              priority={i === 0}
-              className="object-cover object-center transition-opacity duration-[1400ms] ease-in-out"
+                            className="object-cover object-center transition-opacity duration-[1400ms] ease-in-out"
               style={{ opacity: i === bgIndex ? 1 : 0 }}
             />
           ))}
@@ -388,7 +392,7 @@ export default function FooterSection() {
                   >
                     <Image
                       src={src}
-                      alt=""
+                      alt={`The Hue Story on Instagram, post ${i + 1}`}
                       fill
                       sizes="(max-width: 768px) 22vw, 160px"
                       className="object-cover object-center"
@@ -423,7 +427,7 @@ export default function FooterSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open The Hue Story on Instagram"
-                  className="font-title pointer-events-auto relative z-50 cursor-pointer text-[8px] font-normal tracking-[0.2em] text-ink uppercase underline-offset-[3px] transition-colors duration-300 hover:text-blush hover:underline sm:text-[9px]"
+                  className="font-silk pointer-events-auto relative z-50 cursor-pointer text-[12px] font-[400] tracking-[0.04em] text-ink italic normal-case underline-offset-[3px] transition-colors duration-300 hover:text-blush hover:underline sm:text-[14px]"
                 >
                   {INSTAGRAM_HANDLE}
                 </a>
@@ -452,13 +456,13 @@ export default function FooterSection() {
             The Hue Story
           </p>
           <p
-            className="font-title mt-3 max-w-xs text-[9px] font-normal tracking-[0.18em] text-cream/75 uppercase sm:mt-5 sm:max-w-xl sm:text-[11px] md:text-[12px]"
+            className="font-title mt-3 max-w-xs text-[9px] font-normal tracking-[0.18em] text-cream/90 uppercase sm:mt-5 sm:max-w-xl sm:text-[11px] md:text-[12px]"
             style={fadeUp(brandVisible, "0.12s", "0.7rem")}
           >
-            Wedding &amp; Event Design. Worldwide.
+            Wedding <span className="font-silk font-[400] normal-case">&amp;</span> Event Design. Worldwide.
           </p>
           <p
-            className="font-silk mt-3 max-w-[15rem] text-[12px] font-[200] tracking-[0.02em] text-cream/60 italic normal-case sm:mt-5 sm:max-w-none sm:text-[14px] md:text-[15px]"
+            className="font-silk mt-3 max-w-[15rem] text-[12px] font-[300] tracking-[0.02em] text-cream/85 italic normal-case sm:mt-5 sm:max-w-none sm:text-[14px] md:text-[15px]"
             style={fadeUp(brandVisible, "0.22s", "0.55rem")}
           >
             {LOCATIONS}

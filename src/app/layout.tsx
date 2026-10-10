@@ -7,7 +7,7 @@ import PageTransition from "@/components/layout/PageTransition";
 import FooterSection from "@/components/sections/FooterSection/FooterSection";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { fontVariables } from "@/lib/fonts";
 import { colors } from "@/lib/theme";
 
@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
-  description: `${SITE_TAGLINE}. Quiet, intentional planning — colour chosen once, carried through every detail.`,
+  description:
+    "Experiential event and space design. The Hue Story designs multi-day destination weddings and private events for clients across the globe.",
   metadataBase: new URL(SITE_URL),
   icons: {
     icon: [{ url: "/images/logo/SlateBlue-logo.png", type: "image/png" }],
@@ -32,8 +33,20 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_GB",
     siteName: SITE_NAME,
+    images: [
+      {
+        url: "/images/og-share.jpg",
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/og-share.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -44,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={fontVariables} suppressHydrationWarning>
+    <html lang="en-GB" className={fontVariables} suppressHydrationWarning>
       <body className="min-h-dvh overflow-x-clip bg-base text-cream antialiased">
         <SmoothScroll>
           <ConditionalNavbar />

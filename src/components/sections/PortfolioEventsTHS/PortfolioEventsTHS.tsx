@@ -36,7 +36,7 @@ function EventCard({
     <article ref={ref} className="group flex flex-col">
       <Link
         href={href}
-        aria-label={`${event.title} — view the gallery`}
+        aria-label={`${event.title}: view the gallery`}
         className="relative block overflow-hidden will-change-[opacity,transform]"
         style={rise(0, "1.75rem")}
       >

@@ -111,7 +111,6 @@ export default function SiteMenu({
               src={MENU_BG}
               alt=""
               fill
-              priority
               sizes="100vw"
               className="object-cover object-center"
             />
@@ -194,7 +193,7 @@ export default function SiteMenu({
                             isContact && "hidden md:inline",
                             "silk" in link && link.silk
                               ? "font-silk text-[17px] font-[200] tracking-[0.02em] italic normal-case sm:text-[20px]"
-                              : "font-title text-[12px] font-normal tracking-[0.22em] uppercase sm:text-[14px]",
+                              : "font-silk text-[14px] font-[400] tracking-[0.16em] uppercase sm:text-[16px]",
                             active
                               ? "text-blush"
                               : "text-cream/85 hover:text-blush"
@@ -223,7 +222,7 @@ export default function SiteMenu({
                     <span className="relative inline-flex max-w-[16rem] flex-wrap items-center justify-center gap-x-2 gap-y-1 border border-cream/80 bg-[color-mix(in_srgb,var(--color-cream)_88%,transparent)] px-4 py-2.5 transition-colors duration-300 group-hover:border-blush/70 sm:max-w-none sm:gap-x-2.5 sm:px-6 sm:py-3">
                       <span className="font-body text-[9px] font-medium tracking-[0.2em] text-ink uppercase sm:text-[10px]">
                         Inquire about your
-                      </span>
+                      </span>{" "}
                       <span className="font-silk text-[14px] font-[200] tracking-normal text-ink italic normal-case sm:text-[15px]">
                         celebration
                       </span>
@@ -245,7 +244,7 @@ export default function SiteMenu({
                     href={INSTAGRAM}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-title mt-2 text-[9px] font-normal tracking-[0.2em] text-cream/55 uppercase transition-colors duration-300 hover:text-blush"
+                    className="font-silk mt-2 text-[13px] font-[400] tracking-[0.04em] text-cream/70 italic normal-case transition-colors duration-300 hover:text-blush"
                   >
                     {INSTAGRAM_HANDLE}
                   </a>
@@ -330,7 +329,7 @@ export default function SiteMenu({
                     href={INSTAGRAM}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-title mt-5 text-[10px] font-normal tracking-[0.2em] text-cream/55 uppercase transition-colors duration-300 hover:text-blush"
+                    className="font-silk mt-5 text-[15px] font-[400] tracking-[0.04em] text-cream/70 italic normal-case transition-colors duration-300 hover:text-blush"
                   >
                     {INSTAGRAM_HANDLE}
                   </a>

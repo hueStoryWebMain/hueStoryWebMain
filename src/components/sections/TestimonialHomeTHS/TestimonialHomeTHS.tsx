@@ -15,14 +15,14 @@ const TESTIMONIALS = [
     paraA:
       "Working with The Hue Story felt like being gently guided through something sacred. Our families still talk about those days as if they happened yesterday.",
     paraB:
-      "Nothing was rushed. Every choice felt considered, quiet, and entirely our own — a celebration we continue to carry with us.",
+      "Nothing was rushed. Every choice felt considered, quiet, and entirely our own, a celebration we continue to carry with us.",
   },
   {
     image: ABOUT_HOME_IMAGES.couple2,
     name: "Meera & James",
     place: "Tuscany · 2023",
     paraA:
-      "Nothing felt forced — just texture upon texture until the celebration felt entirely ours. Guests still write to us about how deeply moved they were.",
+      "Nothing felt forced, just texture upon texture until the celebration felt entirely ours. Guests still write to us about how deeply moved they were.",
     paraB:
       "From the first conversation onward, we felt understood. Two traditions found one shared language, and it was quietly beautiful.",
   },
@@ -47,7 +47,7 @@ const TESTIMONIALS = [
 ] as const;
 
 /**
- * TestimonialHomeTHS — slate · LETTERS from our couples · instant-ready crossfade carousel
+ * TestimonialHomeTHS — slate · LETTERS written with love · instant-ready crossfade carousel
  */
 export default function TestimonialHomeTHS() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -117,7 +117,6 @@ export default function TestimonialHomeTHS() {
             alt=""
             width={8}
             height={10}
-            priority
           />
         ))}
       </div>
@@ -126,16 +125,16 @@ export default function TestimonialHomeTHS() {
         <div className="relative z-0 flex flex-col items-center px-5 text-center sm:px-8 lg:px-10">
           <h2
             id="testimonial-home-heading"
-            className="font-title text-[18px] leading-none font-normal tracking-[0.2em] text-cream uppercase sm:text-[20px] md:text-[24px] lg:text-[28px]"
+            className="font-title text-[38px] leading-[1.05] font-normal tracking-[0.08em] text-cream uppercase sm:text-[46px] md:text-[54px] lg:text-[60px]"
             style={fadeUp("0.04s", "1.1rem")}
           >
             Letters
           </h2>
           <p
-            className="font-script mt-2 text-[40px] leading-none tracking-[0.01em] text-cream/75 normal-case sm:mt-2.5 sm:text-[48px] md:text-[56px] lg:text-[64px]"
+            className="font-script mt-2 text-[34px] leading-none tracking-[0.01em] text-cream/75 normal-case sm:mt-2.5 sm:text-[40px] md:text-[46px] lg:text-[50px]"
             style={fadeUp("0.16s", "0.75rem")}
           >
-            from our couples
+            written with love
           </p>
         </div>
 
@@ -164,11 +163,10 @@ export default function TestimonialHomeTHS() {
                 >
                   <Image
                     src={item.image}
-                    alt=""
+                    alt={`${item.name} on their wedding day`}
                     fill
                     sizes="(max-width: 768px) 80vw, 40vw"
                     className="object-cover object-center"
-                    priority
                   />
                 </div>
               ))}
@@ -189,18 +187,26 @@ export default function TestimonialHomeTHS() {
             <button
               type="button"
               onClick={goNext}
-              className="group mt-4 flex items-center justify-end gap-3 self-end sm:mt-5"
+              className="group mt-5 flex items-center justify-end gap-4 self-end py-1 text-cream/75 transition-colors duration-500 hover:text-cream sm:mt-6 sm:gap-5"
               aria-label="Read next testimonial"
             >
-              <span className="font-body text-[10px] font-medium tracking-[0.22em] text-cream/70 uppercase transition-colors duration-300 group-hover:text-cream sm:text-[11px]">
-                Read next
+              <span className="font-silk text-[17px] leading-none font-[300] tracking-[0.01em] italic normal-case sm:text-[19px]">
+                Next letter
               </span>
-              <span
-                aria-hidden
-                className="flex items-center gap-2 text-cream/55 transition-all duration-300 group-hover:translate-x-1 group-hover:text-cream"
-              >
-                <span className="block h-px w-8 bg-current sm:w-10" />
-                <span className="font-body text-[13px] leading-none">→</span>
+              <span aria-hidden className="flex items-center">
+                <span
+                  className="block h-px w-12 bg-current transition-[width] duration-500 group-hover:w-[4.5rem] sm:w-16 sm:group-hover:w-24"
+                  style={{ transitionTimingFunction: EASE }}
+                />
+                <svg
+                  viewBox="0 0 8 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  className="-ml-[7px] h-3 w-2"
+                >
+                  <path d="M1 1l6 5-6 5" />
+                </svg>
               </span>
             </button>
           </div>

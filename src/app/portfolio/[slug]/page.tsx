@@ -27,8 +27,8 @@ export async function generateMetadata({
   const found = findEvent(slug);
   if (!found) return {};
   return {
-    title: `${found.event.title} — Portfolio`,
-    description: `${found.event.title} — The Hue Story portfolio.`,
+    title: `${found.event.title} · Portfolio`,
+    description: `${found.event.title}, a celebration from The Hue Story portfolio.`,
   };
 }
 

@@ -9,18 +9,15 @@ export default function FeaturesAwards() {
   return (
     <section
       className="relative z-10 w-full bg-mist text-ink"
-      aria-label="Features and awards"
+      aria-label="Features"
     >
       <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-12 md:px-8 md:py-12 lg:px-12">
         {/* Title + logos row */}
         <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-center md:gap-0 md:text-left">
           <div className="shrink-0 md:max-w-[14rem] md:pr-5 lg:max-w-none lg:pr-10">
             <h2 className="font-heading text-[15px] font-light tracking-[0.14em] text-ink uppercase sm:text-[16px] md:text-[16px] lg:text-[17px]">
-              Features + Awards
+              Features
             </h2>
-            <p className="font-script mt-1.5 text-[30px] leading-snug text-ink/75 normal-case sm:mt-2 sm:text-[34px] md:text-[32px] lg:text-[36px]">
-              press publications and recognitions
-            </p>
           </div>
 
           <div className="h-px w-10 bg-ink/15 md:hidden" aria-hidden />

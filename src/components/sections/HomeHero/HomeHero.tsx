@@ -6,18 +6,13 @@ import { motion, useReducedMotion } from "framer-motion";
 import { HOME_STOCK_IMAGES } from "@/lib/constants";
 import HeroNav from "@/components/layout/HeroNav";
 
-const SLIDE_MS = 5500;
-const FADE_MS = 2.2;
+const SLIDE_MS = 8000;
+const FADE_MS = 3;
 const HERO_SLIDES = HOME_STOCK_IMAGES;
-const SLIDE_TOTAL = HERO_SLIDES.length;
 const ease = [0.16, 1, 0.3, 1] as const;
 const HERO_TITLE = "A World, Gathered Into One Story";
 const HERO_WORDS = HERO_TITLE.split(" ");
 const MOBILE_LINES = ["A World,", "Gathered Into", "One Story"] as const;
-
-function pad(n: number) {
-  return String(n).padStart(2, "0");
-}
 
 /**
  * Editorial sticky hero
@@ -125,9 +120,6 @@ export default function HomeHero() {
       },
     },
   };
-
-  const slideLabel = `${pad(index + 1)} / ${pad(SLIDE_TOTAL)}`;
-
   return (
     <div className="relative z-0 h-[200svh]">
       <div className="sticky top-0 h-[100svh] min-h-[560px] w-full overflow-x-clip bg-base sm:min-h-[640px]">
@@ -149,7 +141,7 @@ export default function HomeHero() {
               >
                 <Image
                   src={src}
-                  alt=""
+                  alt="Destination wedding designed by The Hue Story"
                   fill
                   priority={i === 0}
                   sizes="100vw"
@@ -168,15 +160,7 @@ export default function HomeHero() {
         {/* Nav + copy live inside sticky so they pin with the image */}
         <div className="pointer-events-none absolute inset-0 z-10">
           <div className="pointer-events-auto relative h-full">
-            <HeroNav light />
-
-            <p
-              className="pointer-events-none absolute right-4 bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-10 font-body text-[9px] font-medium tracking-[0.28em] text-white/65 tabular-nums sm:right-6 sm:bottom-40 sm:text-[10px] md:right-5 md:bottom-[6.5rem] lg:right-6 lg:bottom-28"
-              aria-live="polite"
-            >
-              {slideLabel}
-            </p>
-
+            <HeroNav light logo boldWordmark />
             {/* ——— Mobile ——— */}
             <div className="absolute inset-x-0 bottom-0 z-10 px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] sm:px-7 md:hidden">
               <motion.div
@@ -189,16 +173,17 @@ export default function HomeHero() {
                   variants={eyebrow}
                   className="mb-4 font-body text-[10px] font-medium uppercase tracking-[0.32em] text-white/80"
                 >
-                  Wedding &amp; Event Design. Worldwide.
+                  Wedding <span className="font-silk font-[400] normal-case">&amp;</span> Event Design. Worldwide.
                 </motion.p>
-                <h1 className="font-title text-[clamp(2.35rem,11.5vw,3.35rem)] font-normal leading-[1.02] tracking-[0.02em] text-white uppercase">
-                  {MOBILE_LINES.map((line) => (
+                <h1 className="font-title text-[clamp(1.7rem,8.4vw,2.4rem)] font-normal leading-[1.02] tracking-[0.02em] text-white uppercase">
+                  {MOBILE_LINES.map((line, i) => (
                     <span
                       key={line}
                       className="block overflow-hidden pb-[0.06em]"
                     >
                       <motion.span variants={rise} className="block">
                         {line}
+                        {i < MOBILE_LINES.length - 1 ? " " : null}
                       </motion.span>
                     </span>
                   ))}
@@ -218,7 +203,7 @@ export default function HomeHero() {
                   variants={eyebrow}
                   className="mb-3 font-body text-[11px] font-medium uppercase tracking-[0.28em] text-white/80 lg:mb-4 lg:text-xs"
                 >
-                  Wedding &amp; Event Design. Worldwide.
+                  Wedding <span className="font-silk font-[400] normal-case">&amp;</span> Event Design. Worldwide.
                 </motion.p>
                 <motion.h1
                   ref={titleRef}

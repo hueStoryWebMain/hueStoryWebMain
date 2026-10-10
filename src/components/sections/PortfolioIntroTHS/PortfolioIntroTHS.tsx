@@ -10,7 +10,7 @@ const FLOWER = "/images/shapes/flowerPaperCreame.png";
 const TITLE = ["Colour chosen once.", "Told across every frame."] as const;
 
 const LEAD =
-  "A portfolio is never a catalogue. It is a sequence of decisions held in light, colour, and quiet. Each frame here was chosen once, then carried through.";
+  "This portfolio is a sequence of decisions held in light, colour, and quiet. Each frame here was chosen once, then carried through.";
 
 const IMAGES = {
   one: {

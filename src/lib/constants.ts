@@ -1,14 +1,20 @@
 export const SITE_NAME = "The Hue Story";
 export const SITE_TAGLINE = "Luxury editorial weddings & events";
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+/** Set NEXT_PUBLIC_SITE_URL to the custom domain once it is live. */
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.NODE_ENV === "production"
+      ? "https://thehuestory.com"
+      : "http://localhost:3000")
+).replace(/\/$/, "");
 
 export const ROUTES = {
   HOME: "/",
   PORTFOLIO: "/portfolio",
   ABOUT: "/about",
   SERVICES: "/services",
-  THE_EXPERIENCE: "/the-experience",
   CONTACT: "/inquire",
 } as const;
 
@@ -18,7 +24,6 @@ export const NAV_LINKS = [
   { name: "Portfolio", href: ROUTES.PORTFOLIO },
   { name: "Services", href: ROUTES.SERVICES },
   { name: "About", href: ROUTES.ABOUT },
-  { name: "Experience", href: ROUTES.THE_EXPERIENCE },
 ] as const;
 
 export const FOOTER_LINKS = [

@@ -10,7 +10,7 @@ const STEPS = [
   {
     num: "01",
     label: "Discovery",
-    body: "Every occasion starts with a conversation, not a questionnaire. We spend real time understanding who a couple is, the story they want told, and the cultures they're bringing together.",
+    body: "Every occasion starts with a conversation. We spend real time understanding who a couple is, the story they want told, and the cultures they're bringing together.",
   },
   {
     num: "02",
@@ -107,7 +107,14 @@ export default function AboutProcessTHS({
       aria-labelledby="about-process-heading"
       style={slate ? undefined : { backgroundColor: PAPER }}
     >
-      <div className="relative mx-auto w-full max-w-[90rem] px-4 pt-16 pb-10 sm:px-6 sm:pt-20 sm:pb-12 md:px-8 md:pt-24 md:pb-14 lg:px-10 lg:pt-28 lg:pb-16">
+      <div
+        className={cn(
+          "relative mx-auto w-full max-w-[90rem] px-4 pt-16 sm:px-6 sm:pt-20 md:px-8 md:pt-24 lg:px-10 lg:pt-28",
+          slate
+            ? "pb-10 sm:pb-12 md:pb-14 lg:pb-16"
+            : "pb-2 sm:pb-3 md:pb-3 lg:pb-4"
+        )}
+      >
         <div className="relative mb-10 flex items-center justify-center sm:mb-12 md:mb-14">
           <div
             aria-hidden
@@ -161,8 +168,8 @@ export default function AboutProcessTHS({
                           "pointer-events-none absolute origin-top",
                           slate ? "bg-cream/15" : "bg-ink/12",
                           i % 2 === 0
-                            ? "top-10 right-0 bottom-10 hidden w-px md:block lg:block"
-                            : "top-10 right-0 bottom-10 hidden w-px lg:block"
+                            ? "top-[22%] right-0 bottom-[22%] hidden w-px md:block lg:block"
+                            : "top-[22%] right-0 bottom-[22%] hidden w-px lg:block"
                         )}
                         style={lineY(base + 0.28)}
                       />

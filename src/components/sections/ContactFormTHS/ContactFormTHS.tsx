@@ -75,11 +75,11 @@ export default function ContactFormTHS() {
     const get = (key: string) => String(data.get(key) ?? "").trim();
 
     const lines = [
-      ...FIELDS.map((f) => `${f.label}: ${get(f.name) || "—"}`),
+      ...FIELDS.map((f) => `${f.label}: ${get(f.name) || "-"}`),
       "",
       get("message"),
     ];
-    const subject = `Inquiry — ${get("names")}`;
+    const subject = `Inquiry: ${get("names")}`;
     window.location.href = `mailto:${INQUIRY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
     setSent(true);
   };
@@ -184,7 +184,7 @@ export default function ContactFormTHS() {
 
               {sent ? (
                 <p className="font-body mt-5 text-center text-[11px] tracking-[0.04em] text-cream/60 sm:text-[12px]">
-                  Your email app should open with your details — just press send.
+                  Your email app should open with your details. Just press send.
                 </p>
               ) : null}
             </div>

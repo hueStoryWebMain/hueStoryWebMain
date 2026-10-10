@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/constants";
+import { PORTFOLIO_EVENTS, SITE_URL } from "@/lib/constants";
 
 const routes = [
   "",
   "/portfolio",
   "/about",
-  "/the-experience",
   "/inquire",
+  ...PORTFOLIO_EVENTS.map((event) => `/portfolio/${event.slug}`),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

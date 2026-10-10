@@ -7,6 +7,18 @@ export default function StructuredData() {
     name: SITE_NAME,
     url: SITE_URL,
     description: SITE_TAGLINE,
+    image: `${SITE_URL}/images/og-share.jpg`,
+    email: "hello@thehuestory.com",
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+    areaServed: [
+      { "@type": "Place", name: "San Francisco Bay Area" },
+      { "@type": "State", name: "California" },
+      { "@type": "Place", name: "Worldwide" },
+    ],
   };
 
   return (

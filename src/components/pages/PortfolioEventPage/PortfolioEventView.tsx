@@ -93,7 +93,7 @@ function Lightbox({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`${title} — image ${index + 1} of ${images.length}`}
+      aria-label={`${title}, image ${index + 1} of ${images.length}`}
       className="fixed inset-0 z-[200] flex items-center justify-center bg-[#1C1816]/92 backdrop-blur-sm"
       onClick={onClose}
     >
@@ -128,7 +128,7 @@ function Lightbox({
         <Image
           key={src}
           src={src}
-          alt={`${title} — image ${index + 1}`}
+          alt={`${title}, photograph ${index + 1}`}
           width={width}
           height={height}
           sizes="92vw"
@@ -208,7 +208,7 @@ export default function PortfolioEventView({
         >
           <Image
             src={heroSrc}
-            alt=""
+            alt={`${event.title}, a celebration designed by The Hue Story`}
             fill
             priority
             sizes="100vw"
@@ -282,7 +282,7 @@ export default function PortfolioEventView({
             <GalleryImage
               key={src}
               src={src}
-              alt={`${event.title} — image ${i + 1}`}
+              alt={`${event.title}, photograph ${i + 1} of ${event.gallery.length}`}
               index={i}
               onOpen={setOpen}
             />

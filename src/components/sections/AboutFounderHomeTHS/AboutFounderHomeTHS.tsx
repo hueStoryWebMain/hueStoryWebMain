@@ -2,12 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { FOUNDER, PATTERN_BG, ROUTES } from "@/lib/constants";
+import { FOUNDER, PATTERN_BG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+
+const FOUNDER_SITE = "https://roshnikurup.com/";
 
 const BODY_A =
   "Roshni Kurup is a cultural strategist, creative director, and entrepreneur whose work explores the relationship between culture, place, aesthetics, and human experience.";
+
+const BODY_INTEREST =
+  "She has a deep interest in place and identity. She is particularly drawn to the intersections of art, architecture, design, craft, history, and everyday life.";
 
 const BODY_B =
   "Roshni's practice is, at its core, about creating spaces, experiences, and ideas that make culture tangible, meaningful, and alive.";
@@ -46,7 +50,7 @@ function WordFade({
 }
 
 /**
- * AboutFounderHomeTHS — pattern + Roshini | paper cream copy + CTA
+ * AboutFounderHomeTHS — pattern + Roshni | paper cream copy + CTA
  */
 export default function AboutFounderHomeTHS() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -76,6 +80,7 @@ export default function AboutFounderHomeTHS() {
   }, []);
 
   const bodyAWords = BODY_A.split(" ");
+  const bodyInterestWords = BODY_INTEREST.split(" ");
   const bodyBWords = BODY_B.split(" ");
 
   return (
@@ -85,7 +90,7 @@ export default function AboutFounderHomeTHS() {
       aria-labelledby="founder-home-heading"
     >
       <div className="grid w-full grid-cols-1 lg:grid-cols-2 lg:items-stretch">
-        {/* ——— Left: stripe pattern + Roshini + angled script ——— */}
+        {/* ——— Left: stripe pattern + Roshni + angled script ——— */}
         <div className="relative min-h-[580px] w-full overflow-visible pb-12 sm:min-h-[640px] sm:pb-14 md:min-h-[720px] lg:min-h-[780px] lg:pb-0">
           <div
             className="absolute inset-0"
@@ -148,7 +153,6 @@ export default function AboutFounderHomeTHS() {
                     fill
                     sizes="(max-width: 1024px) 70vw, 360px"
                     className="object-cover object-top"
-                    priority
                   />
                 </div>
 
@@ -158,8 +162,8 @@ export default function AboutFounderHomeTHS() {
                   className={cn(
                     "font-script pointer-events-none absolute right-0 bottom-0 z-20 origin-bottom-right text-left text-[26px] leading-[1.15] tracking-[0.01em] normal-case will-change-[opacity,transform] sm:text-[34px] md:text-[40px] lg:text-[46px]",
                     visible
-                      ? "translate-x-[58%] translate-y-[86%] -rotate-[11deg] opacity-100 sm:translate-x-[40%] sm:translate-y-[34%] md:translate-x-[60%] md:translate-y-[32%] lg:translate-x-[88%] lg:translate-y-[32%]"
-                      : "translate-x-[58%] translate-y-[96%] -rotate-[11deg] opacity-0 sm:translate-x-[40%] sm:translate-y-[44%] md:translate-x-[60%] md:translate-y-[42%] lg:translate-x-[88%] lg:translate-y-[42%]"
+                      ? "translate-x-[58%] translate-y-[86%] -rotate-[12deg] opacity-100 sm:translate-x-[40%] sm:translate-y-[34%] md:translate-x-[60%] md:translate-y-[32%] lg:translate-x-[88%] lg:translate-y-[32%]"
+                      : "translate-x-[58%] translate-y-[96%] -rotate-[12deg] opacity-0 sm:translate-x-[40%] sm:translate-y-[44%] md:translate-x-[60%] md:translate-y-[42%] lg:translate-x-[88%] lg:translate-y-[42%]"
                   )}
                   style={{
                     color: "#2C2723",
@@ -169,27 +173,7 @@ export default function AboutFounderHomeTHS() {
                 >
                   <span className="block whitespace-nowrap">With love,</span>
                   <span className="mt-0.5 block whitespace-nowrap pl-[1.4em]">
-                    <span className="relative inline-block px-1.5">
-                      RK
-                      <svg
-                        className="pointer-events-none absolute top-1/2 left-1/2 h-[135%] w-[120%] -translate-x-1/2 -translate-y-1/2"
-                        viewBox="0 0 120 48"
-                        fill="none"
-                        aria-hidden
-                      >
-                        <ellipse
-                          cx="60"
-                          cy="24"
-                          rx="54"
-                          ry="18"
-                          stroke="#2C2723"
-                          strokeWidth="1.6"
-                          strokeLinecap="round"
-                          transform="rotate(-6 60 24)"
-                          opacity="0.9"
-                        />
-                      </svg>
-                    </span>
+                    Rosh
                   </span>
                 </p>
               </div>
@@ -238,25 +222,36 @@ export default function AboutFounderHomeTHS() {
             />
           </p>
 
-          <p className="font-body mt-1.5 max-w-md text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
+          <p className="font-body mt-4 max-w-md sm:mt-5 text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
+            <WordFade
+              words={bodyInterestWords}
+              visible={visible}
+              baseDelay={0.4}
+              stagger={0.012}
+            />
+          </p>
+
+          <p className="font-body mt-4 max-w-md sm:mt-5 text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:text-[13px] sm:leading-[1.9] md:text-[14px] md:leading-[1.95]">
             <WordFade
               words={bodyBWords}
               visible={visible}
-              baseDelay={0.42}
+              baseDelay={0.56}
               stagger={0.012}
             />{" "}
-            <Link
-              href={`${ROUTES.ABOUT}#founder`}
+            <a
+              href={FOUNDER_SITE}
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-silk ml-1 inline-block text-[1.15em] font-[300] whitespace-nowrap text-base italic no-underline transition-colors duration-300 hover:text-blush"
               style={{
                 opacity: visible ? 1 : 0,
                 transition: visible
-                  ? "opacity 0.4s ease-out 0.65s, color 0.3s"
+                  ? "opacity 0.4s ease-out 0.8s, color 0.3s"
                   : "none",
               }}
             >
               Read more
-            </Link>
+            </a>
           </p>
         </div>
       </div>

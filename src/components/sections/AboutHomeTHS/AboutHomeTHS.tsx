@@ -145,22 +145,22 @@ export default function AboutHomeTHS() {
               className="font-body mx-auto mt-5 max-w-xl text-[12px] leading-[1.85] font-light tracking-[0.01em] text-ink/80 sm:mt-6 sm:text-[13px] sm:leading-[1.9] md:max-w-2xl md:text-[14px] md:leading-[1.95]"
               style={item("0.52s")}
             >
-              A decade of experience gives us a precision paired with genuine
-              cultural depth, an eye equally at home with a Rajasthani palace, a
-              Balinese cliffside, or a California vineyard. It is this what
-              gives each occasion its certain elan.
+              A decade of experience gives us range: precision paired with
+              genuine cultural depth, an eye equally at home with Jaipur
+              Palace, a Balinese cliffside, or a California vineyard. It is this
+              range that gives each occasion its particular elan.
             </p>
 
             <p
               className="font-silk mx-auto mt-8 max-w-lg text-[14px] leading-[1.7] font-[300] tracking-[0.02em] text-ink/70 italic normal-case sm:mt-10 sm:text-[15px] md:text-[16px]"
               style={item("0.6s")}
             >
-              Featured in Vogue, Architecture Digest and The Vogue Wedding Book
+              Featured in Vogue, Architectural Digest and The Vogue Wedding Book
             </p>
           </div>
 
           <p
-            className="font-script pointer-events-none absolute right-5 bottom-4 z-20 text-[36px] font-normal leading-none tracking-[0.02em] normal-case sm:right-7 sm:bottom-5 sm:text-[42px] md:right-8 md:bottom-6 md:text-[48px] lg:text-[54px]"
+            className="font-script absolute right-5 bottom-9 select-text z-20 origin-bottom-right text-[28px] leading-none tracking-[0.01em] whitespace-nowrap normal-case sm:right-7 sm:bottom-11 sm:text-[34px] md:right-8 md:bottom-[3.25rem] md:text-[40px] lg:bottom-[3.75rem] lg:text-[46px]"
             style={{
               color: "#2C2723",
               opacity: visible ? 1 : 0,
@@ -171,7 +171,7 @@ export default function AboutHomeTHS() {
                 "opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.72s, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.72s",
             }}
           >
-            authored
+            artfully authored
           </p>
         </div>
       </div>

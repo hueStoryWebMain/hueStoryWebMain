@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/get-in-touch", destination: "/inquire", permanent: true },
+      { source: "/contact", destination: "/inquire", permanent: true },
+      { source: "/the-experience", destination: "/about", permanent: false },
     ];
   },
   async headers() {

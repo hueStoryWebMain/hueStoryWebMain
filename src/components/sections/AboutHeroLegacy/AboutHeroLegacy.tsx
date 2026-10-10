@@ -130,7 +130,7 @@ export default function AboutHeroLegacy() {
             A decade of experience gives us range: precision paired with genuine
             cultural depth, an eye equally at home with a Rajasthani palace, a
             Balinese cliffside, or a California vineyard. It is this range that
-            gives each occasion its particular elegance
+            gives each occasion its particular elan.
           </p>
         </div>
 
@@ -190,7 +190,6 @@ export default function AboutHeroLegacy() {
                   fill
                   sizes="(max-width: 768px) 34vw, 34vw"
                   className="object-cover"
-                  priority
                 />
               </div>
               <div

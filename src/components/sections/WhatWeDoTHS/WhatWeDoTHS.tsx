@@ -10,8 +10,6 @@ const SLIDE_MS = 8200;
 const FADE_MS = 2200;
 const IMAGES = SECTION_STOCK_IMAGES;
 
-const ROMAN = ["I", "II", "III"] as const;
-
 const SERVICES = [
   {
     title: "Weddings",
@@ -165,10 +163,10 @@ export default function WhatWeDoTHS() {
             )}
           >
             <div className="relative h-full w-1/2 min-w-0">
-              <ImageSlot src={leftSrc} priority />
+              <ImageSlot src={leftSrc} />
             </div>
             <div className="relative h-full w-1/2 min-w-0 lg:pr-6">
-              <ImageSlot src={rightSrc} priority />
+              <ImageSlot src={rightSrc} />
             </div>
           </div>
         </div>
@@ -216,23 +214,15 @@ export default function WhatWeDoTHS() {
                     i < SERVICES.length - 1 && "border-b border-cream/20"
                   )}
                 >
-                  <div className="flex items-baseline gap-3 sm:gap-4">
-                    <span
-                      aria-hidden
-                      className="font-body shrink-0 text-[10px] font-light tracking-[0.18em] text-cream/40 sm:text-[11px]"
-                    >
-                      {ROMAN[i]}
-                    </span>
-                    <h3 className="font-silk text-[22px] font-[300] tracking-[0.02em] text-cream italic normal-case sm:text-[24px] md:text-[26px]">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <p className="font-body mt-2 max-w-xl pl-6 text-[11px] leading-[1.85] font-light tracking-[0.01em] text-cream/70 sm:mt-2.5 sm:pl-7 sm:text-[12px] sm:leading-[1.9] md:text-[13px] md:leading-[1.95]">
+                  <h3 className="font-silk text-[22px] font-[300] tracking-[0.02em] text-cream italic normal-case sm:text-[24px] md:text-[26px]">
+                    {service.title}
+                  </h3>
+                  <p className="font-body mt-2 max-w-xl text-[11px] leading-[1.85] font-light tracking-[0.01em] text-cream/70 sm:mt-2.5 sm:text-[12px] sm:leading-[1.9] md:text-[13px] md:leading-[1.95]">
                     {service.body}
                   </p>
                   <Link
                     href={service.href}
-                    className="mt-3 ml-6 inline-flex items-center gap-3 font-body text-[10px] font-medium tracking-[0.22em] text-cream/45 uppercase transition-colors hover:text-cream sm:mt-3.5 sm:ml-7 sm:text-[11px]"
+                    className="mt-3 inline-flex items-center gap-3 font-body text-[10px] font-medium tracking-[0.22em] text-cream/45 uppercase transition-colors hover:text-cream sm:mt-3.5 sm:text-[11px]"
                   >
                     {service.cta}
                     <span

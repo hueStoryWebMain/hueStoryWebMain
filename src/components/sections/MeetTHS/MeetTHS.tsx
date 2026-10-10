@@ -2,21 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const HEADLINE = "A World, Gathered Into One Story.";
+const HEADLINE = "An Inheritance of Taste.";
 
 const BODY =
   "The Hue Story designs multi-day destination weddings and private events for clients across the globe. A decade spent crafting weddings for families across the United States, India, Australia, Italy, Kenya, Sri Lanka, South Africa, the Emirates, Bali, and beyond has left us with an inheritance of taste, artisanship, and cultural fluency, one that now travels with us wherever we work.";
 
-const RECOGNITION =
-  "Featured In Vogue, Architectural Digest and The Vogue Wedding Book";
-
 /** Full-bleed opener above the flower */
 const INTRO_LINE =
-  "A decade of destination weddings — taste, artisanship, and cultural fluency across the globe";
+  "A decade of destination weddings: taste, artisanship, and cultural fluency across the globe";
 
 const TITLE_LINE_1 = ["ABOUT"] as const;
 const HEADLINE_WORDS = HEADLINE.replace(/\.$/, "").split(" ");
@@ -58,7 +53,7 @@ function WordFade({
 }
 
 /**
- * MeetTHS — slate blue editorial split: title | copy + Inquire
+ * MeetTHS — slate blue editorial split: title | copy
  */
 export default function MeetTHS() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -88,7 +83,6 @@ export default function MeetTHS() {
   }, []);
 
   const bodyWords = BODY.split(" ");
-  const recognitionWords = RECOGNITION.split(" ");
   const introWords = INTRO_LINE.split(" ");
 
   return (
@@ -134,7 +128,6 @@ export default function MeetTHS() {
             fill
             sizes="144px"
             className="object-contain"
-            priority
           />
         </div>
       </div>
@@ -152,7 +145,7 @@ export default function MeetTHS() {
           </h2>
         </div>
 
-        {/* ——— Right: headline + copy + Inquire ——— */}
+        {/* ——— Right: headline + copy ——— */}
         <div className="flex min-w-0 flex-col">
           <p className="font-title mb-5 whitespace-nowrap text-[clamp(1.05rem,2.4vw,1.5rem)] leading-[1.2] font-normal tracking-[0.04em] text-cream uppercase sm:mb-6">
             <WordFade
@@ -183,44 +176,6 @@ export default function MeetTHS() {
               stagger={0.012}
             />
           </p>
-
-          <p className="font-silk mt-7 max-w-xl text-[15px] leading-[1.7] font-[300] tracking-[0.02em] text-cream/75 italic normal-case sm:mt-8 sm:text-[16px] md:text-[17px]">
-            <WordFade
-              words={recognitionWords}
-              visible={visible}
-              baseDelay={0.42}
-              stagger={0.02}
-            />
-          </p>
-
-          <div
-            className="mt-9 sm:mt-10"
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateX(0)" : "translateX(-0.75rem)",
-              transition: visible
-                ? "opacity 0.32s ease-out 0.72s, transform 0.32s ease-out 0.72s"
-                : "none",
-            }}
-          >
-            <Link
-              href={ROUTES.ABOUT}
-              className="group relative inline-block"
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 translate-x-1.5 translate-y-1.5 border border-cream/50 transition-colors duration-300 group-hover:border-blush/70 sm:translate-x-2 sm:translate-y-2"
-              />
-              <span className="relative inline-flex items-center justify-center gap-x-2 border border-cream bg-transparent px-7 py-3 transition-colors duration-300 group-hover:border-blush/80 group-hover:bg-[color-mix(in_srgb,var(--color-blush)_22%,#F7F3EB)] sm:gap-x-2.5 sm:px-8 sm:py-3.5">
-                <span className="font-body text-[10px] leading-none font-medium tracking-[0.24em] text-cream uppercase transition-colors duration-300 group-hover:text-ink sm:text-[11px]">
-                  Read about
-                </span>
-                <span className="font-silk inline-block text-[15px] leading-none font-[300] tracking-normal text-cream italic normal-case transition-colors duration-300 group-hover:text-ink sm:text-[17px]">
-                  US
-                </span>
-              </span>
-            </Link>
-          </div>
         </div>
       </div>
     </section>
