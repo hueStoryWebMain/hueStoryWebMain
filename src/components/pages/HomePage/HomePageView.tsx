@@ -10,6 +10,7 @@ import AboutFounderHomeTHS from "@/components/sections/AboutFounderHomeTHS/About
 import IntentionalHomeTHS from "@/components/sections/IntentionalHomeTHS/IntentionalHomeTHS";
 import PhilosophyHomeTHS from "@/components/sections/PhilosophyHomeTHS/PhilosophyHomeTHS";
 import TestimonialHomeTHS from "@/components/sections/TestimonialHomeTHS/TestimonialHomeTHS";
+import ClosingRemarksTHS from "@/components/sections/ClosingRemarksTHS/ClosingRemarksTHS";
 import StructuredData from "@/components/seo/StructuredData";
 
 /**
@@ -32,6 +33,7 @@ export default function HomePageView() {
         <IntentionalHomeTHS />
         <PhilosophyHomeTHS />
         <TestimonialHomeTHS />
+        <ClosingRemarksTHS />
       </div>
     </div>
   );
